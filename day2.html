@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Forms and Multimedia</title>
+</head>
+<body>
+    
+    <!-- Task 1: User Registration Form with Validation -->
+    <h2>User Registration Form</h2>
+    <form>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" minlength="6" required><br><br>
+        
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required><br><br>
+        
+        <button type="submit">Register</button>
+    </form>
+    
+    <!-- Task 2: Video and Audio Player -->
+    <h2>Multimedia</h2>
+    <video width="320" height="240" controls>
+        <source src="sample-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <br>
+    <audio controls>
+        <source src="sample-audio.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <!-- Task 3: Display SVG Icon -->
+    <h2>SVG Icon</h2>
+    <img src="your-figma-svg-url.svg" alt="SVG Icon" width="100">
+    
+    <!-- Task 4: Embed YouTube Video -->
+    <h2>Embedded YouTube Video</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+    
+    <!-- Task 5: WSP Signin Form (Without Styling) -->
+    <h2>WSP Signin Form</h2>
+    <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        
+        <button type="submit">Sign In</button>
+    </form>
+    
+</body>
+</html>
