@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orderific Pricing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .pricing-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            text-align: center;
+        }
+        .pricing-card h2 {
+            color: #333;
+        }
+        .price {
+            font-size: 28px;
+            font-weight: bold;
+            color: #000;
+        }
+        .btn {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 12px 20px;
+            background: #ff5722;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .features {
+            text-align: left;
+            margin-top: 20px;
+        }
+        .features li {
+            list-style: none;
+            padding: 5px 0;
+            font-size: 14px;
+        }
+        .features li::before {
+            content: '\2713';
+            color: #ff5722;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="pricing-card">
+        <h2>Full/Pro Plan</h2>
+        <p class="price">$99/month</p>
+        <p>Become a culinary sensation with Orderific's Full Plan at just $99/month.</p>
+        <a href="#" class="btn">Get Started</a>
+        <ul class="features">
+            <li>Digital Smart Menu</li>
+            <li>Loyalty Program</li>
+            <li>Integrated Payment Options</li>
+            <li>Delivery System Setup</li>
+            <li>Marketing Tools</li>
+            <li>Menu Translation</li>
+            <li>Clear Reporting</li>
+            <li>Seamless POS Integration</li>
+        </ul>
+    </div>
+</body>
+</html>
