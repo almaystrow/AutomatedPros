@@ -3,93 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 2</title>
-
-    <!-- Task 1 -->
+    <title>CSS3 Learning Tasks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --main-color: #ff5733;
+            --text-color: #333;
         }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+        }
+
         h1 {
             font-size: 32px;
             font-weight: bold;
         }
+
         p {
             font-size: 18px;
             font-style: italic;
+            text-align: justify;
+            letter-spacing: 1px;
+            line-height: 1.5;
+        }
+
+        .btn {
+            background: var(--main-color);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background 0.3s, box-shadow 0.3s;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:hover {
+            background: darkred;
+            box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .rounded {
+            border-radius: 20px;
+            padding: 10px;
+            background: blue;
+            color: white;
+            border: none;
+        }
+
+        .overlay {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .box {
+            background: blue;
+            color: white;
+            padding: 20px;
+            transition: background 0.5s;
+            border-radius: 10px;
+        }
+
+        .box:hover {
+            background: darkblue;
+        }
+
+        input {
+            border: 2px solid red;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        .icon {
+            position: relative;
+            font-size: 24px;
+            display: inline-block;
+        }
+
+        .badge {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            background: red;
+            color: white;
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 50%;
         }
     </style>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-    </style>
-
-
 </head>
 <body>
-    <style>
-    body {
-        background: linear-gradient(to right, red, blue);
-    }
-</style>
 
-    <h1>Main Heading</h1>
-    <p>This is a paragraph with italic text.</p>
+    <section>
+        <h1>Main Heading (Task 1)</h1>
+        <p>This is a paragraph with italic text.</p>
+    </section>
 
-    <style>
-    body {
-        background-color: #B1A9A8;
-        background-image: url('background.jpg');
-        background-size: cover;
-    }
-</style>
+    <section>
+        <h2>Background Image and Colors (Task 2)</h2>
+        <p>The background is set using a gradient.</p>
+    </section>
 
-    <style>
-    .btn {
-        background-color: blue;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        cursor: pointer;
-        transition: background 0.3s;
-    }
-    .btn:hover {
-        background-color: darkblue;
-    }
-</style>
-<button class="btn">Click Me</button>
+    <section>
+        <h2>Styled Button with Hover (Task 3)</h2>
+        <button class="btn">Hover Me</button>
+    </section>
 
-<style>
-    h2 {
-        color: red;
-        text-align: center;
-    }
-    p1 {
-        color: blue;
-        text-align: justify;
-    }
-</style>
-<h2>Heading</h2>
-<p1>This is a paragraph.</p1>
+    <section>
+        <h2>Text Color and Alignment (Task 4)</h2>
+        <h1 style="color: red; text-align: center;">Red Centered Heading</h1>
+        <p style="color: blue; text-align: justify;">This is a justified paragraph in blue.</p>
+    </section>
 
-<style>
-    :root {
-        --main-color: #ff5733;
-        --text-color: #333;
-    }
-    body {
-        color: var(--text-color);
-    }
-    .btn {
-        background: var(--main-color);
-        color: white;
-    }
-</style>
-<button class="btn">Styled Button</button>
+    <section>
+        <h2>Google Fonts (Task 5)</h2>
+        <p style="font-family: 'Poppins', sans-serif;">This text uses Google Fonts.</p>
+    </section>
 
+    <section>
+        <h2>Gradient Background (Task 6)</h2>
+        <p>The entire page has a gradient background.</p>
+    </section>
+
+    <section>
+        <h2>CSS Variables (Task 7)</h2>
+        <button class="btn">Button with Theme Color</button>
+    </section>
+
+    <section>
+        <h2>Box Shadow (Task 8)</h2>
+        <button class="btn">Shadowed Button</button>
+    </section>
+
+    <section>
+        <h2>Semi-Transparent Background (Task 9)</h2>
+        <div class="overlay">This section has a semi-transparent background.</div>
+    </section>
+
+    <section>
+        <h2>Styled Form Elements (Task 10)</h2>
+        <input type="text" placeholder="Enter text">
+    </section>
+
+    <section>
+        <h2>Rounded Buttons (Task 11)</h2>
+        <button class="rounded">Rounded Button</button>
+    </section>
+
+    <section>
+        <h2>CSS Transition (Task 12)</h2>
+        <div class="box">Hover over me</div>
+    </section>
+
+    <section>
+        <h2>Letter-Spacing and Line-Height (Task 13)</h2>
+        <p>This is a paragraph with improved readability.</p>
+    </section>
+
+    <section>
+        <h2>Notification Badge (Task 14)</h2>
+        <div class="icon">
+            🔔
+            <span class="badge">3</span>
+        </div>
+    </section>
 
 </body>
 </html>
