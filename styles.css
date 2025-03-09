@@ -44,11 +44,11 @@ h2 {
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
-    font-size: 12px; /* Reduced from 16px */
+    font-size: 12px;
     font-weight: bold;
-    width: 50px; /* Reduced from 100px */
-    height: 50px; /* Reduced from 100px */
-    line-height: 50px; /* Adjusted to match height */
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
     border: 2px solid transparent;
 }
 
@@ -158,8 +158,8 @@ h2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px; /* Reduced from 15px to match smaller size */
-    margin-bottom: 10px; /* Reduced from 15px */
+    gap: 10px;
+    margin-bottom: 10px;
 }
 
 .red-border {
@@ -194,12 +194,12 @@ h2 {
 .popup {
     display: none;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+    display: flex; /* Ensure flex context */
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -213,6 +213,9 @@ h2 {
     width: 300px;
     text-align: center;
     position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .popup-header {
