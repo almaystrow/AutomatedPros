@@ -175,39 +175,25 @@ h2 {
     border-color: #00ff00;
 }
 
-/* Cancel Item Popup */
-.popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.popup-content {
+/* Task 7: Cancel Item Section */
+.cancel-item {
     background-color: #fff;
-    padding: 20px;
     border-radius: 15px;
+    padding: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     width: 300px;
+    margin: 0 auto;
     text-align: center;
-    position: relative;
 }
 
-.popup-header {
+.cancel-item-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
 }
 
-.popup-header h2 {
+.cancel-item-header h3 {
     font-size: 18px;
     margin: 0;
 }
