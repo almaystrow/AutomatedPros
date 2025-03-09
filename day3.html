@@ -130,7 +130,7 @@
                     <div class="box green-border">F3</div>
                     <div class="box green-border">F4</div>
                     <div class="box green-border">F4</div>
-                    <div class="box green-border">F4</div>
+                    <div class "box green-border">F4</div>
                     <div class="box green-border">F4</div>
                 </div>
                 <div class="row">
@@ -186,6 +186,11 @@
             const popup = document.getElementById('cancelPopup');
             popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
         }
+
+        // Ensure popup is hidden on page load
+        window.onload = function() {
+            document.getElementById('cancelPopup').style.display = 'none';
+        };
     </script>
 </body>
 </html>
