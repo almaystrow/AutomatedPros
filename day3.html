@@ -7,19 +7,21 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Cancel Item Popup -->
+    <!-- Cancel Item Popup with CSS Control -->
+    <input type="checkbox" id="popupToggle" class="popup-toggle">
+    <label for="popupToggle" class="popup-overlay" aria-label="Close Popup"></label>
     <div class="popup" id="cancelPopup">
         <div class="popup-content">
             <div class="popup-header">
                 <h2>Cancel Item</h2>
-                <span class="close-btn" onclick="togglePopup()">❌</span>
+                <label for="popupToggle" class="close-btn">❌</label>
             </div>
             <p>Are you sure to cancel this item?</p>
             <div class="item-details">
                 <p><strong>Tasty Burger</strong></p>
                 <p>Size: Small, Cheese: A little bit, Salt: No</p>
             </div>
-            <button class="cancel-btn" onclick="togglePopup()">Cancel Items</button>
+            <button class="cancel-btn"><label for="popupToggle">Cancel Items</label></button>
         </div>
     </div>
 
@@ -130,7 +132,7 @@
                     <div class="box green-border">F3</div>
                     <div class="box green-border">F4</div>
                     <div class="box green-border">F4</div>
-                    <div class "box green-border">F4</div>
+                    <div class="box green-border">F4</div>
                     <div class="box green-border">F4</div>
                 </div>
                 <div class="row">
@@ -177,20 +179,43 @@
         <section class="task">
             <h2>Task 7: Trigger Cancel Item Popup</h2>
             <p>Click the button below to open the Cancel Item popup.</p>
-            <button class="trigger-btn" onclick="togglePopup()">Click Here</button>
+            <label for="popupToggle" class="trigger-btn">Click Here</label>
+        </section>
+
+        <!-- Task 8: Popular Items Grid -->
+        <section class="task">
+            <h2>Task 8: Popular Items Grid</h2>
+            <p>Design a grid layout for popular items using CSS Grid.</p>
+            <div class="popular-items">
+                <h3>Popular Items</h3>
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <p class="item-name">Double Chicken Burger + French fries</p>
+                        <p class="order-count">Order: 88</p>
+                    </div>
+                    <div class="grid-item">
+                        <p class="item-name">Mexican Burger</p>
+                        <p class="order-count">Order: 74</p>
+                    </div>
+                    <div class="grid-item">
+                        <p class="item-name">Double Cheese</p>
+                        <p class="order-count">Order: 56</p>
+                    </div>
+                    <div class="grid-item">
+                        <p class="item-name">Double Spicy Bean Burger</p>
+                        <p class="order-count">Order: 41</p>
+                    </div>
+                    <div class="grid-item">
+                        <p class="item-name">Potato Gems</p>
+                        <p class="order-count"></p>
+                    </div>
+                    <div class="grid-item">
+                        <p class="item-name">Beer</p>
+                        <p class="order-count"></p>
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
-
-    <script>
-        function togglePopup() {
-            const popup = document.getElementById('cancelPopup');
-            popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
-        }
-
-        // Ensure popup is hidden on page load
-        window.onload = function() {
-            document.getElementById('cancelPopup').style.display = 'none';
-        };
-    </script>
 </body>
 </html>
