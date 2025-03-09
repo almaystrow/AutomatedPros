@@ -226,7 +226,7 @@ h2 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     width: 300px;
     text-align: center;
-    position: absolute;
+    position: fixed; /* Changed from absolute to fixed for viewport centering */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
