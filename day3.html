@@ -8,18 +8,18 @@
 </head>
 <body>
     <!-- Cancel Item Popup -->
-    <div class="popup">
+    <div class="popup" id="cancelPopup">
         <div class="popup-content">
             <div class="popup-header">
                 <h2>Cancel Item</h2>
-                <span class="close-btn">❌</span>
+                <span class="close-btn" onclick="togglePopup()">❌</span>
             </div>
             <p>Are you sure to cancel this item?</p>
             <div class="item-details">
                 <p><strong>Tasty Burger</strong></p>
                 <p>Size: Small, Cheese: A little bit, Salt: No</p>
             </div>
-            <button class="cancel-btn">Cancel Items</button>
+            <button class="cancel-btn" onclick="togglePopup()">Cancel Items</button>
         </div>
     </div>
 
@@ -108,6 +108,20 @@
                 </div>
             </div>
         </section>
+
+        <!-- Trigger Button for Popup -->
+        <section class="task">
+            <h2>Task 7: Trigger Cancel Item Popup</h2>
+            <p>Click the button below to open the Cancel Item popup.</p>
+            <button class="trigger-btn" onclick="togglePopup()">Click Here</button>
+        </section>
     </div>
+
+    <script>
+        function togglePopup() {
+            const popup = document.getElementById('cancelPopup');
+            popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
 </body>
 </html>
