@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-decoration: underline;
+}
+
+.task {
+    margin-bottom: 40px;
+    text-align: left;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.task p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.box {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Task 1: Box with Different Border Widths and Colors */
+.task1-box {
+    width: 200px;
+    height: 100px;
+    line-height: 100px;
+    border: 1px solid black; /* Default border */
+    border-top: 5px solid red;
+    border-right: 3px solid blue;
+    border-bottom: 7px solid green;
+    border-left: 2px solid purple;
+    margin: 0 auto;
+}
+
+/* Task 2: Add Padding to a Div */
+.task2-box {
+    width: 200px;
+    height: 100px;
+    line-height: 100px;
+    border: 1px solid black;
+    padding: 20px; /* Adding padding */
+    margin: 0 auto;
+}
+
+/* Task 3: Adjust Margins to Space Elements */
+.task3-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.task3-box {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    border: 1px solid black;
+    margin: 10px; /* Adding margin for spacing */
+}
+
+/* Task 4: Box-Sizing: Border-Box vs Content-Box */
+.task4-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.task4-box {
+    width: 200px;
+    height: 100px;
+    line-height: 100px;
+    border: 5px solid black;
+    padding: 20px;
+}
+
+.content-box {
+    box-sizing: content-box; /* Default: width = content width */
+}
+
+.border-box {
+    box-sizing: border-box; /* Width includes padding and border */
+}
+
+/* Task 5: Card-Like Component */
+.card {
+    width: 200px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 20px auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.card h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 5px;
+}
+
+.card .name {
+    font-size: 16px;
+    color: #333;
+    margin: 5px 0;
+}
+
+.card .status {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.card .time {
+    font-size: 12px;
+    color: #999;
+    margin: 5px 0 0;
+}
