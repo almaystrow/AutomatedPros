@@ -9,6 +9,8 @@ body {
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 h1 {
@@ -44,6 +46,10 @@ h2 {
     text-align: center;
     font-size: 16px;
     font-weight: bold;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    border: 2px solid transparent;
 }
 
 /* Task 1: Box with Different Border Widths and Colors */
@@ -51,7 +57,7 @@ h2 {
     width: 200px;
     height: 100px;
     line-height: 100px;
-    border: 1px solid black; /* Default border */
+    border: 1px solid black;
     border-top: 5px solid red;
     border-right: 3px solid blue;
     border-bottom: 7px solid green;
@@ -65,7 +71,7 @@ h2 {
     height: 100px;
     line-height: 100px;
     border: 1px solid black;
-    padding: 20px; /* Adding padding */
+    padding: 20px;
     margin: 0 auto;
 }
 
@@ -81,7 +87,7 @@ h2 {
     height: 100px;
     line-height: 100px;
     border: 1px solid black;
-    margin: 10px; /* Adding margin for spacing */
+    margin: 10px;
 }
 
 /* Task 4: Box-Sizing: Border-Box vs Content-Box */
@@ -100,11 +106,11 @@ h2 {
 }
 
 .content-box {
-    box-sizing: content-box; /* Default: width = content width */
+    box-sizing: content-box;
 }
 
 .border-box {
-    box-sizing: border-box; /* Width includes padding and border */
+    box-sizing: border-box;
 }
 
 /* Task 5: Card-Like Component */
@@ -141,4 +147,92 @@ h2 {
     font-size: 12px;
     color: #999;
     margin: 5px 0 0;
+}
+
+/* Task 6: Flexbox Grid Layout */
+.flexbox-container {
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.red-border {
+    border-color: #ff0000;
+}
+
+.red-dashed-border {
+    border-color: #ff0000;
+    border-style: dashed;
+}
+
+.green-border {
+    border-color: #00ff00;
+}
+
+/* Cancel Item Popup */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    text-align: center;
+    position: relative;
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.popup-header h2 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.close-btn {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.item-details {
+    text-align: left;
+    margin: 15px 0;
+}
+
+.item-details p {
+    margin: 5px 0;
+}
+
+.cancel-btn {
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
 }
