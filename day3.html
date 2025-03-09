@@ -3,183 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Exercises</title>
-    <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            margin: 20px;
-            padding: 20px;
-        }
-
-        h2 {
-            color: #333;
-        }
-
-        /* Box Model Exercises */
-        .box {
-            width: 200px;
-            height: 200px;
-            border: 5px solid red;
-            border-top-width: 10px;
-            border-right-width: 15px;
-            border-bottom-width: 20px;
-            border-left-width: 25px;
-            margin-bottom: 20px;
-        }
-
-        .padded-box {
-            width: 200px;
-            height: 100px;
-            background: lightblue;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .margin-box {
-            margin: 20px;
-            padding: 10px;
-            background: lightgreen;
-            display: inline-block;
-        }
-
-        .border-box {
-            width: 200px;
-            height: 100px;
-            padding: 20px;
-            border: 5px solid black;
-            box-sizing: border-box;
-            background-color: lightgray;
-            margin-bottom: 20px;
-        }
-
-        .card {
-            width: 250px;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-            background: white;
-            margin-bottom: 20px;
-        }
-
-        /* Display & Positioning Exercises */
-        .button-container {
-            margin-bottom: 20px;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background: blue;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: darkblue;
-        }
-
-        #popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .popup-content {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        /* Flexbox Exercises */
-        .grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            padding: 20px;
-            justify-content: center;
-        }
-
-        .seat {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: white;
-            border: 1px solid lightgray;
-            border-radius: 8px;
-            font-weight: bold;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    <title>Box Model Exercises - All Tasks</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="container">
+        <h1>Day 3: Box Model Exercises (All Tasks)</h1>
 
-    <h2>Box Model Exercises</h2>
-    <div class="box"></div>
+        <!-- Task 1: Create a box with different border widths and colors -->
+        <section class="task">
+            <h2>Task 1: Box with Different Border Widths and Colors</h2>
+            <p>Create a box with varying border widths and colors on each side.</p>
+            <div class="box task1-box">Box with Different Borders</div>
+        </section>
 
-    <div class="padded-box">This is a padded box</div>
+        <!-- Task 2: Add padding to a <div> and observe the changes -->
+        <section class="task">
+            <h2>Task 2: Add Padding to a Div</h2>
+            <p>Add padding to a div and observe how it affects the content inside.</p>
+            <div class="box task2-box">Box with Padding</div>
+        </section>
 
-    <div class="margin-box">Box 1</div>
-    <div class="margin-box">Box 2</div>
+        <!-- Task 3: Adjust margins to space elements properly -->
+        <section class="task">
+            <h2>Task 3: Adjust Margins to Space Elements</h2>
+            <p>Use margins to space multiple boxes properly, with Flexbox for layout.</p>
+            <div class="task3-container">
+                <div class="box task3-box">Box 1</div>
+                <div class="box task3-box">Box 2</div>
+                <div class="box task3-box">Box 3</div>
+            </div>
+        </section>
 
-    <div class="border-box">Border-Box Model</div>
+        <!-- Task 4: Use box-sizing: border-box; to control width calculations -->
+        <section class="task">
+            <h2>Task 4: Box-Sizing: Border-Box vs Content-Box</h2>
+            <p>Compare two boxes: one with content-box (default) and one with border-box.</p>
+            <div class="task4-container">
+                <div class="box task4-box content-box">Content-Box (Default)</div>
+                <div class="box task4-box border-box">Border-Box</div>
+            </div>
+        </section>
 
-    <div class="card">
-        <h3>#2001</h3>
-        <p>Ralph Edwards</p>
-        <p>Ordered 14 min ago</p>
+        <!-- Task 5: Create a card-like component with padding, margin, and a border -->
+        <section class="task">
+            <h2>Task 5: Card-Like Component</h2>
+            <p>Create a card with padding, margin, and a border, styled like a typical card component.</p>
+            <div class="card">
+                <h3>#2001</h3>
+                <p class="name">Ralph Edward</p>
+                <p class="status">Ordered</p>
+                <p class="time">14 min ago</p>
+            </div>
+        </section>
     </div>
-
-    <h2>Display & Positioning Exercises</h2>
-    <div class="button-container">
-        <button onclick="showPopup()">CLICK HERE</button>
-    </div>
-
-    <div id="popup">
-        <div class="popup-content">
-            <p>This is a popup</p>
-            <button onclick="hidePopup()">Close</button>
-        </div>
-    </div>
-
-    <h2>Flexbox Exercises</h2>
-    <div class="grid">
-        <div class="seat">A1</div>
-        <div class="seat">A2</div>
-        <div class="seat">A3</div>
-        <div class="seat">A4</div>
-        <div class="seat">A5</div>
-        <div class="seat">A6</div>
-        <div class="seat">B1</div>
-        <div class="seat">B2</div>
-        <div class="seat">B3</div>
-        <div class="seat">B4</div>
-        <div class="seat">B5</div>
-        <div class="seat">B6</div>
-    </div>
-
-    <script>
-        function showPopup() {
-            document.getElementById("popup").style.display = "flex";
-        }
-
-        function hidePopup() {
-            document.getElementById("popup").style.display = "none";
-        }
-    </script>
-
 </body>
 </html>
