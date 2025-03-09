@@ -14,7 +14,6 @@
 
         body {
             background-color: #f5f5f5;
-            padding: 20px;
         }
 
         /* Sticky Header */
@@ -27,8 +26,7 @@
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border-radius: 10px 10px 0 0;
-            margin-bottom: 20px;
+            z-index: 1000;
         }
 
         .logo {
@@ -44,23 +42,17 @@
         .time {
             font-size: 1.2rem;
             font-weight: bold;
-            background-color: #e0e0e0;
-            padding: 5px 15px;
-            border-radius: 10px;
         }
 
         /* Main Content */
         .main-content {
-            background-color: #fff;
+            margin-left: 0; /* Removed sidebar margin */
+            margin-right: 20px;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
-            color: #ff6200;
             margin-bottom: 20px;
-            font-size: 1.5rem;
         }
 
         /* Order Sections */
@@ -68,24 +60,19 @@
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
-            border-right: 2px solid #ddd; /* Boundary between sections */
         }
 
         .section {
             flex: 1;
             min-width: 300px;
-            padding-right: 20px; /* Ensure spacing within sections */
-        }
-
-        .section:last-child {
-            border-right: none; /* Remove boundary for the last section */
-            padding-right: 0;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .section h3 {
-            font-size: 1.2rem;
             margin-bottom: 15px;
-            color: #333;
         }
 
         .orders-grid {
@@ -100,23 +87,18 @@
             text-align: center;
             border-radius: 5px;
             font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Shadow behind order numbers */
         }
 
         .order.ready {
             background-color: #28a745;
             color: #fff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Shadow for ready orders */
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .order-sections {
-                border-right: none; /* Remove boundary on tablet sizes */
-            }
-
-            .section {
-                padding-right: 0;
+            .main-content {
+                margin-left: 0; /* Removed sidebar margin */
+                margin-right: 10px;
             }
 
             .orders-grid {
@@ -125,6 +107,15 @@
         }
 
         @media (max-width: 480px) {
+            .main-content {
+                margin-left: 0; /* Removed sidebar margin */
+                margin-right: 5px;
+            }
+
+            .orders-grid {
+                grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+            }
+
             header {
                 padding: 10px;
             }
@@ -135,15 +126,6 @@
 
             .time {
                 font-size: 1rem;
-                padding: 3px 10px;
-            }
-
-            h2 {
-                font-size: 1.2rem;
-            }
-
-            .orders-grid {
-                grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
             }
         }
     </style>
