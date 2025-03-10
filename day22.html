@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Burger King Order Status - Ultra Modern</title>
+    <title>Burger King Order Status - Modern</title>
     <style>
         * {
             margin: 0;
@@ -13,11 +13,11 @@
         }
 
         body {
-            background: linear-gradient(135deg, #1e1e2f 0%, #2c2c44 100%); /* Dark futuristic gradient */
+            background: linear-gradient(135deg, #2F1A1A 0%, #4A2F1A 100%); /* Dark red to deep orange gradient */
             display: flex;
             min-height: 100vh;
             overflow-x: hidden;
-            color: #fff;
+            color: #F2E8D8; /* Soft off-white text */
         }
 
         /* Sidebar */
@@ -27,19 +27,19 @@
             top: 0;
             height: 100%;
             width: 80px;
-            background: linear-gradient(180deg, #1a1a2e, #16213e);
+            background: linear-gradient(180deg, #8A1E00, #C65A1A); /* Dark red to muted orange */
             display: flex;
             flex-direction: column;
             align-items: center;
             padding-top: 40px;
             box-shadow: 2px 0 20px rgba(0, 0, 0, 0.5);
-            border-right: 1px solid #3a3a5c;
+            border-right: 1px solid #F2E8D8;
             transition: all 0.4s ease;
         }
 
         .sidebar .icon {
             margin: 30px 0;
-            color: #f5a623; /* Burger King orange with neon glow */
+            color: #F2E8D8;
             font-size: 28px;
             transition: transform 0.4s ease, box-shadow 0.3s ease;
             position: relative;
@@ -48,7 +48,7 @@
 
         .sidebar .icon:hover {
             transform: scale(1.3) rotate(15deg);
-            box-shadow: 0 0 15px #f5a623, 0 0 30px #f5a623;
+            box-shadow: 0 0 15px #F2E8D8, 0 0 30px #F2E8D8;
         }
 
         .sidebar .icon::before {
@@ -77,14 +77,14 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            border: 3px solid #f5a623;
-            box-shadow: 0 0 10px #f5a623;
+            border: 3px solid #F2E8D8;
+            box-shadow: 0 0 10px #F2E8D8;
             transition: transform 0.4s ease, box-shadow 0.3s ease;
         }
 
         .sidebar .profile img:hover {
             transform: scale(1.2);
-            box-shadow: 0 0 20px #f5a623, 0 0 40px #f5a623;
+            box-shadow: 0 0 20px #F2E8D8, 0 0 40px #F2E8D8;
         }
 
         /* Main Content */
@@ -98,11 +98,11 @@
         .header {
             position: sticky;
             top: 0;
-            background: rgba(26, 26, 46, 0.9);
+            background: rgba(138, 30, 0, 0.9); /* Dark red semi-transparent */
             backdrop-filter: blur(15px);
             padding: 25px;
             border-radius: 20px;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(245, 166, 35, 0.2);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(242, 232, 216, 0.2);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -113,12 +113,12 @@
         .header .time {
             font-size: 22px;
             font-weight: 600;
-            color: #f5a623;
-            background: rgba(255, 255, 255, 0.1);
+            color: #F2E8D8;
+            background: rgba(198, 90, 26, 0.1); /* Muted orange tint */
             padding: 8px 20px;
             border-radius: 25px;
-            box-shadow: 0 0 10px #f5a623;
-            text-shadow: 0 0 5px #f5a623;
+            box-shadow: 0 0 10px #F2E8D8;
+            text-shadow: 0 0 5px #F2E8D8;
         }
 
         .header .logo {
@@ -129,16 +129,16 @@
         .header .logo img {
             width: 50px;
             margin-right: 20px;
-            filter: drop-shadow(0 0 10px #f5a623);
+            filter: drop-shadow(0 0 10px #F2E8D8);
         }
 
         .header .logo h1 {
             font-size: 32px;
             font-weight: 700;
-            background: linear-gradient(90deg, #e31837, #f5a623);
+            background: linear-gradient(90deg, #8A1E00, #C65A1A);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 10px #f5a623;
+            text-shadow: 0 0 10px #F2E8D8;
         }
 
         /* Order Status */
@@ -148,43 +148,43 @@
         }
 
         .order-box {
-            background: rgba(26, 26, 46, 0.95);
+            background: rgba(138, 30, 0, 0.95); /* Dark red semi-transparent */
             backdrop-filter: blur(15px);
             border-radius: 25px;
-            padding: 40px;
-            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(245, 166, 35, 0.2);
+            padding: 30px;
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(242, 232, 216, 0.2);
             transition: transform 0.4s ease, box-shadow 0.3s ease;
             flex: 1;
         }
 
         .order-box:hover {
             transform: translateY(-8px);
-            box-shadow: 0 16px 60px rgba(0, 0, 0, 0.5), inset 0 0 20px #f5a623;
+            box-shadow: 0 16px 60px rgba(0, 0, 0, 0.5), inset 0 0 20px #F2E8D8;
         }
 
         .order-box h2 {
             font-size: 28px;
             font-weight: 700;
-            margin-bottom: 25px;
-            color: #fff;
-            text-shadow: 0 0 10px #f5a623;
+            margin-bottom: 20px;
+            color: #F2E8D8;
+            text-shadow: 0 0 10px #F2E8D8;
         }
 
         .order-box .order-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Smaller grid boxes */
+            gap: 15px;
         }
 
         .order-grid .order {
-            background: linear-gradient(145deg, #2c2c44, #3a3a5c);
-            padding: 25px;
+            background: linear-gradient(145deg, #C65A1A, #8A1E00); /* Muted orange to dark red */
+            padding: 15px;
             text-align: center;
-            border-radius: 15px;
-            font-size: 20px;
+            border-radius: 12px;
+            font-size: 16px;
             font-weight: 600;
-            color: #f5a623;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), inset 0 0 10px #f5a623;
+            color: #F2E8D8;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), inset 0 0 10px #F2E8D8;
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
@@ -197,7 +197,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(245, 166, 35, 0.2) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(242, 232, 216, 0.1) 0%, transparent 70%);
             animation: rotate 10s linear infinite;
             z-index: -1;
         }
@@ -209,17 +209,17 @@
 
         .order-grid .order:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 0 15px #f5a623;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 0 15px #F2E8D8;
             color: #fff;
         }
 
         .ready .order {
-            background: linear-gradient(145deg, #28a745, #34c759);
-            color: #fff;
+            background: linear-gradient(145deg, #2E7D32, #388E3C); /* Darker green for ready */
+            color: #F2E8D8;
         }
 
         .ready .order:hover {
-            background: linear-gradient(145deg, #34c759, #28a745);
+            background: linear-gradient(145deg, #388E3C, #2E7D32);
         }
 
         /* Animation for new orders */
@@ -255,7 +255,7 @@
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSboMwmpWplJCWSBcnDFFnbcAP9y_K2xYvOAw&s" alt="Burger King Logo">
                 <h1>Burger King</h1>
             </div>
-            <div class="time">13:32</div>
+            <div class="time" id="current-time">13:36</div>
         </div>
 
         <!-- Order Status -->
@@ -299,5 +299,19 @@
             </div>
         </div>
     </div>
+
+    <!-- JavaScript to update time dynamically -->
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            document.getElementById('current-time').textContent = `${hours}:${minutes}`;
+        }
+
+        // Update time immediately and then every minute
+        updateTime();
+        setInterval(updateTime, 60000);
+    </script>
 </body>
 </html>
