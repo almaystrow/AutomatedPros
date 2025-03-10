@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orderific Service Panel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #f5e6e8, #fff);
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .left-section {
+            flex: 1;
+            background: url('https://orderific.com/ord-website/assets/img/cover1.webp') no-repeat center;
+            background-size: cover;
+            padding: 40px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .left-section .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .left-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .left-section p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .right-section {
+            flex: 1;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .right-section h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .right-section p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-wrapper .eye-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #999;
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .options label {
+            display: flex;
+            align-items: center;
+            color: #666;
+        }
+
+        .options a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .options a:hover {
+            text-decoration: underline;
+        }
+
+        .sign-in-btn {
+            width: 100%;
+            padding: 15px;
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .sign-in-btn:hover {
+            background: #333;
+        }
+
+        /* Mobile View */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                margin: 20px;
+            }
+
+            .left-section {
+                display: none; /* Hide the image section on mobile */
+            }
+
+            .right-section {
+                padding: 40px 20px;
+                width: 100%;
+            }
+
+            .right-section h1 {
+                font-size: 24px;
+            }
+
+            .right-section p {
+                font-size: 14px;
+            }
+
+            .form-group input {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .sign-in-btn {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <div class="logo">Orderific</div>
+            <div>
+                <h2>Service Panel</h2>
+                <p>Streamline your restaurant operations with BMS. Manage reservations, orders, inventory, and staff efficiently, and focus on delivering exceptional dining experiences.</p>
+            </div>
+        </div>
+        <div class="right-section">
+            <h1>Welcome Back</h1>
+            <p>Manage, streamline, and thrive effortlessly</p>
+            <form>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" value="samsmith@gmail.com" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" value="password123">
+                        <span class="eye-icon">👁️</span>
+                    </div>
+                </div>
+                <div class="options">
+                    <label>
+                        <input type="checkbox"> Remember me
+                    </label>
+                    <a href="#">Login with Code</a>
+                </div>
+                <button type="submit" class="sign-in-btn">Sign In</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
