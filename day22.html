@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Status</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
         * {
             margin: 0;
@@ -38,6 +39,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+            margin-top: 20px;
         }
         .sidebar .icons div {
             width: 40px;
@@ -48,6 +50,8 @@
             justify-content: center;
             border-radius: 50%;
             cursor: pointer;
+            color: white;
+            font-size: 18px;
         }
         .sidebar .icons div.active {
             background: #ff5733;
@@ -112,10 +116,11 @@
     <div class="sidebar">
         <img src="https://via.placeholder.com/40" alt="Profile">
         <div class="icons">
-            <div class="active"></div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <div class="active"><i class="fas fa-home"></i></div>
+            <div><i class="fas fa-utensils"></i></div>
+            <div><i class="fas fa-chart-bar"></i></div>
+            <div><i class="fas fa-comments"></i></div>
+            <div><i class="fas fa-file-alt"></i></div>
         </div>
     </div>
 
