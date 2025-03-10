@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger King Order Status</title>
+    <script src="https://kit.fontawesome.com/3c3fb5705b.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            display: flex;
+            background: #ffe6b3; /* Light orange background */
+            height: 100vh;
+            padding-left: 90px;
+        }
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 90px;
+            background: #bf360c; /* Deep orange */
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+        }
+        .sidebar img {
+            width: 50px;
+            border-radius: 50%;
+        }
+        .sidebar .icons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .sidebar .icons a {
+            text-decoration: none;
+            width: 45px;
+            height: 45px;
+            background: #ff7043;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+        .sidebar .icons a.active, .sidebar .icons a:hover {
+            background: #ffcc00;
+            color: #bf360c;
+        }
+        .container {
+            flex: 1;
+            padding: 20px;
+        }
+        .header {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header img {
+            width: 120px;
+        }
+        .order-section {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .box {
+            flex: 1;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+        }
+        .box h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #d84315;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+        .grid div {
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+        .preparing div {
+            background: #ffb74d; /* Orange */
+            color: #000;
+        }
+        .ready div {
+            background: #2e7d32; /* Deep green */
+            color: white;
+        }
+        .ready div:first-child {
+            background: #1b5e20;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Burger_King_2020.svg/2048px-Burger_King_2020.svg.png" alt="Burger King Logo">
+        <div class="icons">
+            <a href="home.html" class="active" title="Home"><i class="fa fa-home"></i></a>
+            <a href="menu.html" title="Menu"><i class="fa fa-utensils"></i></a>
+            <a href="stats.html" title="Statistics"><i class="fa fa-chart-bar"></i></a>
+            <a href="messages.html" title="Messages"><i class="fas fa-comments"></i></a>
+            <a href="orders.html" title="Orders"><i class="fas fa-receipt"></i></a>
+            <a href="settings.html" title="Settings"><i class="fas fa-cog"></i></a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="header">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Burger_King_2020.svg/2048px-Burger_King_2020.svg.png" alt="Burger King">
+            <span style="font-size: 18px; font-weight: bold;">15:03</span>
+        </div>
+
+        <div class="order-section">
+            <div class="box">
+                <h2>Preparing</h2>
+                <div class="grid preparing">
+                    <div>1023</div>
+                    <div>5678</div>
+                    <div>2341</div>
+                    <div>6782</div>
+                    <div>8923</div>
+                    <div>4837</div>
+                    <div>1298</div>
+                    <div>7654</div>
+                    <div>3412</div>
+                    <div>8765</div>
+                    <div>9987</div>
+                    <div>5421</div>
+                </div>
+            </div>
+
+            <div class="box">
+                <h2>Ready</h2>
+                <div class="grid ready">
+                    <div>4523</div>
+                    <div>3876</div>
+                    <div>9371</div>
+                    <div>2068</div>
+                    <div>6592</div>
+                    <div>4987</div>
+                    <div>2839</div>
+                    <div>9017</div>
+                    <div>1348</div>
+                    <div>5623</div>
+                    <div>7981</div>
+                    <div>6094</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
