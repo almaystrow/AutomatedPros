@@ -115,6 +115,19 @@
             font-weight: bold;
         }
     </style>
+    <script>
+        function togglePassword() {
+            var passwordField = document.getElementById("password");
+            var icon = document.getElementById("password-icon");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                icon.textContent = "🙈";
+            } else {
+                passwordField.type = "password";
+                icon.textContent = "👁️";
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -130,11 +143,11 @@
                 <h2>Welcome Back</h2>
                 <p>Manage, streamline, and thrive effortlessly.</p>
                 <div class="input-group">
-                    <input type="email" placeholder="Email" value="">
+                    <input type="email" placeholder="Email">
                 </div>
                 <div class="input-group">
-                    <input type="password" placeholder="Password" value="">
-                    <span class="password-icon">👁️</span>
+                    <input type="password" id="password" placeholder="Password">
+                    <span class="password-icon" id="password-icon" onclick="togglePassword()">👁️</span>
                 </div>
                 <div class="login-options">
                     <label><input type="checkbox"> Remember me</label>
