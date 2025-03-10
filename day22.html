@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            display: flex;
+            width: 80%;
+            height: 80%;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .sidebar {
+            width: 20%;
+            background-color: #ffe6e6;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .sidebar .logo {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .sidebar .user {
+            margin-top: auto;
+            text-align: center;
+        }
+        .sidebar .user img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .sidebar .nav-btn {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .sidebar .nav-btn.red {
+            background-color: #ff4d4d;
+        }
+        .main-content {
+            width: 80%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #e0e0e0;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+        .header .time {
+            font-size: 18px;
+            color: #666;
+        }
+        .header .fullscreen {
+            cursor: pointer;
+        }
+        .status-board {
+            display: flex;
+            flex-grow: 1;
+            margin-top: 20px;
+        }
+        .status-board .column {
+            flex: 1;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .status-board .column.preparing {
+            background-color: #f9ebeb;
+        }
+        .status-board .column.ready {
+            background-color: #e6ffe6;
+        }
+        .order-tile {
+            width: 60px;
+            height: 60px;
+            background-color: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        .order-tile.ready {
+            background-color: #4caf50;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">🍔 Burger King</div>
+            <button class="nav-btn">⏳</button>
+            <button class="nav-btn red">🔴</button>
+            <button class="nav-btn">📞</button>
+            <button class="nav-btn">📋</button>
+            <div class="user">
+                <img src="https://via.placeholder.com/50" alt="User">
+                <div>👤</div>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="header">
+                <div>Order Status</div>
+                <div class="time">14:45</div>
+                <div class="fullscreen">⬜ Fullscreen</div>
+            </div>
+            <div class="status-board">
+                <div class="column preparing">
+                    <div class="order-tile">4567</div>
+                    <div class="order-tile">4568</div>
+                    <div class="order-tile">4569</div>
+                    <div class="order-tile">4570</div>
+                    <div class="order-tile">4571</div>
+                    <div class="order-tile">4572</div>
+                    <div class="order-tile">4573</div>
+                    <div class="order-tile">4574</div>
+                </div>
+                <div class="column ready">
+                    <div class="order-tile ready">4567</div>
+                    <div class="order-tile ready">4568</div>
+                    <div class="order-tile ready">4569</div>
+                    <div class="order-tile ready">4570</div>
+                    <div class="order-tile ready">4571</div>
+                    <div class="order-tile ready">4572</div>
+                    <div class="order-tile ready">4573</div>
+                    <div class="order-tile ready">4574</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
