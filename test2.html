@@ -46,6 +46,7 @@
 
         .sidebar .icon:hover {
             transform: scale(1.3) rotate(15deg);
+            box-shadow: 0 0 15px #F5EBDC, 0 0 30px #F5EBDC;
         }
 
         .sidebar .profile {
@@ -54,9 +55,14 @@
         }
 
         .sidebar .profile i {
-            font-size: 40px;
+            font-size: 36px;
             color: #F5EBDC;
-            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.3s ease;
+        }
+
+        .sidebar .profile i:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 20px #F5EBDC, 0 0 40px #F5EBDC;
         }
 
         .main-content {
@@ -64,105 +70,65 @@
             width: calc(100% - 80px);
             padding: 40px;
         }
-
-        .order-status-title {
-            text-align: center;
-            font-size: 36px;
-            font-weight: 700;
-            color: #D62300;
-            background: linear-gradient(90deg, #D62300, #FF8732);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-        }
-
-        .header {
-            position: sticky;
-            top: 0;
-            background: #F5EBDC;
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-            z-index: 100;
-        }
-
-        .header .time {
-            font-size: 22px;
-            font-weight: 600;
-            color: #D62300;
-            background: rgba(255, 135, 50, 0.1);
-            padding: 8px 20px;
-            border-radius: 25px;
-        }
-
-        .header .icons {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .header .icons i {
-            font-size: 28px;
-            color: #D62300;
-            cursor: pointer;
-        }
-
-        .order-container {
-            display: flex;
-            gap: 40px;
-        }
-
-        .order-box {
-            background: #F5EBDC;
-            border-radius: 25px;
-            padding: 30px;
-            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.1);
-            flex: 1;
-        }
-
-        .order-box h2 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #D62300;
-        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="sidebar">
-        <i class="icon fas fa-home"></i>
-        <i class="icon fas fa-chart-line"></i>
-        <i class="icon fas fa-calendar-alt"></i>
-        <i class="icon fas fa-cog"></i>
-        <div class="profile">
-            <i class="fas fa-user-circle"></i>
-        </div>
+        <div class="icon"><i class="fas fa-home"></i></div>
+        <div class="icon"><i class="fas fa-chart-line"></i></div>
+        <div class="icon"><i class="fas fa-calendar-alt"></i></div>
+        <div class="icon"><i class="fas fa-cog"></i></div>
+        <div class="icon"><i class="fas fa-bell"></i></div>
+        <div class="profile"><i class="fas fa-user-circle"></i></div>
     </div>
 
     <div class="main-content">
         <div class="order-status-title">Order Status</div>
         <div class="header">
             <div class="logo">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSboMwmpWplJCWSBcnDFFnbcAP9y_K2xYvOAw&s" alt="Burger King Logo" width="50">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSboMwmpWplJCWSBcnDFFnbcAP9y_K2xYvOAw&s" alt="Burger King Logo">
                 <h1>Burger King</h1>
             </div>
-            <div class="icons">
-                <i class="fas fa-bell"></i>
-                <div class="time" id="current-time">13:40</div>
-            </div>
+            <div class="time" id="current-time">13:40</div>
         </div>
+
         <div class="order-container">
             <div class="order-box preparing">
                 <h2>Preparing</h2>
+                <div class="order-grid">
+                    <div class="order">5472</div>
+                    <div class="order">8921</div>
+                    <div class="order">3056</div>
+                    <div class="order">7439</div>
+                    <div class="order">1284</div>
+                    <div class="order">6598</div>
+                    <div class="order">9713</div>
+                    <div class="order">3421</div>
+                    <div class="order">4865</div>
+                    <div class="order">7509</div>
+                    <div class="order">2347</div>
+                    <div class="order">6183</div>
+                    <div class="order">8972</div>
+                    <div class="order">4051</div>
+                </div>
             </div>
+
             <div class="order-box ready">
                 <h2>Ready</h2>
+                <div class="order-grid">
+                    <div class="order">8123</div>
+                    <div class="order">4567</div>
+                    <div class="order">7890</div>
+                    <div class="order">1234</div>
+                    <div class="order">6543</div>
+                    <div class="order">9876</div>
+                    <div class="order">3210</div>
+                    <div class="order">5678</div>
+                    <div class="order">2345</div>
+                    <div class="order">8901</div>
+                </div>
             </div>
         </div>
     </div>
@@ -174,6 +140,7 @@
             const minutes = now.getMinutes().toString().padStart(2, '0');
             document.getElementById('current-time').textContent = `${hours}:${minutes}`;
         }
+
         updateTime();
         setInterval(updateTime, 60000);
     </script>
