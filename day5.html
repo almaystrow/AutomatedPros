@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+        }
+        .left-section {
+            width: 50%;
+            background: url('your-image.jpg') center/cover;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            color: white;
+            padding: 20px;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+        }
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+        .right-section {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f8f8;
+        }
+        .login-box {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .password-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        .login-button {
+            background: black;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <div class="overlay"></div>
+            <div class="content">
+                <h2>Service Panel</h2>
+                <p>Streamline your restaurant operations with BMS. Manage reservations, orders, inventory, and staff.</p>
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="login-box">
+                <h2>Welcome Back</h2>
+                <p>Manage, streamline, and thrive effortlessly.</p>
+                <div class="input-group">
+                    <input type="email" placeholder="Email">
+                </div>
+                <div class="input-group">
+                    <input type="password" placeholder="Password">
+                    <span class="password-icon">👁️</span>
+                </div>
+                <button class="login-button">Sign In</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
