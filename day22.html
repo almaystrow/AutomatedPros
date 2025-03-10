@@ -3,36 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Status</title>
+    <title>Burger King Order Status</title>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
         body {
             display: flex;
-            background: #f5e6da;
+            background: #ffe6b3; /* Light orange background */
             height: 100vh;
-            padding-left: 80px;
+            padding-left: 90px;
         }
         .sidebar {
             position: fixed;
             left: 0;
             top: 0;
             bottom: 0;
-            width: 80px;
-            background: #222;
+            width: 90px;
+            background: #bf360c; /* Deep orange */
             padding-top: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
         }
         .sidebar img {
-            width: 40px;
+            width: 50px;
             border-radius: 50%;
         }
         .sidebar .icons {
@@ -41,20 +42,22 @@
             gap: 15px;
             margin-top: 20px;
         }
-        .sidebar .icons div {
-            width: 40px;
-            height: 40px;
-            background: #444;
+        .sidebar .icons a {
+            text-decoration: none;
+            width: 45px;
+            height: 45px;
+            background: #ff7043;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            cursor: pointer;
             color: white;
-            font-size: 18px;
+            font-size: 20px;
+            transition: 0.3s;
         }
-        .sidebar .icons div.active {
-            background: #ff5733;
+        .sidebar .icons a.active, .sidebar .icons a:hover {
+            background: #ffcc00;
+            color: #bf360c;
         }
         .container {
             flex: 1;
@@ -68,8 +71,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header img {
+            width: 120px;
         }
         .order-section {
             display: flex;
@@ -80,54 +86,58 @@
             flex: 1;
             background: white;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
         }
         .box h2 {
             text-align: center;
             margin-bottom: 15px;
+            color: #d84315;
         }
         .grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
+            gap: 12px;
         }
         .grid div {
-            padding: 10px;
+            padding: 12px;
             text-align: center;
-            border-radius: 5px;
             font-weight: bold;
+            border-radius: 8px;
         }
         .preparing div {
-            background: #b0c4de;
+            background: #ffb74d; /* Orange */
             color: #000;
         }
         .ready div {
-            background: #28a745;
+            background: #2e7d32; /* Deep green */
             color: white;
         }
         .ready div:first-child {
-            background: #155724;
+            background: #1b5e20;
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
 
+    <!-- Sidebar -->
     <div class="sidebar">
-        <img src="https://via.placeholder.com/40" alt="Profile">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Burger_King_2020.svg/2048px-Burger_King_2020.svg.png" alt="Burger King Logo">
         <div class="icons">
-            <div class="active"><i class="fas fa-home"></i></div>
-            <div><i class="fas fa-utensils"></i></div>
-            <div><i class="fas fa-chart-bar"></i></div>
-            <div><i class="fas fa-comments"></i></div>
-            <div><i class="fas fa-file-alt"></i></div>
+            <a href="home.html" class="active"><i class="fas fa-home"></i></a>
+            <a href="orders.html"><i class="fas fa-utensils"></i></a>
+            <a href="stats.html"><i class="fas fa-chart-bar"></i></a>
+            <a href="messages.html"><i class="fas fa-comments"></i></a>
+            <a href="documents.html"><i class="fas fa-file-alt"></i></a>
         </div>
     </div>
 
+    <!-- Main Content -->
     <div class="container">
         <div class="header">
-            <h2>Order Status</h2>
-            <span>15:03</span>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Burger_King_2020.svg/2048px-Burger_King_2020.svg.png" alt="Burger King">
+            <span style="font-size: 18px; font-weight: bold;">15:03</span>
         </div>
 
         <div class="order-section">
@@ -135,35 +145,35 @@
                 <h2>Preparing</h2>
                 <div class="grid preparing">
                     <div>1023</div>
-                    <div>4456</div>
-                    <div>2345</div>
-                    <div>6789</div>
-                    <div>5621</div>
-                    <div>8743</div>
-                    <div>1934</div>
-                    <div>9087</div>
-                    <div>3456</div>
-                    <div>2678</div>
-                    <div>9991</div>
-                    <div>4532</div>
+                    <div>5678</div>
+                    <div>2341</div>
+                    <div>6782</div>
+                    <div>8923</div>
+                    <div>4837</div>
+                    <div>1298</div>
+                    <div>7654</div>
+                    <div>3412</div>
+                    <div>8765</div>
+                    <div>9987</div>
+                    <div>5421</div>
                 </div>
             </div>
 
             <div class="box">
                 <h2>Ready</h2>
                 <div class="grid ready">
-                    <div>8123</div>
-                    <div>4398</div>
-                    <div>9832</div>
-                    <div>1045</div>
-                    <div>2736</div>
-                    <div>5789</div>
-                    <div>6823</div>
-                    <div>9012</div>
-                    <div>1203</div>
-                    <div>3765</div>
-                    <div>4552</div>
-                    <div>7465</div>
+                    <div>4523</div>
+                    <div>3876</div>
+                    <div>9371</div>
+                    <div>2068</div>
+                    <div>6592</div>
+                    <div>4987</div>
+                    <div>2839</div>
+                    <div>9017</div>
+                    <div>1348</div>
+                    <div>5623</div>
+                    <div>7981</div>
+                    <div>6094</div>
                 </div>
             </div>
         </div>
