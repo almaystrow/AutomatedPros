@@ -3,197 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Burger King Order Status & OTP Confirmation</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background: #F5EBDC;
-            display: flex;
-            min-height: 100vh;
-            overflow-x: hidden;
-            color: #2D2D2D;
-        }
-
-        .sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 80px;
-            background: linear-gradient(180deg, #D62300, #FF8732);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 40px;
-            box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
-            transition: all 0.4s ease;
-        }
-
-        .sidebar .icon {
-            margin: 30px 0;
-            color: #F5EBDC;
-            font-size: 28px;
-            cursor: pointer;
-            transition: transform 0.4s ease;
-        }
-
-        .sidebar .icon:hover {
-            transform: scale(1.3);
-        }
-
-        .profile {
-            margin-top: auto;
-            margin-bottom: 40px;
-        }
-
-        .profile img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 3px solid #F5EBDC;
-        }
-
-        .main-content {
-            margin-left: 80px;
-            width: calc(100% - 80px);
-            padding: 40px;
-        }
-
-        .order-status-title {
-            text-align: center;
-            font-size: 36px;
-            font-weight: 700;
-            color: #D62300;
-            margin-bottom: 20px;
-        }
-
-        .header {
-            background: #F5EBDC;
-            padding: 25px;
-            border-radius: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-        }
-
-        .header .time {
-            font-size: 22px;
-            font-weight: 600;
-            color: #D62300;
-        }
-
-        .order-container {
-            display: flex;
-            gap: 40px;
-        }
-
-        .order-box {
-            background: #F5EBDC;
-            border-radius: 25px;
-            padding: 30px;
-            flex: 1;
-        }
-
-        .otp-container {
-            display: none;
-            padding: 40px;
-            background: #fff;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .otp-container img {
-            width: 80px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-        }
-
-        .otp-container h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .otp-container .otp-code {
-            font-size: 28px;
-            font-weight: bold;
-            color: #D62300;
-            margin: 10px 0;
-        }
-
-        .otp-container button {
-            background: #D62300;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-    </style>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>OTP Confirmation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <div class="sidebar">
-        <div class="icon"><i class="fas fa-home"></i></div>
-        <div class="icon"><i class="fas fa-chart-line"></i></div>
-        <div class="icon"><i class="fas fa-calendar-alt"></i></div>
-        <div class="icon" id="otp-btn"><i class="fas fa-key"></i></div>
-        <div class="icon"><i class="fas fa-cog"></i></div>
-        <div class="profile">
-            <img src="https://djnpwlvjfuoc1.cloudfront.net/u4yjht%2Fpreview%2F65201182%2Fmain_large.png" alt="Profile">
-        </div>
-    </div>
-
-    <div class="main-content" id="main-content">
-        <div class="order-status-title">Order Status</div>
-        <div class="header">
-            <h1>Burger King</h1>
-            <div class="time" id="current-time">13:40</div>
-        </div>
-        <div class="order-container">
-            <div class="order-box preparing">
-                <h2>Preparing</h2>
+<body class="bg-gray-100 font-sans">
+    <div class="container mx-auto p-4">
+        <!-- Sidebar for Pending Transactions -->
+        <div class="flex">
+            <div class="w-1/4 bg-red-50 p-4 rounded-lg shadow">
+                <h2 class="text-lg font-bold mb-4">Pending</h2>
+                <ul class="space-y-2">
+                    <li class="flex items-center space-x-2">
+                        <img src="https://via.placeholder.com/40" alt="User" class="rounded-full">
+                        <div>
+                            <p class="text-sm">Nasser Alsubai</p>
+                            <p class="text-xs text-gray-500">9 Feb 2024 - 10:24</p>
+                        </div>
+                        <span class="ml-auto text-red-500 font-bold">674951</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <img src="https://via.placeholder.com/40" alt="User" class="rounded-full">
+                        <div>
+                            <p class="text-sm">Nguyen, Shane</p>
+                            <p class="text-xs text-gray-500">9 Feb 2024 - 10:20</p>
+                        </div>
+                    </li>
+                    <!-- Add more list items as needed -->
+                </ul>
             </div>
-            <div class="order-box ready">
-                <h2>Ready</h2>
+
+            <!-- Main OTP Confirmation Panel -->
+            <div class="w-3/4 ml-4 bg-white p-6 rounded-lg shadow-lg">
+                <div class="flex justify-between items-center mb-4">
+                    <div class="flex items-center space-x-2">
+                        <span class="text-red-500 text-2xl">🔴</span>
+                        <h2 class="text-xl font-bold">OTP Confirmation</h2>
+                    </div>
+                    <button class="text-gray-500 hover:text-gray-700">Close</button>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <img src="https://via.placeholder.com/80" alt="Nasser Alsubai" class="rounded-full">
+                    <div>
+                        <h3 class="text-lg font-semibold">Nasser Alsubai</h3>
+                        <p class="text-sm text-gray-500">ID: 296571905</p>
+                    </div>
+                </div>
+                <div class="mt-4 text-center">
+                    <p class="text-4xl font-bold text-red-500">674951</p>
+                    <p class="text-sm text-gray-600 mt-2">To accept cash transfers, the rider must enter this 4-digit code in their app before you can accept the transaction.</p>
+                    <p class="text-lg font-semibold mt-4">The amount you should receive:</p>
+                    <p class="text-2xl font-bold text-green-600 mt-2">$86.60</p>
+                    <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Accept Cash Transfer</button>
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="otp-container" id="otp-container">
-        <h2>OTP Confirmation</h2>
-        <img src="https://via.placeholder.com/80" alt="User">
-        <p><strong>Nasser Alsubai</strong></p>
-        <p>ID: 296571905</p>
-        <p class="otp-code">674951</p>
-        <p>Enter this code to confirm the transaction.</p>
-        <button onclick="hideOTP()">Accept Cash Transfer</button>
-    </div>
-
-    <script>
-        function updateTime() {
-            const now = new Date();
-            document.getElementById('current-time').textContent = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
-        }
-        setInterval(updateTime, 60000);
-        
-        document.getElementById('otp-btn').addEventListener('click', function() {
-            document.getElementById('main-content').style.display = 'none';
-            document.getElementById('otp-container').style.display = 'block';
-        });
-
-        function hideOTP() {
-            document.getElementById('otp-container').style.display = 'none';
-            document.getElementById('main-content').style.display = 'block';
-        }
-    </script>
 </body>
 </html>
