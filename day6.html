@@ -8,8 +8,10 @@
 </head>
 <body class="p-10 bg-gray-100 flex items-center justify-center min-h-screen">
     
-    <!-- Box Model Exercises -->
+    <!-- Main Container -->
     <div class="w-full max-w-2xl bg-white p-8 rounded-lg shadow-lg">
+        
+        <!-- Box Model Exercises -->
         <h2 class="text-2xl font-bold mb-6 text-gray-800">Box Model Exercises</h2>
         <div class="border-4 border-blue-500 p-4 m-4 rounded-lg shadow-md bg-blue-50">Box with border and padding</div>
         <div class="border-2 border-red-500 p-8 m-6 rounded-lg shadow-md bg-red-50">Box with more padding</div>
@@ -24,16 +26,68 @@
             <div class="mt-1 text-xs text-gray-500" id="orderStatus"></div>
             <div class="text-xs text-gray-400" id="orderTimestamp"></div>
         </div>
+
+        <!-- Display & Positioning Exercises -->
+        <h2 class="text-2xl font-bold mt-8 mb-4 text-gray-800">Display & Positioning Exercises</h2>
+        <button id="popupButton" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none">
+            CLICK HERE
+        </button>
+
+        <!-- Popup Modal -->
+        <div id="popupModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+            <div class="bg-white p-6 rounded-xl shadow-2xl relative w-full max-w-sm">
+                <!-- Close Button -->
+                <button id="closePopup" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <!-- Popup Content -->
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">Cancel Item</h3>
+                <p class="text-gray-600 mb-4">Are you sure to cancel this item?</p>
+                <p class="text-gray-800 font-medium">Tasty Burger</p>
+                <p class="text-gray-500 text-sm">Size: Small, Cheese: A little bit, Salty: No</p>
+                <!-- Cancel Button -->
+                <button id="cancelItem" class="mt-4 w-full py-2 bg-red-500 text-white rounded-full hover:bg-red-600 focus:outline-none">
+                    CANCEL ITEMS
+                </button>
+            </div>
+        </div>
+
+        <!-- Flexbox Exercises (Placeholder) -->
+        <h2 class="text-2xl font-bold mt-8 mb-4 text-gray-800">Flexbox Exercises (1 Hour)</h2>
+        <p class="text-gray-600 mb-4">Design this section: reference from WSP Figma</p>
+        <div class="grid grid-cols-5 gap-2">
+            <div class="border border-red-400 p-2 text-center rounded-md">A1</div>
+            <div class="border border-red-400 p-2 text-center rounded-md">A2</div>
+            <div class="border border-red-400 p-2 text-center rounded-md">A3</div>
+            <div class="border border-red-400 p-2 text-center rounded-md">A4</div>
+            <div class="border border-green-400 p-2 text-center rounded-md">A5</div>
+            <div class="border border-green-400 p-2 text-center rounded-md">A6</div>
+            <div class="border border-green-400 p-2 text-center rounded-md">B1</div>
+            <div class="border border-green-400 p-2 text-center rounded-md">B2</div>
+            <div class="border border-green-400 p-2 text-center rounded-md">B3</div>
+            <div class="border border-green-400 p-2 text-center rounded-md">B4</div>
+            <div class="border border-green-400 p-2 text-center rounded-md">B5</div>
+            <div class="border border-green-400 p-2 text-center rounded-md">B6</div>
+            <div class="border border-green-400 p-2 text-center rounded-md">C1</div>
+            <div class="border border-green-400 p-2 text-center rounded-md">C2</div>
+            <div class="border border-green-400 p-2 text-center rounded-md">C3</div>
+            <div class="border border-green-400 p-2 text-center rounded-md">C4</div>
+            <div class="border border-green-400 p-2 text-center rounded-md">C5</div>
+            <div class="border border-green-400 p-2 text-center rounded-md">C6</div>
+            <div class="border border-green-400 p-2 text-center rounded-md">C7</div>
+            <div class="border border-green-400 p-2 text-center rounded-md">D1</div>
+        </div>
     </div>
 
-    <!-- JavaScript to Generate Random Details -->
+    <!-- JavaScript for Random Details and Popup -->
     <script>
-        // Function to generate a random order number (e.g., #1000 to #9999)
+        // Random Details for Order Card
         function getRandomOrderNumber() {
             return `#${Math.floor(Math.random() * 9000) + 1000}`;
         }
 
-        // Array of random first names and last names
         const firstNames = ['John', 'Emma', 'Michael', 'Sarah', 'David', 'Lisa', 'James', 'Emily'];
         const lastNames = ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis'];
         function getRandomName() {
@@ -42,13 +96,11 @@
             return `${firstName} ${lastName}`;
         }
 
-        // Array of possible statuses
-        const statuses = ['Ordered'];
+        const statuses = ['Ordered', 'Shipped', 'Delivered', 'Processing', 'Cancelled'];
         function getRandomStatus() {
             return statuses[Math.floor(Math.random() * statuses.length)];
         }
 
-        // Function to generate a random timestamp (e.g., X min ago or hours ago)
         function getRandomTimestamp() {
             const minutes = Math.floor(Math.random() * 60);
             const hours = Math.floor(Math.random() * 24);
@@ -56,7 +108,25 @@
             return `${hours} hour${hours !== 1 ? 's' : ''} ago`;
         }
 
-        // Update the card with random details when the page loads
+        // Popup Functionality
+        const popupButton = document.getElementById('popupButton');
+        const popupModal = document.getElementById('popupModal');
+        const closePopup = document.getElementById('closePopup');
+        const cancelItem = document.getElementById('cancelItem');
+
+        popupButton.addEventListener('click', () => {
+            popupModal.classList.remove('hidden');
+        });
+
+        closePopup.addEventListener('click', () => {
+            popupModal.classList.add('hidden');
+        });
+
+        cancelItem.addEventListener('click', () => {
+            popupModal.classList.add('hidden');
+        });
+
+        // Update Order Card with Random Details
         window.onload = function() {
             document.getElementById('orderNumber').textContent = getRandomOrderNumber();
             document.getElementById('orderName').textContent = getRandomName();
