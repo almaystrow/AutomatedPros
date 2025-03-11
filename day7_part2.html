@@ -25,14 +25,17 @@
 <body class="bg-gray-100 p-4 flex flex-col min-h-screen">
     <!-- Sticky Header -->
     <header class="bg-white p-4 rounded-lg shadow-md mb-4 fixed top-0 left-0 right-0 z-10">
-        <!-- Top Row: Icon, Order Status, Fullscreen -->
+        <!-- Top Row: Icon, Order Status, Burger King Text, Fullscreen -->
         <div class="flex justify-between items-center mb-2">
-            <div class="flex items-center space-x-3">
-                <!-- Shopping Cart Icon -->
-                <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                </svg>
-                <h1 class="text-xl font-bold text-gray-800">Order Status</h1>
+            <div class="flex flex-col space-y-1">
+                <div class="flex items-center space-x-3">
+                    <!-- Shopping Cart Icon -->
+                    <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                    <h1 class="text-xl font-bold text-gray-800">Order Status</h1>
+                </div>
+                <h2 class="text-lg font-semibold text-gray-800">Burger King</h2>
             </div>
             <!-- Fullscreen Button -->
             <button class="flex items-center space-x-1 bg-gray-200 text-gray-800 px-3 py-1 rounded-lg">
@@ -42,19 +45,11 @@
                 <span>Fullscreen</span>
             </button>
         </div>
-        <!-- Bottom Row: Orderific Logo, Burger King Logo, Time -->
+        <!-- Bottom Row: Burger King Logo, Time -->
         <div class="flex justify-between items-center">
-            <div class="flex flex-col space-y-2">
-                <!-- Orderific Logo and Text -->
-                <div class="flex items-center space-x-3">
-                    <img src="https://via.placeholder.com/40x40.png?text=Orderific" alt="Orderific Logo" class="w-10 h-10">
-                    <h2 class="text-lg font-semibold text-gray-800">Orderific</h2>
-                </div>
-                <!-- Burger King Logo and Text -->
-                <div class="flex items-center space-x-3">
-                    <img src="https://via.placeholder.com/40x40.png?text=BK" alt="Burger King Logo" class="w-10 h-10">
-                    <h2 class="text-lg font-semibold text-gray-800">Burger King</h2>
-                </div>
+            <div class="flex items-center space-x-3">
+                <!-- Burger King Logo -->
+                <img src="https://via.placeholder.com/40x40.png?text=BK" alt="Burger King Logo" class="w-10 h-10">
             </div>
             <!-- Current Time -->
             <div id="current-time" class="text-xl font-semibold text-gray-800"></div>
@@ -62,9 +57,9 @@
     </header>
 
     <!-- Main Container with Sidebar and Content -->
-    <div class="flex mt-28"> <!-- Increased offset for taller header -->
+    <div class="flex mt-24"> <!-- Adjusted offset for slightly shorter header -->
         <!-- Sidebar -->
-        <aside class="sidebar w-16 bg-white p-4 rounded-lg shadow-md flex flex-col items-center space-y-6 fixed h-[calc(100vh-8rem)] top-28">
+        <aside class="sidebar w-16 bg-white p-4 rounded-lg shadow-md flex flex-col items-center space-y-6 fixed h-[calc(100vh-6rem)] top-24">
             <button class="bg-gray-200 p-2 rounded-full">
                 <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
