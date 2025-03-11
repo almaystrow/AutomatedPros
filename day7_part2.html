@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         .sidebar {
-            width: 40px;
+            width: 60px; /* Slightly increased width for better visibility */
             height: calc(100vh - 6rem);
         }
         .main-content {
@@ -28,6 +28,21 @@
             background-color: #f3e8e8;
             transition: background-color 0.3s ease;
         }
+        .sidebar-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+        .sidebar-button:hover {
+            background-color: #f3e8e8;
+        }
+        .active-button {
+            background-color: #f9fafb;
+        }
     </style>
 </head>
 <body class="bg-gray-100 p-4 flex flex-col min-h-screen">
@@ -39,9 +54,7 @@
             <h1 class="text-xl font-bold text-gray-900 flex-1">Order Status</h1>
         </div>
         <button class="btn-hover p-2 rounded-full">
-            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-            </svg>
+            <span class="text-lg font-semibold">Full Screen</span>
         </button>
     </header>
     
@@ -53,16 +66,31 @@
         <div id="current-time" class="text-xl font-semibold text-gray-800"></div>
     </div>
     
-    <div class="flex mt-6"> <!-- Added margin-top to space it from the header -->
-        <aside class="sidebar bg-white p-2 rounded-lg shadow-md flex flex-col items-center space-y-4">
-            <button class="btn-hover p-2 rounded-full">
-                <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+    <div class="flex mt-6">
+        <aside class="sidebar bg-white p-4 rounded-lg shadow-md flex flex-col items-center space-y-4">
+            <!-- Home Icon (Active) -->
+            <button class="sidebar-button active-button">
+                <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v18m9-9H3"></path>
                 </svg>
             </button>
-            <button class="btn-hover p-2 rounded-full">
-                <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h11M9 21V3m6 18V3m6 18V3"></path>
+            
+            <!-- Profile Image Icon -->
+            <button class="sidebar-button">
+                <img src="https://via.placeholder.com/40x40.png?text=Profile" alt="Profile" class="w-6 h-6 rounded-full">
+            </button>
+
+            <!-- Notification Icon -->
+            <button class="sidebar-button">
+                <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.553 5.151A2 2 0 0116.452 22H7.548a2 2 0 01-1.447-2.849L5 17h5m3-4V6a4 4 0 10-8 0v7m4 0H8"></path>
+                </svg>
+            </button>
+
+            <!-- OTP Icon -->
+            <button class="sidebar-button">
+                <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9h8M8 13h8M8 17h8M5 7V5a2 2 0 012-2h10a2 2 0 012 2v2"></path>
                 </svg>
             </button>
         </aside>
