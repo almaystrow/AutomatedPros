@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind CSS Exercises</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-10 bg-gray-100">
+    
+    <!-- Box Model Exercises -->
+    <div class="mb-10">
+        <h2 class="text-xl font-bold mb-4">Box Model Exercises</h2>
+        <div class="border-4 border-blue-500 p-4 m-4">Box with border and padding</div>
+        <div class="border-2 border-red-500 p-8 m-6">Box with more padding</div>
+        <div class="border border-green-500 p-2 m-10">Box with larger margin</div>
+        <div class="border border-black p-4 m-4 box-border">Box with border-box applied</div>
+        <div class="border border-gray-400 p-6 m-4 rounded-lg shadow-lg">Card-like component</div>
+    </div>
+
+    <!-- Display & Positioning Exercise -->
+    <div class="mb-10 text-center">
+        <h2 class="text-xl font-bold mb-4">Display & Positioning Exercise</h2>
+        <button id="popupButton" class="bg-blue-500 text-white px-4 py-2 rounded">CLICK HERE</button>
+        <div id="popup" class="hidden fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-lg font-bold">Cancel Item</h3>
+                <p class="mb-4">Are you sure you want to cancel this item?</p>
+                <button id="closePopup" class="bg-red-500 text-white px-4 py-2 rounded">Cancel Item</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Flexbox Exercise -->
+    <div class="mb-10">
+        <h2 class="text-xl font-bold mb-4">Flexbox Exercise</h2>
+        <div class="flex flex-wrap gap-2 bg-white p-4 shadow rounded-lg">
+            <div class="p-4 bg-green-200 rounded">A1</div>
+            <div class="p-4 bg-green-200 rounded">A2</div>
+            <div class="p-4 bg-green-200 rounded">A3</div>
+            <div class="p-4 bg-green-200 rounded">A4</div>
+            <div class="p-4 bg-green-200 rounded">A5</div>
+            <div class="p-4 bg-green-200 rounded">B1</div>
+            <div class="p-4 bg-green-200 rounded">B2</div>
+            <div class="p-4 bg-green-200 rounded">B3</div>
+            <div class="p-4 bg-green-200 rounded">C1</div>
+            <div class="p-4 bg-green-200 rounded">C2</div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('popupButton').addEventListener('click', function() {
+            document.getElementById('popup').classList.remove('hidden');
+        });
+        document.getElementById('closePopup').addEventListener('click', function() {
+            document.getElementById('popup').classList.add('hidden');
+        });
+    </script>
+</body>
+</html>
