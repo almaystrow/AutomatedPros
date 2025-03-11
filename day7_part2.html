@@ -31,7 +31,12 @@
 </head>
 <body class="bg-gray-100 p-4 flex flex-col min-h-screen">
     <header class="header p-4 shadow-md mb-2 fixed top-0 left-0 right-0 z-10 flex justify-between items-center">
-        <h1 class="text-xl font-bold text-gray-900 flex-1 text-center">Order Status</h1>
+        <div class="flex items-center space-x-3">
+            <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+            <h1 class="text-xl font-bold text-gray-900 flex-1">Order Status</h1>
+        </div>
     </header>
     
     <div class="bg-white p-3 shadow-md rounded-lg mb-4 mt-16 flex justify-between items-center">
@@ -43,15 +48,15 @@
     </div>
     
     <div class="flex">
-        <aside class="sidebar w-20 bg-white p-4 rounded-lg shadow-md flex flex-col items-center space-y-6 fixed h-[calc(100vh-6rem)] top-24">
+        <aside class="sidebar w-16 bg-white p-4 rounded-lg shadow-md flex flex-col items-center space-y-6 fixed h-[calc(100vh-6rem)] top-24">
             <button class="btn-hover bg-red-500 p-3 rounded-full">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
         </aside>
         
-        <div class="main-content ml-24 flex-1 bg-white p-6 rounded-lg shadow-md overflow-y-auto">
+        <div class="main-content ml-20 flex-1 bg-white p-6 rounded-lg shadow-md overflow-y-auto">
             <main class="flex flex-col md:flex-row gap-6">
                 <section class="flex-1 grid-box">
                     <h2 class="text-lg font-bold text-gray-800 mb-4">Preparing</h2>
