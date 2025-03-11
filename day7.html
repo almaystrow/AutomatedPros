@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Status</title>
+    <title>OTP Confirmation</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 font-sans">
     <div class="container mx-auto p-4">
-        <!-- Sidebar for Pending Orders -->
+        <!-- Sidebar for Pending Transactions -->
         <div class="flex">
             <div class="w-1/4 bg-red-50 p-4 rounded-lg shadow">
-                <h2 class="text-lg font-bold mb-4">Pending Orders</h2>
+                <h2 class="text-lg font-bold mb-4">Pending</h2>
                 <ul class="space-y-2">
                     <li class="flex items-center space-x-2">
                         <img src="https://via.placeholder.com/40" alt="User" class="rounded-full">
@@ -19,7 +19,7 @@
                             <p class="text-sm">Sophie Laurent</p>
                             <p class="text-xs text-gray-500">11 Mar 2025 - 13:40</p>
                         </div>
-                        <span class="ml-auto text-red-500 font-bold">5472</span>
+                        <span class="ml-auto text-red-500 font-bold">4839</span>
                     </li>
                     <li class="flex items-center space-x-2">
                         <img src="https://via.placeholder.com/40" alt="User" class="rounded-full">
@@ -27,7 +27,7 @@
                             <p class="text-sm">Hiroshi Tanaka</p>
                             <p class="text-xs text-gray-500">11 Mar 2025 - 13:35</p>
                         </div>
-                        <span class="ml-auto text-red-500 font-bold">8921</span>
+                        <span class="ml-auto text-red-500 font-bold">9201</span>
                     </li>
                     <li class="flex items-center space-x-2">
                         <img src="https://via.placeholder.com/40" alt="User" class="rounded-full">
@@ -40,52 +40,28 @@
                 </ul>
             </div>
 
-            <!-- Main Order Status Panel -->
+            <!-- Main OTP Confirmation Panel -->
             <div class="w-3/4 ml-4 bg-white p-6 rounded-lg shadow-lg">
                 <div class="flex justify-between items-center mb-4">
                     <div class="flex items-center space-x-2">
                         <span class="text-red-500 text-2xl">🔴</span>
-                        <h2 class="text-xl font-bold">Order Status</h2>
+                        <h2 class="text-xl font-bold">OTP Confirmation</h2>
                     </div>
-                    <p class="text-gray-500">13:40</p>
+                    <button class="text-gray-500 hover:text-gray-700">Close</button>
                 </div>
-
-                <!-- Preparing Section -->
-                <div class="mb-6">
-                    <h3 class="text-lg font-semibold mb-2">Preparing</h3>
-                    <div class="grid grid-cols-5 gap-2">
-                        <span class="bg-gray-200 p-2 rounded text-center">5472</span>
-                        <span class="bg-gray-200 p-2 rounded text-center">8921</span>
-                        <span class="bg-gray-200 p-2 rounded text-center">3056</span>
-                        <span class="bg-gray-200 p-2 rounded text-center">7439</span>
-                        <span class="bg-gray-200 p-2 rounded text-center">1284</span>
-                        <span class="bg-gray-200 p-2 rounded text-center">6598</span>
-                        <span class="bg-gray-200 p-2 rounded text-center">9713</span>
-                        <span class="bg-gray-200 p-2 rounded text-center">3421</span>
-                        <span class="bg-gray-200 p-2 rounded text-center">4865</span>
-                        <span class="bg-gray-200 p-2 rounded text-center">7509</span>
-                        <span class="bg-gray-200 p-2 rounded text-center">2347</span>
-                        <span class="bg-gray-200 p-2 rounded text-center">6183</span>
-                        <span class="bg-gray-200 p-2 rounded text-center">8972</span>
-                        <span class="bg-gray-200 p-2 rounded text-center">4051</span>
+                <div class="flex items-center space-x-4">
+                    <img src="https://via.placeholder.com/80" alt="Sophie Laurent" class="rounded-full">
+                    <div>
+                        <h3 class="text-lg font-semibold">Sophie Laurent</h3>
+                        <p class="text-sm text-gray-500">ID: 483920105</p>
                     </div>
                 </div>
-
-                <!-- Ready Section -->
-                <div>
-                    <h3 class="text-lg font-semibold mb-2">Ready</h3>
-                    <div class="grid grid-cols-5 gap-2">
-                        <span class="bg-green-200 p-2 rounded text-center">8123</span>
-                        <span class="bg-green-200 p-2 rounded text-center">4567</span>
-                        <span class="bg-green-200 p-2 rounded text-center">7890</span>
-                        <span class="bg-green-200 p-2 rounded text-center">1234</span>
-                        <span class="bg-green-200 p-2 rounded text-center">6543</span>
-                        <span class="bg-green-200 p-2 rounded text-center">9876</span>
-                        <span class="bg-green-200 p-2 rounded text-center">3210</span>
-                        <span class="bg-green-200 p-2 rounded text-center">5678</span>
-                        <span class="bg-green-200 p-2 rounded text-center">2345</span>
-                        <span class="bg-green-200 p-2 rounded text-center">8901</span>
-                    </div>
+                <div class="mt-4 text-center">
+                    <p class="text-4xl font-bold text-red-500">4839</p>
+                    <p class="text-sm text-gray-600 mt-2">To accept cash transfers, the rider must enter this 4-digit code in their app before you can accept the transaction.</p>
+                    <p class="text-lg font-semibold mt-4">The amount you should receive:</p>
+                    <p class="text-2xl font-bold text-green-600 mt-2">$72.50</p>
+                    <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Accept Cash Transfer</button>
                 </div>
             </div>
         </div>
