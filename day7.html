@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>McDonald's Order Status</title>
+    <title>Restaurant Order Status</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 min-h-screen p-4">
     <!-- Header -->
     <header class="flex justify-between items-center bg-white p-4 rounded-lg shadow-md mb-6">
         <div class="flex items-center space-x-3">
-            <img src="https://via.placeholder.com/40x40.png?text=M" alt="McDonald's Logo" class="w-10 h-10">
-            <h1 class="text-xl font-bold text-gray-800">McDonald's</h1>
+            <h1 class="text-xl font-bold text-gray-800">Restaurant Order Status</h1>
         </div>
-        <div class="text-xl font-semibold text-gray-800">15:03</div>
+        <div id="current-time" class="text-xl font-semibold text-gray-800"></div>
     </header>
 
     <!-- Main Content -->
@@ -21,37 +20,56 @@
         <!-- Preparing Section -->
         <section class="flex-1 bg-white p-6 rounded-lg shadow-md">
             <h2 class="text-lg font-bold text-gray-800 mb-4">Preparing</h2>
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-                <!-- Repeat this for 12 cards -->
-                <div class="bg-gray-200 text-center py-4 rounded-lg font-semibold text-gray-800">3885</div>
-                <div class="bg-gray-200 text-center py-4 rounded-lg font-semibold text-gray-800">3885</div>
-                <div class="bg-gray-200 text-center py-4 rounded-lg font-semibold text-gray-800">3885</div>
-                <div class="bg-gray-200 text-center py-4 rounded-lg font-semibold text-gray-800">3885</div>
-                <div class="bg-gray-200 text-center py-4 rounded-lg font-semibold text-gray-800">3885</div>
-                <div class="bg-gray-200 text-center py-4 rounded-lg font-semibold text-gray-800">3885</div>
-                <div class="bg-gray-200 text-center py-4 rounded-lg font-semibold text-gray-800">3885</div>
-                <div class="bg-gray-200 text-center py-4 rounded-lg font-semibold text-gray-800">3885</div>
-                <div class="bg-gray-200 text-center py-4 rounded-lg font-semibold text-gray-800">3885</div>
-                <div class="bg-gray-200 text-center py-4 rounded-lg font-semibold text-gray-800">3885</div>
-                <div class="bg-gray-200 text-center py-4 rounded-lg font-semibold text-gray-800">3885</div>
-                <div class="bg-gray-200 text-center py-4 rounded-lg font-semibold text-gray-800">3885</div>
+            <div id="preparing-orders" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                <!-- Cards will be populated by JavaScript -->
             </div>
         </section>
 
         <!-- Ready Section -->
         <section class="flex-1 bg-white p-6 rounded-lg shadow-md">
             <h2 class="text-lg font-bold text-gray-800 mb-4">Ready</h2>
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                <!-- Repeat this for 7 cards -->
-                <div class="bg-green-500 text-center py-4 rounded-lg font-semibold text-white">3885</div>
-                <div class="bg-green-500 text-center py-4 rounded-lg font-semibold text-white">3885</div>
-                <div class="bg-green-500 text-center py-4 rounded-lg font-semibold text-white">3885</div>
-                <div class="bg-green-500 text-center py-4 rounded-lg font-semibold text-white">3885</div>
-                <div class="bg-green-500 text-center py-4 rounded-lg font-semibold text-white">3885</div>
-                <div class="bg-green-500 text-center py-4 rounded-lg font-semibold text-white">3885</div>
-                <div class="bg-green-500 text-center py-4 rounded-lg font-semibold text-white">3885</div>
+            <div id="ready-orders" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Cards will be populated by JavaScript -->
             </div>
         </section>
     </main>
+
+    <!-- JavaScript to Generate Random Order Numbers and Display Current Time -->
+    <script>
+        // Function to generate a random order number between 1000 and 9999
+        function generateOrderNumber() {
+            return Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
+        }
+
+        // Function to create order cards
+        function createOrderCards(containerId, count, bgColor, textColor) {
+            const container = document.getElementById(containerId);
+            for (let i = 0; i < count; i++) {
+                const orderNumber = generateOrderNumber();
+                const card = document.createElement('div');
+                card.className = `text-center py-4 rounded-lg font-semibold ${bgColor} ${textColor}`;
+                card.textContent = orderNumber;
+                container.appendChild(card);
+            }
+        }
+
+        // Generate 12 cards for Preparing section (gray background)
+        createOrderCards('preparing-orders', 12, 'bg-gray-200', 'text-gray-800');
+
+        // Generate 7 cards for Ready section (green background)
+        createOrderCards('ready-orders', 7, 'bg-green-500', 'text-white');
+
+        // Function to update the current time
+        function updateTime() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            document.getElementById('current-time').textContent = `${hours}:${minutes}`;
+        }
+
+        // Update time immediately and then every minute
+        updateTime();
+        setInterval(updateTime, 60000); // Update every 60 seconds
+    </script>
 </body>
 </html>
