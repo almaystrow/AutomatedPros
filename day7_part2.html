@@ -24,18 +24,27 @@
 </head>
 <body class="bg-gray-100 p-4 flex flex-col min-h-screen">
     <!-- Sticky Header -->
-    <header class="flex justify-between items-center bg-white p-4 rounded-lg shadow-md mb-4 fixed top-0 left-0 right-0 z-10">
-        <div class="flex items-center space-x-3">
-            <img src="https://via.placeholder.com/40x40.png?text=BK" alt="Burger King Logo" class="w-10 h-10">
-            <h1 class="text-xl font-bold text-gray-800">Burger King Order Status</h1>
+    <header class="bg-white p-4 rounded-lg shadow-md mb-4 fixed top-0 left-0 right-0 z-10">
+        <div class="flex flex-col items-start space-y-2">
+            <!-- Orderific Logo and Text -->
+            <div class="flex items-center space-x-3">
+                <img src="https://via.placeholder.com/40x40.png?text=Orderific" alt="Orderific Logo" class="w-10 h-10">
+                <h1 class="text-xl font-bold text-gray-800">Orderific</h1>
+            </div>
+            <!-- Burger King Logo and Text -->
+            <div class="flex items-center space-x-3">
+                <img src="https://via.placeholder.com/40x40.png?text=BK" alt="Burger King Logo" class="w-10 h-10">
+                <h1 class="text-xl font-bold text-gray-800">Burger King</h1>
+            </div>
         </div>
-        <div id="current-time" class="text-xl font-semibold text-gray-800"></div>
+        <!-- Current Time -->
+        <div class="absolute top-4 right-4 text-xl font-semibold text-gray-800" id="current-time"></div>
     </header>
 
     <!-- Main Container with Sidebar and Content -->
-    <div class="flex mt-20"> <!-- Offset for sticky header -->
+    <div class="flex mt-24"> <!-- Increased offset for taller header -->
         <!-- Sidebar -->
-        <aside class="sidebar w-16 bg-white p-4 rounded-lg shadow-md flex flex-col items-center space-y-6 fixed h-[calc(100vh-6rem)] top-20">
+        <aside class="sidebar w-16 bg-white p-4 rounded-lg shadow-md flex flex-col items-center space-y-6 fixed h-[calc(100vh-6rem)] top-24">
             <button class="bg-gray-200 p-2 rounded-full">
                 <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -56,13 +65,10 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"></path>
                 </svg>
             </button>
-
-            <br>
-            <br>
             <!-- Added margin-top to push profile and notifications down -->
             <div class="mt-20 flex flex-col items-center">
                 <div class="relative">
-                    <img src='profile.png' alt="User Profile" class="w-10 h-10 rounded-full">
+                    <img src="https://via.placeholder.com/40x40.png?text=User" alt="User Profile" class="w-10 h-10 rounded-full">
                     <span class="absolute bottom-0 right-0 bg-red-500 h-3 w-3 rounded-full border-2 border-white"></span>
                 </div>
                 <button class="bg-gray-200 p-2 rounded-full mt-2">
