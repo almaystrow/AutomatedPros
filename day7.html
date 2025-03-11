@@ -46,7 +46,14 @@
             cursor: pointer;
         }
 
-        .sidebar .icon:hover {
+        .sidebar .icon.active {
+            font-size: 32px; /* Larger size for active icon */
+            color: #FFD700; /* Gold color to indicate active */
+            transform: scale(1.2);
+            box-shadow: 0 0 20px #FFD700, 0 0 40px #FFD700;
+        }
+
+        .sidebar .icon:hover:not(.active) {
             transform: scale(1.3) rotate(15deg);
             box-shadow: 0 0 15px #F5EBDC, 0 0 30px #F5EBDC;
         }
@@ -150,13 +157,14 @@
             text-shadow: 0 0 5px rgba(214, 35, 0, 0.2);
         }
 
-        /* OTP Confirmation Container */
+        /* OTP Container */
         .otp-container {
             display: flex;
             gap: 40px;
         }
 
-        .otp-box {
+        /* Other Users List */
+        .other-users {
             background: #F5EBDC; /* Cream background */
             border-radius: 25px;
             padding: 30px;
@@ -165,12 +173,12 @@
             flex: 1;
         }
 
-        .otp-box:hover {
+        .other-users:hover {
             transform: translateY(-8px);
             box-shadow: 0 16px 60px rgba(0, 0, 0, 0.15);
         }
 
-        .otp-box h2 {
+        .other-users h2 {
             font-size: 28px;
             font-weight: 700;
             margin-bottom: 20px;
@@ -178,17 +186,15 @@
             text-shadow: none; /* Remove blur effect */
         }
 
-        /* Pending OTP Grid */
-        .otp-grid {
+        .other-users .user-list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            grid-template-columns: 1fr;
             gap: 15px;
         }
 
-        .otp-grid .otp {
+        .other-users .user-item {
             background: linear-gradient(145deg, #FF8732, #D62300); /* Orange to red gradient */
             padding: 15px;
-            text-align: center;
             border-radius: 12px;
             font-size: 16px;
             font-weight: 600;
@@ -197,9 +203,12 @@
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .otp-grid .otp::before {
+        .other-users .user-item::before {
             content: '';
             position: absolute;
             top: -50%;
@@ -216,7 +225,7 @@
             100% { transform: rotate(360deg); }
         }
 
-        .otp-grid .otp:hover {
+        .other-users .user-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             color: #fff;
@@ -312,13 +321,13 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
-        /* Animation for OTP codes */
+        /* Animation for user items */
         @keyframes fadeIn {
             from { opacity: 0; transform: scale(0.9); }
             to { opacity: 1; transform: scale(1); }
         }
 
-        .otp-grid .otp {
+        .other-users .user-item {
             animation: fadeIn 0.5s ease forwards;
         }
     </style>
@@ -331,7 +340,7 @@
         <div class="icon"><i class="fas fa-home"></i></div>
         <div class="icon"><i class="fas fa-chart-line"></i></div>
         <div class="icon"><i class="fas fa-calendar-alt"></i></div>
-        <div class="icon"><i class="fas fa-cog"></i></div>
+        <div class="icon active"><i class="fas fa-lock"></i></div> <!-- OTP Confirmation Icon as Active -->
         <div class="profile">
             <img src="https://djnpwlvjfuoc1.cloudfront.net/u4yjht%2Fpreview%2F65201182%2Fmain_large.png?response-content-disposition=inline%3Bfilename%3D%22main_large.png%22%3B&response-content-type=image%2Fpng&Expires=1741640250&Signature=N~NF8vcdiYWive9fgmbpPWnQJAFfwc4KHHpEalLmDwCdH~RtoZGyg2-bZL-Z38JFvbVkwnxDoh~n-bHP6gXkMrimtOcquwtWOa68-l1KNjhF~t~xd7cikhTvLRztiPjJ03ID0OnFO4GLoQ5eiV9uISXgBPDrp4B75vNKlWr1KJsrZhbQ3HbAfC1XJcE2s9yLUX~yUoaCWYWdY1odMquBvyiazMyMELxa1YF4B2wj2o7upw6EzYM5FqH2baKsIaTMQvFghy65LBI0ghblPc-61DGAd2jrsD7UX2ulXxAqwLJwohR66eurzaZfNrPNk5wPZmRi761d~TrYxE69gag8Lw__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ" alt="Profile">
         </div>
@@ -353,16 +362,25 @@
 
         <!-- OTP Confirmation -->
         <div class="otp-container">
-            <!-- Pending OTPs -->
-            <div class="otp-box">
-                <h2>Pending</h2>
-                <div class="otp-grid">
-                    <div class="otp">4839</div>
-                    <div class="otp">9201</div>
-                    <div class="otp">3056</div>
-                    <div class="otp">7439</div>
-                    <div class="otp">1284</div>
-                    <div class="otp">6598</div>
+            <!-- Other Users List -->
+            <div class="other-users">
+                <h2>Other Users</h2>
+                <div class="user-list">
+                    <div class="user-item">
+                        <span>Juan Perez</span>
+                        <span>OTP: 482739</span>
+                        <span>Price: $45.20</span>
+                    </div>
+                    <div class="user-item">
+                        <span>Amina Khan</span>
+                        <span>OTP: 917305</span>
+                        <span>Price: $67.90</span>
+                    </div>
+                    <div class="user-item">
+                        <span>Luca Rossi</span>
+                        <span>OTP: 364821</span>
+                        <span>Price: $23.50</span>
+                    </div>
                 </div>
             </div>
 
@@ -375,10 +393,10 @@
                         <p>ID: 483920105</p>
                     </div>
                 </div>
-                <div class="otp-code">4839</div>
-                <p class="instructions">To accept cash transfers, the rider must enter this 4-digit code in their app before you can accept the transaction.</p>
+                <div class="otp-code">739481</div>
+                <p class="instructions">To accept cash transfers, the rider must enter this 6-digit code in their app before you can accept the transaction.</p>
                 <p class="amount-label">The amount you should receive:</p>
-                <p class="amount">$72.50</p>
+                <p class="amount">$89.75</p>
                 <button class="accept-btn">Accept Cash Transfer</button>
             </div>
         </div>
