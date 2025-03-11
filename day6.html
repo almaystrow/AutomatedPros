@@ -36,18 +36,15 @@
         <!-- Popup Modal -->
         <div id="popupModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
             <div class="bg-white p-6 rounded-xl shadow-2xl relative w-full max-w-sm">
-                <!-- Close Button -->
                 <button id="closePopup" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
-                <!-- Popup Content -->
                 <h3 class="text-lg font-semibold text-gray-800 mb-2">Cancel Item</h3>
                 <p class="text-gray-600 mb-4">Are you sure to cancel this item?</p>
                 <p class="text-gray-800 font-medium">Tasty Burger</p>
                 <p class="text-gray-500 text-sm">Size: Small, Cheese: A little bit, Salty: No</p>
-                <!-- Cancel Button -->
                 <button id="cancelItem" class="mt-4 w-full py-2 bg-red-500 text-white rounded-full hover:bg-red-600 focus:outline-none">
                     CANCEL ITEMS
                 </button>
@@ -78,6 +75,35 @@
             <div class="border border-green-400 p-2 text-center rounded-md">C6</div>
             <div class="border border-green-400 p-2 text-center rounded-md">C7</div>
             <div class="border border-green-400 p-2 text-center rounded-md">D1</div>
+        </div>
+
+        <!-- Popular Items Section -->
+        <h2 class="text-2xl font-bold mt-8 mb-4 text-gray-800">Popular Items</h2>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="bg-gray-50 p-4 rounded-xl shadow-md">
+                <h3 class="text-xl font-bold text-gray-800">Double Chicken Burger + French fries</h3>
+                <p class="mt-2 text-gray-500 text-sm">Order: 88</p>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-xl shadow-md">
+                <h3 class="text-xl font-bold text-gray-800">Mexican Burger</h3>
+                <p class="mt-2 text-gray-500 text-sm">Order: 74</p>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-xl shadow-md">
+                <h3 class="text-xl font-bold text-gray-800">Double Cheese</h3>
+                <p class="mt-2 text-gray-500 text-sm">Order: 56</p>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-xl shadow-md">
+                <h3 class="text-xl font-bold text-gray-800">Double Spicy Bean Burger</h3>
+                <p class="mt-2 text-gray-500 text-sm">Order: 41</p>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-xl shadow-md">
+                <h3 class="text-xl font-bold text-gray-800">Potato Gems</h3>
+                <p class="mt-2 text-gray-500 text-sm">Order: 38</p>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-xl shadow-md">
+                <h3 class="text-xl font-bold text-gray-800">Beer</h3>
+                <p class="mt-2 text-gray-500 text-sm">Order: 32</p>
+            </div>
         </div>
     </div>
 
