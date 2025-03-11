@@ -66,33 +66,42 @@
         <div id="current-time" class="text-xl font-semibold text-gray-800"></div>
     </div>
     
-    <div class="flex mt-6">
-        <aside class="sidebar bg-white p-4 rounded-lg shadow-md flex flex-col items-center space-y-4">
-            <!-- Home Icon (Active) -->
-            <button class="sidebar-button active-button">
-                <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v18m9-9H3"></path>
-                </svg>
-            </button>
-            
-            <!-- Profile Image Icon -->
-            <button class="sidebar-button">
-                <img src="https://via.placeholder.com/40x40.png?text=Profile" alt="Profile" class="w-6 h-6 rounded-full">
-            </button>
-
-            <!-- Notification Icon -->
-            <button class="sidebar-button">
+  <!-- Main Container with Sidebar and Content -->
+    <div class="flex mt-20"> <!-- Adjusted offset for header -->
+        <!-- Sidebar -->
+        <aside class="sidebar w-16 bg-white p-4 rounded-lg shadow-md flex flex-col items-center space-y-6 fixed h-[calc(100vh-6rem)] top-20">
+            <button class="btn-hover bg-gray-100 p-2 rounded-full">
                 <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.553 5.151A2 2 0 0116.452 22H7.548a2 2 0 01-1.447-2.849L5 17h5m3-4V6a4 4 0 10-8 0v7m4 0H8"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
-
-            <!-- OTP Icon -->
-            <button class="sidebar-button">
+            <button class="btn-hover bg-red-500 p-2 rounded-full">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16h6"></path>
+                </svg>
+            </button>
+            <button class="btn-hover bg-gray-100 p-2 rounded-full">
                 <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9h8M8 13h8M8 17h8M5 7V5a2 2 0 012-2h10a2 2 0 012 2v2"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                 </svg>
             </button>
+            <button class="btn-hover bg-gray-100 p-2 rounded-full">
+                <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"></path>
+                </svg>
+            </button>
+            <!-- Added margin-top to push profile and notifications down -->
+            <div class="mt-20 flex flex-col items-center">
+                <div class="relative">
+                    <img src="https://via.placeholder.com/40x40.png?text=User" alt="User Profile" class="w-10 h-10 rounded-full">
+                    <span class="absolute bottom-0 right-0 bg-red-500 h-3 w-3 rounded-full border-2 border-white"></span>
+                </div>
+                <button class="btn-hover bg-gray-100 p-2 rounded-full mt-2">
+                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                    </svg>
+                </button>
+            </div>
         </aside>
         
         <div class="main-content ml-14 flex-1 bg-white p-6 rounded-lg shadow-md overflow-y-auto">
