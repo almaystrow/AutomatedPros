@@ -20,36 +20,45 @@
             background-color: #f9fafb; /* Light gray background */
             padding: 1rem; /* Inner padding */
         }
+        /* Custom header background with gradient */
+        .header {
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+        }
+        /* Hover effect for fullscreen button */
+        .fullscreen-btn:hover {
+            background-color: #d1d5db; /* Tailwind gray-300 */
+            transition: background-color 0.3s ease;
+        }
     </style>
 </head>
 <body class="bg-gray-100 p-4 flex flex-col min-h-screen">
     <!-- Sticky Header -->
-    <header class="bg-white p-4 rounded-lg shadow-md mb-4 fixed top-0 left-0 right-0 z-10">
+    <header class="header p-4 rounded-lg shadow-lg mb-4 fixed top-0 left-0 right-0 z-10">
         <!-- Top Row: Icon, Order Status, Burger King Text, Fullscreen -->
-        <div class="flex justify-between items-center mb-2">
+        <div class="flex justify-between items-center mb-3">
             <div class="flex flex-col space-y-1">
                 <div class="flex items-center space-x-3">
                     <!-- Shopping Cart Icon -->
-                    <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-7 h-7 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
                     </svg>
-                    <h1 class="text-xl font-bold text-gray-800">Order Status</h1>
+                    <h1 class="text-2xl font-extrabold text-gray-900">Order Status</h1>
                 </div>
-                <h2 class="text-lg font-semibold text-gray-800">Burger King</h2>
+                <h2 class="text-lg font-medium text-gray-700 pl-10">Burger King</h2>
             </div>
             <!-- Fullscreen Button -->
-            <button class="flex items-center space-x-1 bg-gray-200 text-gray-800 px-3 py-1 rounded-lg">
+            <button class="fullscreen-btn flex items-center space-x-1 bg-gray-100 text-gray-700 px-4 py-2 rounded-lg shadow-sm">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path>
                 </svg>
-                <span>Fullscreen</span>
+                <span class="text-sm font-medium">Fullscreen</span>
             </button>
         </div>
         <!-- Bottom Row: Burger King Logo, Time -->
         <div class="flex justify-between items-center">
             <div class="flex items-center space-x-3">
                 <!-- Burger King Logo -->
-                <img src="https://via.placeholder.com/40x40.png?text=BK" alt="Burger King Logo" class="w-10 h-10">
+                <img src="https://via.placeholder.com/40x40.png?text=BK" alt="Burger King Logo" class="w-10 h-10 rounded-full">
             </div>
             <!-- Current Time -->
             <div id="current-time" class="text-xl font-semibold text-gray-800"></div>
@@ -57,26 +66,26 @@
     </header>
 
     <!-- Main Container with Sidebar and Content -->
-    <div class="flex mt-24"> <!-- Adjusted offset for slightly shorter header -->
+    <div class="flex mt-24"> <!-- Adjusted offset for header -->
         <!-- Sidebar -->
-        <aside class="sidebar w-16 bg-white p-4 rounded-lg shadow-md flex flex-col items-center space-y-6 fixed h-[calc(100vh-6rem)] top-24">
-            <button class="bg-gray-200 p-2 rounded-full">
-                <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <aside class="sidebar w-16 bg-white p-4 rounded-lg shadow-lg flex flex-col items-center space-y-6 fixed h-[calc(100vh-6rem)] top-24">
+            <button class="bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition">
+                <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
-            <button class="bg-red-500 p-2 rounded-full">
+            <button class="bg-red-500 p-2 rounded-full hover:bg-red-600 transition">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16h6"></path>
                 </svg>
             </button>
-            <button class="bg-gray-200 p-2 rounded-full">
-                <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button class="bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition">
+                <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                 </svg>
             </button>
-            <button class="bg-gray-200 p-2 rounded-full">
-                <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button class="bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition">
+                <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"></path>
                 </svg>
             </button>
@@ -86,8 +95,8 @@
                     <img src="https://via.placeholder.com/40x40.png?text=User" alt="User Profile" class="w-10 h-10 rounded-full">
                     <span class="absolute bottom-0 right-0 bg-red-500 h-3 w-3 rounded-full border-2 border-white"></span>
                 </div>
-                <button class="bg-gray-200 p-2 rounded-full mt-2">
-                    <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button class="bg-gray-100 p-2 rounded-full mt-2 hover:bg-gray-200 transition">
+                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
                     </svg>
                 </button>
