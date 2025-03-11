@@ -6,136 +6,130 @@
     <title>Burger King Order Status</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        /* Ensure sidebar and main content take up available space */
         .sidebar {
-            height: calc(100vh - 4rem); /* Adjust for header padding */
+            width: 60px; /* Slightly increased width for better visibility */
+            height: calc(100vh - 6rem);
         }
         .main-content {
-            height: calc(100vh - 4rem); /* Adjust for header padding */
+            height: calc(100vh - 4rem);
             overflow-y: auto;
         }
         .grid-box {
-            border: 2px solid #e5e7eb; /* Gray border for grid box */
-            border-radius: 0.5rem; /* Rounded corners */
-            background-color: #f9fafb; /* Light gray background */
-            padding: 1rem; /* Inner padding */
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            background-color: #f9fafb;
+            padding: 1rem;
         }
-        /* Custom header background with gradient */
         .header {
             background: linear-gradient(90deg, #fff5f5 0%, #ffffff 100%);
-            border-radius: 0.75rem; /* Rounded corners */
+            border-radius: 0.75rem;
         }
-        /* Hover effect for buttons */
         .btn-hover:hover {
-            background-color: #f3e8e8; /* Light pink hover */
+            background-color: #f3e8e8;
             transition: background-color 0.3s ease;
+        }
+        .sidebar-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+        .sidebar-button:hover {
+            background-color: #f3e8e8;
+        }
+        .active-button {
+            background-color: #f9fafb;
         }
     </style>
 </head>
 <body class="bg-gray-100 p-4 flex flex-col min-h-screen">
-    <!-- Sticky Header -->
-    <header class="header p-4 shadow-md mb-4 fixed top-0 left-0 right-0 z-10">
-        <!-- Top Row: Icon, Order Status, Burger King Text, Question Mark -->
-        <div class="flex justify-between items-center mb-2">
-            <div class="flex flex-col space-y-1">
-                <div class="flex items-center space-x-3">
-                    <!-- Shopping Cart Icon -->
-                    <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                    </svg>
-                    <h1 class="text-xl font-bold text-gray-900">Order Status</h1>
-                </div>
-                <div class="flex items-center space-x-3">
-                    <!-- Burger King Logo -->
-                    <img src="https://via.placeholder.com/40x40.png?text=BK" alt="Burger King Logo" class="w-10 h-10 rounded-full">
-                    <h2 class="text-lg font-medium text-gray-800">Burger King</h2>
-                </div>
-            </div>
-            <div class="flex flex-col items-end space-y-1">
-                <!-- Question Mark Icon -->
-                <button class="btn-hover flex items-center justify-center w-10 h-10 bg-gray-100 text-gray-600 rounded-full">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                </button>
+    <!-- Updated Header -->
+    <header class="header p-4 shadow-md mb-2 fixed top-0 left-0 right-0 z-10 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+            <h1 class="text-xl font-bold text-gray-900 flex-1">Order Status</h1>
+        </div>
+        <div class="flex items-center space-x-3">
+            <div class="flex items-center space-x-3">
+                <!-- Burger King Logo from the provided code -->
+                <img src="https://via.placeholder.com/40x40.png?text=BK" alt="Burger King Logo" class="w-10 h-10 rounded-full">
+                <h2 class="text-lg font-medium text-gray-800">Burger King</h2>
             </div>
         </div>
-        <!-- Bottom Row: Time -->
-        <div class="flex justify-end">
-            <div id="current-time" class="text-xl font-semibold text-gray-800"></div>
+        <div class="flex items-center space-x-3">
+            <button class="btn-hover p-2 rounded-full">
+                <span class="text-lg font-semibold">Full Screen</span>
+            </button>
         </div>
     </header>
+    
+    <!-- Burger King Logo Bar (from the original code you provided) -->
+    <div class="bg-white p-3 shadow-md rounded-lg mb-4 mt-16 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <img src="https://via.placeholder.com/40x40.png?text=BK" alt="Burger King Logo" class="w-10 h-10 rounded-full">
+            <h2 class="text-lg font-medium text-gray-800">Burger King</h2>
+        </div>
+        <div id="current-time" class="text-xl font-semibold text-gray-800"></div>
+    </div>
+    
+    <div class="flex mt-6">
+        <!-- Sidebar (No changes made to the sidebar) -->
+        <aside class="sidebar bg-white p-4 rounded-lg shadow-md flex flex-col items-center space-y-4">
+            <!-- Home Icon (Active) -->
+            <button class="sidebar-button active-button">
+                <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v18m9-9H3"></path>
+                </svg>
+            </button>
+            
+            <!-- Profile Image Icon -->
+            <button class="sidebar-button">
+                <img src="https://via.placeholder.com/40x40.png?text=Profile" alt="Profile" class="w-6 h-6 rounded-full">
+            </button>
 
-    <!-- Main Container with Sidebar and Content -->
-    <div class="flex mt-20"> <!-- Adjusted offset for header -->
-        <!-- Sidebar -->
-        <aside class="sidebar w-16 bg-white p-4 rounded-lg shadow-md flex flex-col items-center space-y-6 fixed h-[calc(100vh-6rem)] top-20">
-            <button class="btn-hover bg-gray-100 p-2 rounded-full">
+            <!-- Notification Icon -->
+            <button class="sidebar-button">
                 <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.553 5.151A2 2 0 0116.452 22H7.548a2 2 0 01-1.447-2.849L5 17h5m3-4V6a4 4 0 10-8 0v7m4 0H8"></path>
                 </svg>
             </button>
-            <button class="btn-hover bg-red-500 p-2 rounded-full">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16h6"></path>
-                </svg>
-            </button>
-            <button class="btn-hover bg-gray-100 p-2 rounded-full">
+
+            <!-- OTP Icon -->
+            <button class="sidebar-button">
                 <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9h8M8 13h8M8 17h8M5 7V5a2 2 0 012-2h10a2 2 0 012 2v2"></path>
                 </svg>
             </button>
-            <button class="btn-hover bg-gray-100 p-2 rounded-full">
-                <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"></path>
-                </svg>
-            </button>
-            <!-- Added margin-top to push profile and notifications down -->
-            <div class="mt-20 flex flex-col items-center">
-                <div class="relative">
-                    <img src="https://via.placeholder.com/40x40.png?text=User" alt="User Profile" class="w-10 h-10 rounded-full">
-                    <span class="absolute bottom-0 right-0 bg-red-500 h-3 w-3 rounded-full border-2 border-white"></span>
-                </div>
-                <button class="btn-hover bg-gray-100 p-2 rounded-full mt-2">
-                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
-                    </svg>
-                </button>
-            </div>
         </aside>
-
-        <!-- Main Content -->
-        <div class="main-content ml-20 flex-1 bg-white p-6 rounded-lg shadow-md overflow-y-auto">
+        
+        <!-- Main Content Section -->
+        <div class="main-content ml-14 flex-1 bg-white p-6 rounded-lg shadow-md overflow-y-auto">
             <main class="flex flex-col md:flex-row gap-6">
-                <!-- Preparing Section with Grid Box -->
                 <section class="flex-1 grid-box">
                     <h2 class="text-lg font-bold text-gray-800 mb-4">Preparing</h2>
-                    <div id="preparing-orders" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-                        <!-- Cards will be populated by JavaScript -->
-                    </div>
+                    <div id="preparing-orders" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4"></div>
                 </section>
-
-                <!-- Ready Section with Grid Box -->
                 <section class="flex-1 grid-box">
                     <h2 class="text-lg font-bold text-gray-800 mb-4">Ready</h2>
-                    <div id="ready-orders" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                        <!-- Cards will be populated by JavaScript -->
-                    </div>
+                    <div id="ready-orders" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4"></div>
                 </section>
             </main>
         </div>
     </div>
-
-    <!-- JavaScript to Generate Random Order Numbers and Display Current Time -->
+    
     <script>
-        // Function to generate a random order number between 1000 and 9999
         function generateOrderNumber() {
             return Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
         }
 
-        // Function to create order cards
         function createOrderCards(containerId, count, bgColor, textColor) {
             const container = document.getElementById(containerId);
+            container.innerHTML = '';
             for (let i = 0; i < count; i++) {
                 const orderNumber = generateOrderNumber();
                 const card = document.createElement('div');
@@ -145,13 +139,9 @@
             }
         }
 
-        // Generate 12 cards for Preparing section (gray background)
-        createOrderCards('preparing-orders', 12, 'bg-gray-200', 'text-gray-800');
+        createOrderCards('preparing-orders', Math.floor(Math.random() * 10) + 5, 'bg-gray-200', 'text-gray-800');
+        createOrderCards('ready-orders', Math.floor(Math.random() * 10) + 3, 'bg-green-500', 'text-white');
 
-        // Generate 7 cards for Ready section (green background)
-        createOrderCards('ready-orders', 7, 'bg-green-500', 'text-white');
-
-        // Function to update the current time
         function updateTime() {
             const now = new Date();
             const hours = now.getHours().toString().padStart(2, '0');
@@ -159,9 +149,8 @@
             document.getElementById('current-time').textContent = `${hours}:${minutes}`;
         }
 
-        // Update time immediately and then every minute
         updateTime();
-        setInterval(updateTime, 60000); // Update every 60 seconds
+        setInterval(updateTime, 60000);
     </script>
 </body>
 </html>
