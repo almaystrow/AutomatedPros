@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger King Order Status</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Ensure sidebar and main content take up available space */
+        .sidebar {
+            height: calc(100vh - 4rem); /* Adjust for header padding */
+        }
+        .main-content {
+            height: calc(100vh - 4rem); /* Adjust for header padding */
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 flex flex-col min-h-screen">
+    <!-- Sticky Header -->
+    <header class="flex justify-between items-center bg-white p-4 rounded-lg shadow-md mb-4 fixed top-0 left-0 right-0 z-10">
+        <div class="flex items-center space-x-3">
+            <img src="https://via.placeholder.com/40x40.png?text=BK" alt="Burger King Logo" class="w-10 h-10">
+            <h1 class="text-xl font-bold text-gray-800">Order Status</h1>
+        </div>
+        <div id="current-time" class="text-xl font-semibold text-gray-800">15:03</div>
+    </header>
+
+    <!-- Main Container with Sidebar and Content -->
+    <div class="flex mt-20"> <!-- Offset for sticky header -->
+        <!-- Sidebar -->
+        <aside class="sidebar w-16 bg-white p-4 rounded-lg shadow-md flex flex-col items-center space-y-6 fixed h-[calc(100vh-6rem)] top-20">
+            <button class="bg-gray-200 p-2 rounded-full">
+                <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+            <button class="bg-red-500 p-2 rounded-full">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16h6"></path>
+                </svg>
+            </button>
+            <button class="bg-gray-200 p-2 rounded-full">
+                <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+            </button>
+            <button class="bg-gray-200 p-2 rounded-full">
+                <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"></path>
+                </svg>
+            </button>
+            <div class="mt-auto flex flex-col items-center">
+                <div class="relative">
+                    <img src="https://via.placeholder.com/40x40.png?text=User" alt="User Profile" class="w-10 h-10 rounded-full">
+                    <span class="absolute bottom-0 right-0 bg-red-500 h-3 w-3 rounded-full border-2 border-white"></span>
+                </div>
+                <button class="bg-gray-200 p-2 rounded-full mt-2">
+                    <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                    </svg>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content ml-20 flex-1 bg-white p-6 rounded-lg shadow-md overflow-y-auto">
+            <main class="flex flex-col md:flex-row gap-6">
+                <!-- Preparing Section -->
+                <section class="flex-1">
+                    <h2 class="text-lg font-bold text-gray-800 mb-4">Preparing</h2>
+                    <div id="preparing-orders" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                        <!-- Cards will be populated by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Ready Section -->
+                <section class="flex-1">
+                    <h2 class="text-lg font-bold text-gray-800 mb-4">Ready</h2>
+                    <div id="ready-orders" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <!-- Cards will be populated by JavaScript -->
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- JavaScript to Generate Random Order Numbers and Display Current Time -->
+    <script>
+        // Function to generate a random order number between 1000 and 9999
+        function generateOrderNumber() {
+            return Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
+        }
+
+        // Function to create order cards
+        function createOrderCards(containerId, count, bgColor, textColor) {
+            const container = document.getElementById(containerId);
+            for (let i = 0; i < count; i++) {
+                const orderNumber = generateOrderNumber();
+                const card = document.createElement('div');
+                card.className = `text-center py-4 rounded-lg font-semibold ${bgColor} ${textColor}`;
+                card.textContent = orderNumber;
+                container.appendChild(card);
+            }
+        }
+
+        // Generate 12 cards for Preparing section (gray background)
+        createOrderCards('preparing-orders', 12, 'bg-gray-200', 'text-gray-800');
+
+        // Generate 7 cards for Ready section (green background)
+        createOrderCards('ready-orders', 7, 'bg-green-500', 'text-white');
+
+        // Function to update the current time
+        function updateTime() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            document.getElementById('current-time').textContent = `${hours}:${minutes}`;
+        }
+
+        // Update time immediately and then every minute
+        updateTime();
+        setInterval(updateTime, 60000); // Update every 60 seconds
+    </script>
+</body>
+</html>
