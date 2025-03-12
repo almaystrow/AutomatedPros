@@ -16,32 +16,9 @@
             </div>
             <div class="flex-1 overflow-y-auto">
                 <div class="p-4">
-                    <h2 class="text-sm font-semibold mb-2">PENDING <span id="pending-count" class="bg-red-500 text-white rounded-full px-2 py-1 text-xs">3</span></h2>
+                    <h2 class="text-sm font-semibold mb-2">PENDING <span id="pending-count" class="bg-red-500 text-white rounded-full px-2 py-1 text-xs">0</span></h2>
                     <ul id="pending-list">
-                        <li class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer" data-id="1" data-name="Nasser Alsubai" data-otp="" data-amount="86.60">
-                            <img src="https://via.placeholder.com/40" alt="Profile" class="w-10 h-10 rounded-full mr-3">
-                            <div>
-                                <p class="text-sm font-medium">NASSER ALSUBAI</p>
-                                <p class="text-xs text-gray-500">9 Feb 2024 - 10:24</p>
-                            </div>
-                            <span class="ml-auto text-red-500 font-semibold otp-display"></span>
-                        </li>
-                        <li class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer" data-id="2" data-name="Nguyen, Shane" data-otp="" data-amount="45.20">
-                            <img src="https://via.placeholder.com/40" alt="Profile" class="w-10 h-10 rounded-full mr-3">
-                            <div>
-                                <p class="text-sm font-medium">NGUYEN, SHANE</p>
-                                <p class="text-xs text-gray-500">9 Feb 2024 - 10:20</p>
-                            </div>
-                            <span class="ml-auto text-red-500 font-semibold otp-display"></span>
-                        </li>
-                        <li class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer" data-id="3" data-name="Flores, Juanita" data-otp="" data-amount="72.50">
-                            <img src="https://via.placeholder.com/40" alt="Profile" class="w-10 h-10 rounded-full mr-3">
-                            <div>
-                                <p class="text-sm font-medium">FLORES, JUANITA</p>
-                                <p class="text-xs text-gray-500">9 Feb 2024 - 10:04</p>
-                            </div>
-                            <span class="ml-auto text-red-500 font-semibold otp-display"></span>
-                        </li>
+                        <!-- Dynamically populated by JavaScript -->
                     </ul>
                 </div>
             </div>
@@ -64,7 +41,7 @@
                     <img src="https://via.placeholder.com/64" alt="Profile" class="w-16 h-16 rounded-full mr-4">
                     <div>
                         <h2 id="rider-name" class="text-lg font-semibold"></h2>
-                        <p class="text-sm text-gray-500">ID: 296571905</p>
+                        <p id="rider-id" class="text-sm text-gray-500"></p>
                     </div>
                 </div>
                 <div class="text-center">
@@ -94,17 +71,78 @@
     </div>
 
     <script>
+        // Arrays for generating random names
+        const firstNames = ['Nasser', 'Shane', 'Juanita', 'Miles', 'Marvin', 'Kristin', 'Arthur', 'Henry', 'Lila', 'Sophie'];
+        const lastNames = ['Alsubai', 'Nguyen', 'Flores', 'Esther', 'Black', 'Cooper', 'Smith', 'Johnson', 'Brown', 'Davis'];
+
         // Generate random 6-digit OTP
         function generateOTP() {
             return Math.floor(100000 + Math.random() * 900000);
         }
 
-        // Initialize OTPs for each rider
-        const riders = document.querySelectorAll('#pending-list li');
-        riders.forEach(rider => {
-            const otp = generateOTP();
-            rider.dataset.otp = otp;
-            rider.querySelector('.otp-display').textContent = otp;
+        // Generate random ID
+        function generateID() {
+            return Math.floor(100000000 + Math.random() * 900000000);
+        }
+
+        // Generate random amount between 10.00 and 150.00
+        function generateAmount() {
+            return (Math.random() * (150 - 10) + 10).toFixed(2);
+        }
+
+        // Generate random date within the last 30 days
+        function generateDate() {
+            const today = new Date();
+            const randomDays = Math.floor(Math.random() * 30);
+            const date = new Date(today);
+            date.setDate(today.getDate() - randomDays);
+            return date.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+        }
+
+        // Generate random time
+        function generateTime() {
+            const hours = Math.floor(Math.random() * 24);
+            const minutes = Math.floor(Math.random() * 60);
+            return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+        }
+
+        // Generate random rider data
+        function generateRider(id) {
+            const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+            const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+            return {
+                id: id,
+                name: `${firstName} ${lastName}`,
+                otp: generateOTP(),
+                amount: generateAmount(),
+                date: generateDate(),
+                time: generateTime(),
+                riderId: generateID()
+            };
+        }
+
+        // Populate pending list with random riders
+        const pendingList = document.getElementById('pending-list');
+        const numberOfRiders = 5; // You can change this to generate more or fewer riders
+        const ridersData = Array.from({ length: numberOfRiders }, (_, index) => generateRider(index + 1));
+
+        ridersData.forEach(rider => {
+            const li = document.createElement('li');
+            li.className = 'flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer';
+            li.dataset.id = rider.id;
+            li.dataset.name = rider.name;
+            li.dataset.otp = rider.otp;
+            li.dataset.amount = rider.amount;
+            li.dataset.riderId = rider.riderId;
+            li.innerHTML = `
+                <img src="https://via.placeholder.com/40" alt="Profile" class="w-10 h-10 rounded-full mr-3">
+                <div>
+                    <p class="text-sm font-medium">${rider.name.toUpperCase()}</p>
+                    <p class="text-xs text-gray-500">${rider.date} - ${rider.time}</p>
+                </div>
+                <span class="ml-auto text-red-500 font-semibold otp-display">${rider.otp}</span>
+            `;
+            pendingList.appendChild(li);
         });
 
         // Update pending count
@@ -115,6 +153,7 @@
 
         // Handle rider selection
         let selectedRider = null;
+        const riders = document.querySelectorAll('#pending-list li');
         riders.forEach(rider => {
             rider.addEventListener('click', () => {
                 if (rider.classList.contains('completed')) return; // Prevent click if completed
@@ -123,6 +162,7 @@
                 const riderDetails = document.getElementById('rider-details');
                 const selectMessage = document.getElementById('select-message');
                 const riderName = document.getElementById('rider-name');
+                const riderId = document.getElementById('rider-id');
                 const riderOtp = document.getElementById('rider-otp');
                 const riderAmount = document.getElementById('rider-amount');
                 const acceptBtn = document.getElementById('accept-btn');
@@ -133,6 +173,7 @@
 
                 // Populate details
                 riderName.textContent = rider.dataset.name;
+                riderId.textContent = `ID: ${rider.dataset.riderId}`;
                 riderOtp.textContent = rider.dataset.otp;
                 riderAmount.textContent = `$${rider.dataset.amount}`;
 
