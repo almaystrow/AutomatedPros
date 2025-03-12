@@ -16,31 +16,32 @@
             </div>
             <div class="flex-1 overflow-y-auto">
                 <div class="p-4">
-                    <h2 class="text-sm font-semibold mb-2">PENDING <span class="bg-red-500 text-white rounded-full px-2 py-1 text-xs">1</span></h2>
-                    <ul>
-                        <li class="flex items-center p-2 hover:bg-gray-100 rounded">
+                    <h2 class="text-sm font-semibold mb-2">PENDING <span id="pending-count" class="bg-red-500 text-white rounded-full px-2 py-1 text-xs">3</span></h2>
+                    <ul id="pending-list">
+                        <li class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer" data-id="1" data-name="Nasser Alsubai" data-otp="" data-amount="86.60">
                             <img src="https://via.placeholder.com/40" alt="Profile" class="w-10 h-10 rounded-full mr-3">
                             <div>
                                 <p class="text-sm font-medium">NASSER ALSUBAI</p>
                                 <p class="text-xs text-gray-500">9 Feb 2024 - 10:24</p>
                             </div>
-                            <span class="ml-auto text-red-500 font-semibold">6951</span>
+                            <span class="ml-auto text-red-500 font-semibold otp-display"></span>
                         </li>
-                        <li class="flex items-center p-2 hover:bg-gray-100 rounded">
+                        <li class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer" data-id="2" data-name="Nguyen, Shane" data-otp="" data-amount="45.20">
                             <img src="https://via.placeholder.com/40" alt="Profile" class="w-10 h-10 rounded-full mr-3">
                             <div>
                                 <p class="text-sm font-medium">NGUYEN, SHANE</p>
                                 <p class="text-xs text-gray-500">9 Feb 2024 - 10:20</p>
                             </div>
+                            <span class="ml-auto text-red-500 font-semibold otp-display"></span>
                         </li>
-                        <li class="flex items-center p-2 hover:bg-gray-100 rounded">
+                        <li class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer" data-id="3" data-name="Flores, Juanita" data-otp="" data-amount="72.50">
                             <img src="https://via.placeholder.com/40" alt="Profile" class="w-10 h-10 rounded-full mr-3">
                             <div>
                                 <p class="text-sm font-medium">FLORES, JUANITA</p>
                                 <p class="text-xs text-gray-500">9 Feb 2024 - 10:04</p>
                             </div>
+                            <span class="ml-auto text-red-500 font-semibold otp-display"></span>
                         </li>
-                        <!-- Add more list items as needed -->
                     </ul>
                 </div>
             </div>
@@ -58,35 +59,131 @@
                 <div></div>
                 <button class="text-sm text-gray-500 hover:text-gray-700">Close</button>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow-md max-w-md mx-auto">
+            <div id="rider-details" class="bg-white p-6 rounded-lg shadow-md max-w-md mx-auto hidden">
                 <div class="flex items-center mb-4">
                     <img src="https://via.placeholder.com/64" alt="Profile" class="w-16 h-16 rounded-full mr-4">
                     <div>
-                        <h2 class="text-lg font-semibold">NASSER ALSUBAI</h2>
+                        <h2 id="rider-name" class="text-lg font-semibold"></h2>
                         <p class="text-sm text-gray-500">ID: 296571905</p>
                     </div>
                 </div>
                 <div class="text-center">
-                    <h3 class="text-2xl font-bold text-gray-700">674951</h3>
+                    <h3 id="rider-otp" class="text-2xl font-bold text-gray-700"></h3>
                     <p class="text-sm text-gray-600 mt-2">The OTP code has been entered correctly. Now, collect the cash and click on the "Accept Cash Transfer" button.</p>
                     <p class="text-sm text-gray-600 mt-4">The amount you should receive:</p>
-                    <p class="text-xl font-semibold">$86.60</p>
-                    <button class="mt-6 bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800">Accept Cash Transfer</button>
+                    <p id="rider-amount" class="text-xl font-semibold"></p>
+                    <button id="accept-btn" class="mt-6 bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800">Accept Cash Transfer</button>
                 </div>
+            </div>
+            <div id="select-message" class="text-center text-gray-600 mt-10">
+                Select a rider to see info
             </div>
         </div>
 
         <!-- Modal -->
-        <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        <div id="confirmation-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
             <div class="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
                 <div class="flex justify-between items-center mb-4">
                     <h3 class="text-lg font-semibold">Collect Confirmation</h3>
-                    <button class="text-gray-500 hover:text-gray-700">✕</button>
+                    <button id="close-modal" class="text-gray-500 hover:text-gray-700">✕</button>
                 </div>
-                <p class="text-sm text-gray-600 mb-4">Do you confirm the receipt of the sum of <span class="font-semibold">$86.60</span> from Nasser Alsubai?</p>
-                <button class="w-full bg-black text-white py-2 rounded hover:bg-gray-800">Confirm</button>
+                <p id="modal-text" class="text-sm text-gray-600 mb-4">Do you confirm the receipt of the sum of <span id="modal-amount" class="font-semibold"></span> from <span id="modal-name"></span>?</p>
+                <button id="confirm-btn" class="w-full bg-black text-white py-2 rounded hover:bg-gray-800">Confirm</button>
             </div>
         </div>
     </div>
+
+    <script>
+        // Generate random 4-digit OTP
+        function generateOTP() {
+            return Math.floor(1000 + Math.random() * 9000);
+        }
+
+        // Initialize OTPs for each rider
+        const riders = document.querySelectorAll('#pending-list li');
+        riders.forEach(rider => {
+            const otp = generateOTP();
+            rider.dataset.otp = otp;
+            rider.querySelector('.otp-display').textContent = otp;
+        });
+
+        // Update pending count
+        function updatePendingCount() {
+            const pendingCount = document.querySelectorAll('#pending-list li:not(.completed)').length;
+            document.getElementById('pending-count').textContent = pendingCount;
+        }
+
+        // Handle rider selection
+        let selectedRider = null;
+        riders.forEach(rider => {
+            rider.addEventListener('click', () => {
+                if (rider.classList.contains('completed')) return; // Skip if already completed
+
+                selectedRider = rider;
+                const riderDetails = document.getElementById('rider-details');
+                const selectMessage = document.getElementById('select-message');
+                const riderName = document.getElementById('rider-name');
+                const riderOtp = document.getElementById('rider-otp');
+                const riderAmount = document.getElementById('rider-amount');
+                const acceptBtn = document.getElementById('accept-btn');
+
+                // Show rider details
+                riderDetails.classList.remove('hidden');
+                selectMessage.classList.add('hidden');
+
+                // Populate details
+                riderName.textContent = rider.dataset.name;
+                riderOtp.textContent = rider.dataset.otp;
+                riderAmount.textContent = `$${rider.dataset.amount}`;
+
+                // Reset accept button state
+                acceptBtn.textContent = 'Accept Cash Transfer';
+                acceptBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
+                acceptBtn.classList.add('bg-black', 'hover:bg-gray-800');
+            });
+        });
+
+        // Handle Accept Cash Transfer button
+        document.getElementById('accept-btn').addEventListener('click', () => {
+            if (!selectedRider) return;
+
+            const modal = document.getElementById('confirmation-modal');
+            const modalAmount = document.getElementById('modal-amount');
+            const modalName = document.getElementById('modal-name');
+
+            modalAmount.textContent = `$${selectedRider.dataset.amount}`;
+            modalName.textContent = selectedRider.dataset.name;
+            modal.classList.remove('hidden');
+        });
+
+        // Close modal
+        document.getElementById('close-modal').addEventListener('click', () => {
+            document.getElementById('confirmation-modal').classList.add('hidden');
+        });
+
+        // Confirm cash transfer
+        document.getElementById('confirm-btn').addEventListener('click', () => {
+            if (!selectedRider) return;
+
+            // Update button to green and change text
+            const acceptBtn = document.getElementById('accept-btn');
+            acceptBtn.textContent = 'Cash Transfer Confirmed';
+            acceptBtn.classList.remove('bg-black', 'hover:bg-gray-800');
+            acceptBtn.classList.add('bg-green-500', 'hover:bg-green-600');
+
+            // Mark rider as completed and remove OTP
+            selectedRider.classList.add('completed');
+            selectedRider.querySelector('.otp-display').textContent = '';
+
+            // Update pending count
+            updatePendingCount();
+
+            // Hide modal
+            document.getElementById('confirmation-modal').classList.add('hidden');
+        });
+
+        // Initial pending count
+        updatePendingCount();
+    </script>
 </body>
 </html>
