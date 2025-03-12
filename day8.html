@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Confirmation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="w-64 bg-white shadow-md flex flex-col">
+            <div class="p-4 flex items-center">
+                <img src="https://via.placeholder.com/24" alt="Logo" class="mr-2">
+                <h1 class="text-xl font-bold">OTP Confirmation</h1>
+            </div>
+            <div class="flex-1 overflow-y-auto">
+                <div class="p-4">
+                    <h2 class="text-sm font-semibold mb-2">PENDING <span class="bg-red-500 text-white rounded-full px-2 py-1 text-xs">1</span></h2>
+                    <ul>
+                        <li class="flex items-center p-2 hover:bg-gray-100 rounded">
+                            <img src="https://via.placeholder.com/40" alt="Profile" class="w-10 h-10 rounded-full mr-3">
+                            <div>
+                                <p class="text-sm font-medium">NASSER ALSUBAI</p>
+                                <p class="text-xs text-gray-500">9 Feb 2024 - 10:24</p>
+                            </div>
+                            <span class="ml-auto text-red-500 font-semibold">6951</span>
+                        </li>
+                        <li class="flex items-center p-2 hover:bg-gray-100 rounded">
+                            <img src="https://via.placeholder.com/40" alt="Profile" class="w-10 h-10 rounded-full mr-3">
+                            <div>
+                                <p class="text-sm font-medium">NGUYEN, SHANE</p>
+                                <p class="text-xs text-gray-500">9 Feb 2024 - 10:20</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center p-2 hover:bg-gray-100 rounded">
+                            <img src="https://via.placeholder.com/40" alt="Profile" class="w-10 h-10 rounded-full mr-3">
+                            <div>
+                                <p class="text-sm font-medium">FLORES, JUANITA</p>
+                                <p class="text-xs text-gray-500">9 Feb 2024 - 10:04</p>
+                            </div>
+                        </li>
+                        <!-- Add more list items as needed -->
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t">
+                <div class="flex items-center">
+                    <span class="text-red-500 mr-2">1</span>
+                    <p class="text-sm">Notifications</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-6 relative">
+            <div class="flex justify-between items-center mb-4">
+                <div></div>
+                <button class="text-sm text-gray-500 hover:text-gray-700">Close</button>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md max-w-md mx-auto">
+                <div class="flex items-center mb-4">
+                    <img src="https://via.placeholder.com/64" alt="Profile" class="w-16 h-16 rounded-full mr-4">
+                    <div>
+                        <h2 class="text-lg font-semibold">NASSER ALSUBAI</h2>
+                        <p class="text-sm text-gray-500">ID: 296571905</p>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold text-gray-700">674951</h3>
+                    <p class="text-sm text-gray-600 mt-2">The OTP code has been entered correctly. Now, collect the cash and click on the "Accept Cash Transfer" button.</p>
+                    <p class="text-sm text-gray-600 mt-4">The amount you should receive:</p>
+                    <p class="text-xl font-semibold">$86.60</p>
+                    <button class="mt-6 bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800">Accept Cash Transfer</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <div class="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-semibold">Collect Confirmation</h3>
+                    <button class="text-gray-500 hover:text-gray-700">✕</button>
+                </div>
+                <p class="text-sm text-gray-600 mb-4">Do you confirm the receipt of the sum of <span class="font-semibold">$86.60</span> from Nasser Alsubai?</p>
+                <button class="w-full bg-black text-white py-2 rounded hover:bg-gray-800">Confirm</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
