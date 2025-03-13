@@ -64,6 +64,30 @@
             font-size: 10px;
             font-weight: bold;
         }
+        #rider-details {
+            padding: 2rem; /* Increased padding for more space */
+            width: 100%; /* Take the full width of the parent */
+        }
+        #rider-details h2 {
+            font-size: 1.75rem; /* Larger rider name */
+        }
+        #rider-details p {
+            font-size: 1.125rem; /* Larger paragraph text */
+        }
+        #rider-details #rider-otp {
+            font-size: 2.5rem; /* Larger OTP */
+        }
+        #rider-details #rider-amount {
+            font-size: 1.75rem; /* Larger amount */
+        }
+        #rider-details img {
+            width: 96px; /* Larger profile image */
+            height: 96px;
+        }
+        #rider-details button {
+            padding: 0.75rem 2rem; /* Larger button */
+            font-size: 1.125rem;
+        }
     </style>
 </head>
 <body class="bg-gray-100 font-sans">
@@ -123,24 +147,24 @@
                     </ul>
                 </div>
                 <!-- Rider Details on the Right -->
-                <div class="w-3/4 pl-4">
-                    <div id="rider-details" class="bg-white p-6 rounded-lg shadow-md max-w-md hidden">
-                        <div class="flex items-center mb-4">
-                            <img id="rider-profile-img" src="" alt="Profile" class="w-16 h-16 rounded-full mr-4">
+                <div class="w-3/4 pl-4 flex justify-center items-center">
+                    <div id="rider-details" class="bg-white rounded-lg shadow-md hidden">
+                        <div class="flex items-center mb-6">
+                            <img id="rider-profile-img" src="" alt="Profile" class="rounded-full mr-6">
                             <div>
-                                <h2 id="rider-name" class="text-lg font-semibold"></h2>
-                                <p id="rider-id" class="text-sm text-gray-500"></p>
+                                <h2 id="rider-name" class="font-semibold"></h2>
+                                <p id="rider-id" class="text-gray-500"></p>
                             </div>
                         </div>
                         <div class="text-center">
-                            <h3 id="rider-otp" class="text-2xl font-bold text-gray-700"></h3>
-                            <p class="text-sm text-gray-600 mt-2">The OTP code has been entered correctly. Now, collect the cash and click on the "Accept Cash Transfer" button.</p>
-                            <p class="text-sm text-gray-600 mt-4">The amount you should receive:</p>
-                            <p id="rider-amount" class="text-xl font-semibold"></p>
-                            <button id="accept-btn" class="mt-6 bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800">Accept Cash Transfer</button>
+                            <h3 id="rider-otp" class="font-bold text-gray-700"></h3>
+                            <p class="text-gray-600 mt-3">The OTP code has been entered correctly. Now, collect the cash and click on the "Accept Cash Transfer" button.</p>
+                            <p class="text-gray-600 mt-6">The amount you should receive:</p>
+                            <p id="rider-amount" class="font-semibold"></p>
+                            <button id="accept-btn" class="mt-8 bg-black text-white rounded-full hover:bg-gray-800">Accept Cash Transfer</button>
                         </div>
                     </div>
-                    <div id="select-message" class="text-center text-gray-600 mt-10">
+                    <div id="select-message" class="text-center text-gray-600 text-lg">
                         Select a rider to see info
                     </div>
                 </div>
