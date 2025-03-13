@@ -141,7 +141,7 @@
                     <h3 class="text-lg font-semibold">Collect Confirmation</h3>
                     <button id="close-modal" class="text-gray-500 hover:text-gray-700">✕</button>
                 </div>
-                <p id="modal-text" class="text-sm text-gray-600 mb-4">Do you confirm the receipt of the sum of <span id="modal-amount" class="font-semibold"></span> from <span id="modal-name"></span>?</p>
+                <p id="modal-text" class="text-sm text-gray-600 mb-4">Do you confirm the receipt of the sum of <span id="modal-amount" class="font-semibold"></span> from <span id="modal-name"></span> with OTP <span id="modal-otp" class="font-semibold"></span>?</p>
                 <button id="confirm-btn" class="w-full bg-black text-white py-2 rounded hover:bg-gray-800">Confirm</button>
             </div>
         </div>
@@ -154,7 +154,7 @@
 
         // Generate random 6-digit OTP
         function generateOTP() {
-            return Math.floor(100000 + Math.random() * 900000);
+            return Math.floor(100000 + Math.random() * 900000).toString().padStart(6, '0');
         }
 
         // Generate random ID
@@ -289,9 +289,11 @@
             const modal = document.getElementById('confirmation-modal');
             const modalAmount = document.getElementById('modal-amount');
             const modalName = document.getElementById('modal-name');
+            const modalOtp = document.getElementById('modal-otp');
 
             modalAmount.textContent = `$${selectedRider.dataset.amount}`;
             modalName.textContent = selectedRider.dataset.name;
+            modalOtp.textContent = selectedRider.dataset.otp;
             modal.classList.remove('hidden');
         });
 
