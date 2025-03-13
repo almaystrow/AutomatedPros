@@ -8,7 +8,7 @@
     <style>
         .sidebar {
             width: 60px; /* Slightly increased width for better visibility */
-            height: calc(100vh - 6rem);
+            height: calc(100vh - 1rem);
         }
         .main-content {
             height: calc(100vh - 4rem);
@@ -43,24 +43,13 @@
         .active-button {
             background-color: #f9fafb;
         }
-        #pending-list {
-            width: 300px; /* Adjusted width to accommodate rider list */
-            position: absolute;
-            left: 60px; /* Position to the right of the sidebar */
-            top: 0;
-            background: white;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            z-index: 20;
-            padding: 1rem;
-        }
     </style>
 </head>
 <body class="bg-gray-100 font-sans">
     <div class="flex h-screen">
         <!-- Sidebar -->
         <aside class="sidebar bg-white p-4 rounded-lg shadow-md flex flex-col items-center space-y-6">
-            <button id="toggle-pending-list" class="btn-hover bg-gray-100 p-2 rounded-full sidebar-button">
+            <button class="btn-hover bg-gray-100 p-2 rounded-full sidebar-button">
                 <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
@@ -94,16 +83,6 @@
             </div>
         </aside>
 
-        <!-- Pending List (Initially Hidden) -->
-        <div id="pending-list" class="hidden">
-            <div class="p-4">
-                <h2 class="text-sm font-semibold mb-2">PENDING <span id="pending-count" class="bg-red-500 text-white rounded-full px-2 py-1 text-xs">0</span></h2>
-                <ul id="pending-riders">
-                    <!-- Dynamically populated by JavaScript -->
-                </ul>
-            </div>
-        </div>
-
         <!-- Main Content -->
         <div class="main-content ml-16 flex-1 bg-white p-6 rounded-lg shadow-md overflow-y-auto">
             <div class="flex justify-between items-center mb-4">
@@ -129,7 +108,13 @@
                     <button id="accept-btn" class="mt-6 bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800">Accept Cash Transfer</button>
                 </div>
             </div>
-            <div id="select-message" class="text-center text-gray-600 mt-10">
+            <div id="pending-riders-container" class="space-y-4">
+                <h2 class="text-sm font-semibold mb-2">PENDING <span id="pending-count" class="bg-red-500 text-white rounded-full px-2 py-1 text-xs">0</span></h2>
+                <ul id="pending-riders" class="space-y-2">
+                    <!-- Dynamically populated by JavaScript -->
+                </ul>
+            </div>
+            <div id="select-message" class="text-center text-gray-600 mt-10 hidden">
                 Select a rider to see info
             </div>
         </div>
@@ -207,7 +192,7 @@
         }
 
         // Populate pending list with random riders
-        const pendingList = document.getElementById('pending-riders');
+        const pendingRidersList = document.getElementById('pending-riders');
         const numberOfRiders = 5; // You can change this to generate more or fewer riders
         const ridersData = Array.from({ length: numberOfRiders }, (_, index) => generateRider(index + 1));
 
@@ -228,14 +213,7 @@
                 </div>
                 <span class="ml-auto text-red-500 font-semibold otp-display">${rider.otp}</span>
             `;
-            pendingList.appendChild(li);
-        });
-
-        // Toggle pending list visibility
-        const togglePendingListButton = document.getElementById('toggle-pending-list');
-        const pendingListContainer = document.getElementById('pending-list');
-        togglePendingListButton.addEventListener('click', () => {
-            pendingListContainer.classList.toggle('hidden');
+            pendingRidersList.appendChild(li);
         });
 
         // Update pending count
@@ -276,9 +254,6 @@
                 acceptBtn.textContent = 'Accept Cash Transfer';
                 acceptBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
                 acceptBtn.classList.add('bg-black', 'hover:bg-gray-800');
-
-                // Hide the pending list after selection
-                pendingListContainer.classList.add('hidden');
             });
         });
 
