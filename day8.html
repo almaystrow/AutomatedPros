@@ -276,6 +276,9 @@
                 acceptBtn.textContent = 'Accept Cash Transfer';
                 acceptBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
                 acceptBtn.classList.add('bg-black', 'hover:bg-gray-800');
+
+                // Hide the pending list after selection
+                pendingListContainer.classList.add('hidden');
             });
         });
 
