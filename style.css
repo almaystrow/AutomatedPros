@@ -2,23 +2,33 @@
 .frame-41845 * {
   box-sizing: border-box;
 }
+
+/* Add padding to the body */
+body {
+  padding: 20px;
+}
+
+/* Main container spacing */
 .frame-41845 {
   display: flex;
   flex-direction: row;
-  gap: 128px;
-  row-gap: 160px;
+  gap: 100px; /* Adjusted from 128px */
+  row-gap: 120px; /* Adjusted from 160px */
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: center; /* Center the content */
   flex-wrap: wrap;
   align-content: flex-start;
   position: relative;
+  padding: 40px; /* Add padding to the container */
 }
+
 .group-1000004297 {
   flex-shrink: 0;
   width: 1440px;
   height: 118px;
   position: static;
 }
+
 .home {
   color: #121212;
   text-align: left;
@@ -34,6 +44,7 @@
   left: 417px;
   top: 50px;
 }
+
 .rectangle-684 {
   background: #ffffff;
   width: 100%;
@@ -45,11 +56,13 @@
   top: 0%;
   box-shadow: 0px 3px 12px 0px rgba(18, 18, 18, 0.06);
 }
+
 .group-42155 {
   width: 412px;
   height: 18px;
   position: static;
 }
+
 .pricing {
   color: #121212;
   text-align: left;
@@ -65,6 +78,7 @@
   left: 600px;
   top: 50px;
 }
+
 .about-us {
   color: #121212;
   text-align: left;
@@ -80,11 +94,13 @@
   left: 679px;
   top: 50px;
 }
+
 .group-42154 {
   width: 84.59px;
   height: 18px;
   position: static;
 }
+
 .features {
   color: #121212;
   text-align: left;
@@ -100,6 +116,7 @@
   left: 489px;
   top: 50px;
 }
+
 .line-rounded-chevron-down {
   width: 10.59px;
   height: 10.59px;
@@ -108,6 +125,7 @@
   top: 54px;
   overflow: hidden;
 }
+
 .chevron {
   width: 58.33%;
   height: 29.17%;
@@ -118,6 +136,7 @@
   top: 35.42%;
   overflow: visible;
 }
+
 .blog {
   color: #121212;
   text-align: left;
@@ -133,6 +152,7 @@
   left: 778px;
   top: 50px;
 }
+
 .contact {
   color: #121212;
   text-align: left;
@@ -148,6 +168,7 @@
   left: 840px;
   top: 50px;
 }
+
 .frame-39482 {
   display: flex;
   flex-direction: row;
@@ -158,6 +179,7 @@
   right: 110px;
   top: calc(50% - 1091px);
 }
+
 .secondary-button {
   display: flex;
   flex-direction: row;
@@ -167,6 +189,7 @@
   flex-shrink: 0;
   position: relative;
 }
+
 .master-secondary-button {
   background: #ffffff;
   border-radius: 12px;
@@ -186,6 +209,7 @@
     0px 2px 6px 0px rgba(16, 16, 16, 0.04)
   );
 }
+
 .button-text {
   color: #121212;
   text-align: center;
@@ -199,6 +223,7 @@
   font-weight: var(--text-single-100-medium-font-weight, 500);
   position: relative;
 }
+
 .primary-button {
   display: flex;
   flex-direction: row;
@@ -208,6 +233,7 @@
   flex-shrink: 0;
   position: relative;
 }
+
 .master-primary-button {
   background: #ff5634;
   border-radius: 12px;
@@ -220,6 +246,7 @@
   flex-shrink: 0;
   position: relative;
 }
+
 .button-text2 {
   color: #ffffff;
   text-align: center;
@@ -233,6 +260,7 @@
   font-weight: var(--text-single-100-bold-font-weight, 700);
   position: relative;
 }
+
 .logo-orange-black-2-1 {
   width: 209px;
   height: 47.71px;
@@ -241,11 +269,13 @@
   top: 35px;
   object-fit: cover;
 }
+
 .group-1000004284 {
   width: 32px;
   height: 24px;
   position: static;
 }
+
 .flagpack-gb-ukm {
   border-radius: 2px;
   width: 32px;
@@ -255,6 +285,7 @@
   top: 49px;
   overflow: hidden;
 }
+
 .group {
   height: auto;
   position: absolute;
@@ -262,21 +293,25 @@
   top: 0px;
   overflow: visible;
 }
+
+/* Main content spacing */
 .frame-41816 {
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 64px; /* Increased from 48px to 64px */
   align-items: flex-start;
   justify-content: flex-start;
   flex-shrink: 0;
   position: relative;
 }
+
 .group-4460 {
   flex-shrink: 0;
   width: 700.34px;
   height: 144px;
   position: static;
 }
+
 .frame-4694 {
   display: flex;
   flex-direction: column;
@@ -287,6 +322,7 @@
   left: 0px;
   top: 0px;
 }
+
 .frame-4693 {
   display: flex;
   flex-direction: column;
@@ -296,6 +332,7 @@
   flex-shrink: 0;
   position: relative;
 }
+
 .free-plan {
   color: var(--neutral-colors-800, #121212);
   text-align: left;
@@ -309,7 +346,11 @@
   font-weight: var(--headings-typography-size-1-font-weight, 700);
   position: relative;
 }
-.feugiat-elit-imperdiet-enim-pellentesque-nibh-bibendum-lacinia-pulvinar-justo-cursus-ultricies-adipiscing-risus-porta-scelerisque-at-ipsum {
+
+/* Add margin-bottom to paragraphs */
+.feugiat-elit-imperdiet-enim-pellentesque-nibh-bibendum-lacinia-pulvinar-justo-cursus-ultricies-adipiscing-risus-porta-scelerisque-at-ipsum,
+.lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-lobortis-arcu-enim-urna-adipiscing-praesent-velit-viverra-sit-semper-lorem-eu-cursus-vel-hendrerit-elementum-morbi-curabitur-etiam-nibh-justo-lorem-aliquet-donec-sed-sit-mi-dignissim-at-ante-massa-mattis,
+.vitae-congue-eu-consequat-ac-felis-placerat-vestibulum-lectus-mauris-ultrices-cursus-sit-amet-dictum-sit-amet-justo-donec-enim-diam-porttitor-lacus-luctus-accumsan-tortor-posuere-praesent-tristique-magna-sit-amet-purus-gravida-quis-blandit-turpis {
   color: var(--neutral-colors-700, #3f3f3f);
   text-align: left;
   font-family: var(
@@ -322,7 +363,9 @@
   font-weight: var(--paragraph-default-font-weight, 400);
   position: relative;
   width: 700.34px;
+  margin-bottom: 24px; /* Add spacing below paragraphs */
 }
+
 .frame-41815 {
   display: flex;
   flex-direction: column;
@@ -332,6 +375,7 @@
   flex-shrink: 0;
   position: relative;
 }
+
 .frame-41813 {
   display: flex;
   flex-direction: column;
@@ -341,6 +385,7 @@
   flex-shrink: 0;
   position: relative;
 }
+
 .frame-41812 {
   display: flex;
   flex-direction: column;
@@ -350,6 +395,7 @@
   flex-shrink: 0;
   position: relative;
 }
+
 .what-s-included-in-the-plan {
   color: var(--neutral-colors-800, #121212);
   text-align: left;
@@ -364,6 +410,7 @@
   position: relative;
   width: 701.35px;
 }
+
 .lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-lobortis-arcu-enim-urna-adipiscing-praesent-velit-viverra-sit-semper-lorem-eu-cursus-vel-hendrerit-elementum-morbi-curabitur-etiam-nibh-justo-lorem-aliquet-donec-sed-sit-mi-dignissim-at-ante-massa-mattis {
   text-align: left;
   font-family: "-", sans-serif;
@@ -373,6 +420,7 @@
   position: relative;
   width: 701.35px;
 }
+
 .lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-lobortis-arcu-enim-urna-adipiscing-praesent-velit-viverra-sit-semper-lorem-eu-cursus-vel-hendrerit-elementum-morbi-curabitur-etiam-nibh-justo-lorem-aliquet-donec-sed-sit-mi-dignissim-at-ante-massa-mattis-span {
   color: var(--neutral-colors-700, #3f3f3f);
   font-family: var(
@@ -384,6 +432,7 @@
   line-height: var(--paragraph-default-line-height, 30px);
   font-weight: var(--paragraph-default-font-weight, 400);
 }
+
 .lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-lobortis-arcu-enim-urna-adipiscing-praesent-velit-viverra-sit-semper-lorem-eu-cursus-vel-hendrerit-elementum-morbi-curabitur-etiam-nibh-justo-lorem-aliquet-donec-sed-sit-mi-dignissim-at-ante-massa-mattis-span2 {
   color: var(--neutral-colors-800, #121212);
   font-family: var(
@@ -395,6 +444,7 @@
   line-height: var(--paragraph-default-line-height, 30px);
   font-weight: var(--paragraph-default-font-weight, 400);
 }
+
 .lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-lobortis-arcu-enim-urna-adipiscing-praesent-velit-viverra-sit-semper-lorem-eu-cursus-vel-hendrerit-elementum-morbi-curabitur-etiam-nibh-justo-lorem-aliquet-donec-sed-sit-mi-dignissim-at-ante-massa-mattis-span3 {
   color: var(--primary-colors-color-1, #ff5634);
   font-family: var(--rich-text-bold-font-family, "Metropolis-Bold", sans-serif);
@@ -402,6 +452,7 @@
   line-height: var(--rich-text-bold-line-height, 30px);
   font-weight: var(--rich-text-bold-font-weight, 700);
 }
+
 .lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-lobortis-arcu-enim-urna-adipiscing-praesent-velit-viverra-sit-semper-lorem-eu-cursus-vel-hendrerit-elementum-morbi-curabitur-etiam-nibh-justo-lorem-aliquet-donec-sed-sit-mi-dignissim-at-ante-massa-mattis-span4 {
   color: var(--neutral-colors-800, #121212);
   font-family: var(
@@ -413,6 +464,7 @@
   line-height: var(--paragraph-default-line-height, 30px);
   font-weight: var(--paragraph-default-font-weight, 400);
 }
+
 .lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-lobortis-arcu-enim-urna-adipiscing-praesent-velit-viverra-sit-semper-lorem-eu-cursus-vel-hendrerit-elementum-morbi-curabitur-etiam-nibh-justo-lorem-aliquet-donec-sed-sit-mi-dignissim-at-ante-massa-mattis-span5 {
   color: var(--neutral-colors-700, #3f3f3f);
   font-family: var(
@@ -424,6 +476,7 @@
   line-height: var(--paragraph-default-line-height, 30px);
   font-weight: var(--paragraph-default-font-weight, 400);
 }
+
 .frame-41814 {
   display: flex;
   flex-direction: column;
@@ -433,6 +486,7 @@
   flex-shrink: 0;
   position: relative;
 }
+
 .is-this-the-right-plan-for-my-restaurant {
   color: var(--neutral-colors-800, #121212);
   text-align: left;
@@ -446,6 +500,7 @@
   font-weight: var(--headings-typography-size-3-font-weight, 700);
   position: relative;
 }
+
 .vitae-congue-eu-consequat-ac-felis-placerat-vestibulum-lectus-mauris-ultrices-cursus-sit-amet-dictum-sit-amet-justo-donec-enim-diam-porttitor-lacus-luctus-accumsan-tortor-posuere-praesent-tristique-magna-sit-amet-purus-gravida-quis-blandit-turpis {
   text-align: left;
   font-family: var(
@@ -459,6 +514,7 @@
   position: relative;
   width: 700.34px;
 }
+
 .vitae-congue-eu-consequat-ac-felis-placerat-vestibulum-lectus-mauris-ultrices-cursus-sit-amet-dictum-sit-amet-justo-donec-enim-diam-porttitor-lacus-luctus-accumsan-tortor-posuere-praesent-tristique-magna-sit-amet-purus-gravida-quis-blandit-turpis-span {
   color: var(--neutral-colors-700, #3f3f3f);
   font-family: var(
@@ -470,6 +526,7 @@
   line-height: var(--paragraph-default-line-height, 30px);
   font-weight: var(--paragraph-default-font-weight, 400);
 }
+
 .vitae-congue-eu-consequat-ac-felis-placerat-vestibulum-lectus-mauris-ultrices-cursus-sit-amet-dictum-sit-amet-justo-donec-enim-diam-porttitor-lacus-luctus-accumsan-tortor-posuere-praesent-tristique-magna-sit-amet-purus-gravida-quis-blandit-turpis-span2 {
   color: var(--neutral-colors-800, #121212);
   font-family: var(
@@ -481,6 +538,7 @@
   line-height: var(--paragraph-default-line-height, 30px);
   font-weight: var(--paragraph-default-font-weight, 400);
 }
+
 .vitae-congue-eu-consequat-ac-felis-placerat-vestibulum-lectus-mauris-ultrices-cursus-sit-amet-dictum-sit-amet-justo-donec-enim-diam-porttitor-lacus-luctus-accumsan-tortor-posuere-praesent-tristique-magna-sit-amet-purus-gravida-quis-blandit-turpis-span3 {
   color: var(--neutral-colors-700, #3f3f3f);
   font-family: var(
@@ -492,47 +550,41 @@
   line-height: var(--paragraph-default-line-height, 30px);
   font-weight: var(--paragraph-default-font-weight, 400);
 }
+
+/* Sidebar parent container */
 .group-1000004309 {
   flex-shrink: 0;
   width: 390px;
-  height: 889px;
-  position: static;
+  height: auto; /* Remove fixed height to allow natural growth */
+  position: relative; /* Change to relative to fit in flex layout */
 }
+
+/* Hide the empty image div */
 .image {
-  background: var(--neutral-colors-100, #ffffff);
-  border-radius: 24px;
-  border-style: solid;
-  border-color: var(--neutral-colors-300, #ededed);
-  border-width: 1px;
-  width: 390px;
-  height: 889px;
-  position: absolute;
-  left: 829.35px;
-  top: 278px;
-  box-shadow: var(
-    --general-shadow-02-box-shadow,
-    0px 2px 12px 0px rgba(16, 16, 16, 0.08)
-  );
+  display: none; /* Hide or remove if not needed */
 }
+
+/* Sidebar content */
 .pricing-card-v-3 {
   display: flex;
   flex-direction: column;
   gap: 48px;
   align-items: flex-start;
   justify-content: flex-start;
-  position: absolute;
-  left: 859.35px;
-  top: 361px;
+  position: relative; /* Remove absolute positioning */
+  padding: 32px; /* Add padding inside the card */
 }
+
 ._32-px {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 40px; /* Increased from 32px to 40px */
   align-items: flex-start;
   justify-content: flex-start;
   flex-shrink: 0;
   position: relative;
 }
+
 ._16-px {
   display: flex;
   flex-direction: column;
@@ -542,6 +594,7 @@
   flex-shrink: 0;
   position: relative;
 }
+
 ._18-px {
   display: flex;
   flex-direction: row;
@@ -551,12 +604,14 @@
   flex-shrink: 0;
   position: relative;
 }
+
 .square-paper-plane {
   flex-shrink: 0;
   width: 72px;
   height: 72px;
   position: relative;
 }
+
 ._0-px {
   display: flex;
   flex-direction: column;
@@ -566,6 +621,7 @@
   flex-shrink: 0;
   position: relative;
 }
+
 .subtitle {
   color: var(--neutral-colors-600, #656565);
   text-align: center;
@@ -579,6 +635,7 @@
   font-weight: var(--text-single-200-bold-font-weight, 700);
   position: relative;
 }
+
 .price {
   color: var(--neutral-colors-800, #121212);
   text-align: left;
@@ -592,6 +649,7 @@
   font-weight: var(--special-headings-display-4-font-weight, 700);
   position: relative;
 }
+
 .pricing-paragraph {
   color: var(--neutral-colors-600, #656565);
   text-align: left;
@@ -606,6 +664,7 @@
   position: relative;
   width: 326.67px;
 }
+
 .primary-button2 {
   display: flex;
   flex-direction: row;
@@ -616,6 +675,7 @@
   width: 327px;
   position: relative;
 }
+
 .master-primary-button2 {
   background: var(--primary-colors-color-1, #ff5634);
   border-radius: 16px;
@@ -628,6 +688,7 @@
   flex: 1;
   position: relative;
 }
+
 .button-text3 {
   color: var(--neutral-colors-100, #ffffff);
   text-align: center;
@@ -641,15 +702,17 @@
   font-weight: var(--text-single-200-bold-font-weight, 700);
   position: relative;
 }
+
 ._24-px {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 32px; /* Increased from 24px to 32px */
   align-items: flex-start;
   justify-content: flex-start;
   flex-shrink: 0;
   position: relative;
 }
+
 .text-200 {
   color: var(--neutral-colors-800, #121212);
   text-align: left;
@@ -663,6 +726,7 @@
   font-weight: var(--text-single-200-bold-font-weight, 700);
   position: relative;
 }
+
 ._14-px {
   display: flex;
   flex-direction: column;
@@ -672,6 +736,7 @@
   flex-shrink: 0;
   position: relative;
 }
+
 .icons-list-item {
   display: flex;
   flex-direction: row;
@@ -681,6 +746,7 @@
   flex-shrink: 0;
   position: relative;
 }
+
 .list-item-200 {
   display: flex;
   flex-direction: row;
@@ -690,6 +756,7 @@
   flex-shrink: 0;
   position: relative;
 }
+
 .line-rounded-check {
   flex-shrink: 0;
   width: 26px;
@@ -697,6 +764,7 @@
   position: relative;
   overflow: visible;
 }
+
 .text-2002 {
   color: var(--neutral-colors-800, #121212);
   text-align: left;
@@ -710,6 +778,7 @@
   font-weight: var(--text-single-200-medium-font-weight, 500);
   position: relative;
 }
+
 .line-rounded-check2 {
   flex-shrink: 0;
   width: 26px;
@@ -717,6 +786,7 @@
   position: relative;
   overflow: visible;
 }
+
 .line-rounded-check3 {
   flex-shrink: 0;
   width: 26px;
@@ -724,6 +794,7 @@
   position: relative;
   overflow: visible;
 }
+
 .line-rounded-check4 {
   flex-shrink: 0;
   width: 26px;
@@ -731,6 +802,7 @@
   position: relative;
   overflow: visible;
 }
+
 .line-rounded-check5 {
   flex-shrink: 0;
   width: 26px;
@@ -738,6 +810,7 @@
   position: relative;
   overflow: visible;
 }
+
 .line-rounded-check6 {
   flex-shrink: 0;
   width: 26px;
@@ -745,6 +818,7 @@
   position: relative;
   overflow: visible;
 }
+
 .line-rounded-check7 {
   flex-shrink: 0;
   width: 26px;
@@ -752,6 +826,7 @@
   position: relative;
   overflow: visible;
 }
+
 .line-rounded-check8 {
   flex-shrink: 0;
   width: 26px;
@@ -759,6 +834,7 @@
   position: relative;
   overflow: visible;
 }
+
 .line-rounded-check9 {
   flex-shrink: 0;
   width: 26px;
@@ -766,6 +842,7 @@
   position: relative;
   overflow: visible;
 }
+
 .line-rounded-check10 {
   flex-shrink: 0;
   width: 26px;
@@ -773,6 +850,7 @@
   position: relative;
   overflow: visible;
 }
+
 .group-42114 {
   width: 4.6%;
   height: 2.28%;
@@ -783,12 +861,14 @@
   top: 16.56%;
   overflow: visible;
 }
+
 .group-1000004312 {
   flex-shrink: 0;
   width: 1440px;
   height: 919px;
   position: static;
 }
+
 .rectangle-4789 {
   background: #ffffff;
   width: 100%;
@@ -799,6 +879,7 @@
   bottom: 0%;
   top: 59.08%;
 }
+
 .copyright-delivery-x-designed-by-brix-templates-powered-by-webflow {
   text-align: left;
   font-family: "-", sans-serif;
@@ -813,6 +894,7 @@
   top: 97.46%;
   height: 1.12%;
 }
+
 .copyright-delivery-x-designed-by-brix-templates-powered-by-webflow-span {
   color: #3f3f3f;
   font-family: var(
@@ -824,6 +906,7 @@
   line-height: var(--paragraph-default-line-height, 30px);
   font-weight: var(--paragraph-default-font-weight, 400);
 }
+
 .copyright-delivery-x-designed-by-brix-templates-powered-by-webflow-span2 {
   color: #3f3f3f;
   font-family: "DmSans-Regular", sans-serif;
@@ -831,6 +914,7 @@
   line-height: 30px;
   font-weight: 400;
 }
+
 .copyright-delivery-x-designed-by-brix-templates-powered-by-webflow-span3 {
   color: #3f3f3f;
   font-family: var(
@@ -842,6 +926,7 @@
   line-height: var(--paragraph-default-line-height, 30px);
   font-weight: var(--paragraph-default-font-weight, 400);
 }
+
 .copyright-delivery-x-designed-by-brix-templates-powered-by-webflow-span4 {
   color: #ff5634;
   font-family: var(
@@ -853,6 +938,7 @@
   line-height: var(--paragraph-default-line-height, 30px);
   font-weight: var(--paragraph-default-font-weight, 400);
 }
+
 .copyright-delivery-x-designed-by-brix-templates-powered-by-webflow-span5 {
   color: #3f3f3f;
   font-family: var(
@@ -864,6 +950,7 @@
   line-height: var(--paragraph-default-line-height, 30px);
   font-weight: var(--paragraph-default-font-weight, 400);
 }
+
 .copyright-delivery-x-designed-by-brix-templates-powered-by-webflow-span6 {
   color: #ff5634;
   font-family: var(
@@ -875,6 +962,7 @@
   line-height: var(--paragraph-default-line-height, 30px);
   font-weight: var(--paragraph-default-font-weight, 400);
 }
+
 .line-133 {
   margin-top: -1px;
   border-style: solid;
@@ -888,6 +976,7 @@
   bottom: 26.76%;
   top: 73.24%;
 }
+
 .line-134 {
   margin-top: -1px;
   border-style: solid;
@@ -901,11 +990,13 @@
   bottom: 3.96%;
   top: 96.04%;
 }
+
 .group-41843 {
   width: 450.04px;
   height: 57.07px;
   position: static;
 }
+
 .lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-sed-do-eiusmod-tempor-incididunt-ut {
   color: #3f3f3f;
   text-align: left;
@@ -925,6 +1016,7 @@
   top: 66.24%;
   height: 2.54%;
 }
+
 .download-buttons {
   width: 35.9%;
   height: 2.94%;
@@ -934,10 +1026,12 @@
   bottom: 32.38%;
   top: 64.69%;
 }
+
 .group-5 {
   position: absolute;
   inset: 0;
 }
+
 .rectangle-23 {
   background: #ff5634;
   border-radius: 14px;
@@ -949,11 +1043,13 @@
   bottom: 0.64%;
   top: 0.64%;
 }
+
 .group-2 {
   width: 171.95px;
   height: 25.15px;
   position: static;
 }
+
 .vector {
   width: 3.83%;
   height: 36.81%;
@@ -964,6 +1060,7 @@
   top: 30.95%;
   overflow: visible;
 }
+
 .download-for-i-os {
   color: #ffffff;
   text-align: left;
@@ -979,10 +1076,12 @@
   top: 35.71%;
   height: 33.33%;
 }
+
 .group-4 {
   position: absolute;
   inset: 0;
 }
+
 .rectangle-24 {
   background: #ff5634;
   border-radius: 14px;
@@ -994,11 +1093,13 @@
   bottom: 0.64%;
   top: 0.64%;
 }
+
 .group-3 {
   width: 201.56px;
   height: 22px;
   position: static;
 }
+
 .download-for-android {
   color: #ffffff;
   text-align: left;
@@ -1018,6 +1119,7 @@
   top: 35.71%;
   height: 33.33%;
 }
+
 .vector2 {
   width: 5.67%;
   height: 25.03%;
@@ -1028,6 +1130,7 @@
   top: 39.07%;
   overflow: visible;
 }
+
 .footer-column {
   display: flex;
   flex-direction: column;
@@ -1042,6 +1145,7 @@
   bottom: 11%;
   top: 78.58%;
 }
+
 .footer-title {
   color: #121212;
   text-align: left;
@@ -1055,6 +1159,7 @@
   font-weight: var(--text-single-300-bold-font-weight, 700);
   position: relative;
 }
+
 .frame-41844 {
   display: flex;
   flex-direction: row;
@@ -1064,6 +1169,7 @@
   flex-shrink: 0;
   position: relative;
 }
+
 .footer-links {
   display: flex;
   flex-direction: column;
@@ -1073,6 +1179,7 @@
   flex-shrink: 0;
   position: relative;
 }
+
 .link {
   display: flex;
   flex-direction: row;
@@ -1082,6 +1189,7 @@
   flex-shrink: 0;
   position: relative;
 }
+
 .master-link {
   display: flex;
   flex-direction: row;
@@ -1091,6 +1199,7 @@
   flex-shrink: 0;
   position: relative;
 }
+
 .link-item {
   color: #3f3f3f;
   text-align: center;
@@ -1104,6 +1213,7 @@
   font-weight: var(--text-single-200-regular-font-weight, 400);
   position: relative;
 }
+
 .footer-column2 {
   display: flex;
   flex-direction: column;
@@ -1118,6 +1228,7 @@
   bottom: 9.31%;
   top: 78.58%;
 }
+
 .frame-418442 {
   display: flex;
   flex-direction: row;
@@ -1127,11 +1238,13 @@
   flex-shrink: 0;
   position: relative;
 }
+
 .group-41852 {
   width: 502px;
   height: 234px;
   position: static;
 }
+
 .footer-title2 {
   color: #121212;
   text-align: left;
@@ -1151,21 +1264,25 @@
   top: 78.58%;
   height: 0.98%;
 }
+
 .group-41851 {
   width: 502px;
   height: 172.05px;
   position: static;
 }
+
 .group-41847 {
   width: 256px;
   height: 78px;
   position: static;
 }
+
 .group-42113 {
   width: 78px;
   height: 78px;
   position: static;
 }
+
 .bridge {
   background: #f1f1f1;
   border-radius: 24.37px;
@@ -1176,6 +1293,7 @@
   top: 1826.95px;
   overflow: hidden;
 }
+
 .group-42150 {
   height: auto;
   position: absolute;
@@ -1183,6 +1301,7 @@
   top: 20.13px;
   overflow: visible;
 }
+
 .heading-h-3 {
   color: #121212;
   text-align: left;
@@ -1202,16 +1321,19 @@
   top: 82.55%;
   height: 1.07%;
 }
+
 .group-41850 {
   width: 217px;
   height: 78px;
   position: static;
 }
+
 .mask-group {
   width: 78px;
   height: 78px;
   position: static;
 }
+
 .statue-of-liberty {
   background: #f1f1f1;
   border-radius: 24.37px;
@@ -1222,6 +1344,7 @@
   top: 1827px;
   overflow: hidden;
 }
+
 .group-42153 {
   width: 64.9%;
   height: 66.67%;
@@ -1232,6 +1355,7 @@
   top: 16.67%;
   overflow: visible;
 }
+
 .heading-h-32 {
   color: #121212;
   text-align: left;
@@ -1251,11 +1375,13 @@
   top: 82.55%;
   height: 1.07%;
 }
+
 .group-41848 {
   width: 486px;
   height: 81.05px;
   position: static;
 }
+
 .beach {
   background: #f1f1f1;
   border-radius: 24.38px;
@@ -1266,6 +1392,7 @@
   top: 1917.95px;
   overflow: hidden;
 }
+
 .group-42152 {
   width: 62.46%;
   height: 58%;
@@ -1276,6 +1403,7 @@
   top: 21%;
   overflow: visible;
 }
+
 .heading-h-33 {
   color: #121212;
   text-align: left;
@@ -1295,11 +1423,13 @@
   top: 86.6%;
   height: 1.07%;
 }
+
 .group-42143 {
   width: 201px;
   height: 78px;
   position: static;
 }
+
 .heading-h-34 {
   color: #121212;
   text-align: left;
@@ -1319,6 +1449,7 @@
   top: 86.95%;
   height: 1.07%;
 }
+
 .cn-tower {
   background: #f1f1f1;
   border-radius: 24.37px;
@@ -1329,6 +1460,7 @@
   top: 1921px;
   overflow: hidden;
 }
+
 .group-42144 {
   width: 58.89%;
   height: 109.37%;
@@ -1339,6 +1471,7 @@
   top: 10.42%;
   overflow: visible;
 }
+
 .line-1332 {
   margin-top: -1px;
   border-style: solid;
@@ -1352,6 +1485,7 @@
   bottom: 40.92%;
   top: 59.08%;
 }
+
 .logo-orange-black-2-2 {
   width: 209px;
   height: 47.71px;
@@ -1360,6 +1494,7 @@
   top: 1405px;
   object-fit: cover;
 }
+
 .link2 {
   display: flex;
   flex-direction: row;
@@ -1370,6 +1505,7 @@
   left: 497px;
   top: 2056px;
 }
+
 .link-item2 {
   color: #ff5634;
   text-align: center;
