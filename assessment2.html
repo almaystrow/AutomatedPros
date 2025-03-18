@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing Card</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             background: #f4f4f4;
             margin: 0;
             padding: 20px;
@@ -15,7 +16,7 @@
         .pricing-card {
             max-width: 400px;
             margin: 20px auto;
-            padding: 30px;
+            padding: 40px;
             border-radius: 15px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             background: white;
@@ -24,14 +25,14 @@
 
         .badge {
             position: absolute;
-            top: -20px;
-            left: -20px;
+            top: -15px;
+            left: -15px;
             background: #ffe6e6;
-            color: #ff4d4d;
-            padding: 10px 20px;
+            color: #ff6666;
+            padding: 8px 20px;
             border-radius: 50px;
-            font-size: 14px;
-            font-weight: bold;
+            font-size: 13px;
+            font-weight: 600;
         }
 
         .d-flex {
@@ -57,13 +58,14 @@
         .pricing-quote p {
             margin: 0;
             font-size: 18px;
+            font-weight: 500;
             color: #333;
         }
 
         .pricing-quote h4 {
             margin: 5px 0;
             font-size: 36px;
-            font-weight: bold;
+            font-weight: 700;
             color: #333;
             position: relative;
             display: inline-block;
@@ -72,14 +74,15 @@
         .pricing-quote h4::before {
             content: "$";
             position: absolute;
-            left: -20px;
-            top: 5px;
-            font-size: 24px;
+            left: -25px;
+            top: 8px;
+            font-size: 18px;
+            font-weight: 500;
             color: #666;
             background: #e6f0fa;
             border-radius: 50%;
-            width: 30px;
-            height: 30px;
+            width: 28px;
+            height: 28px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -88,25 +91,26 @@
         .pricing-row p {
             text-align: center;
             color: #666;
-            font-size: 16px;
-            margin: 15px 0;
+            font-size: 14px;
+            margin: 10px 0 20px 0;
+            line-height: 1.5;
         }
 
         .btn-content {
             display: block;
             padding: 15px;
-            background: #ff4d4d;
+            background: #ff5e5e;
             color: white;
             text-decoration: none;
             border-radius: 25px;
             text-align: center;
-            font-size: 18px;
-            font-weight: bold;
+            font-size: 16px;
+            font-weight: 600;
             transition: background 0.3s;
         }
 
         .btn-content:hover {
-            background: #e04343;
+            background: #e05252;
         }
 
         .w-100 {
@@ -118,50 +122,58 @@
         }
 
         .pricing-list {
-            margin: 30px 0;
+            margin: 25px 0;
         }
 
         .pricing-list .title {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
         }
 
         .list-item {
-            margin: 15px 0;
+            margin: 10px 0;
+        }
+
+        .d-inline-flex {
+            display: flex;
+            align-items: flex-start;
         }
 
         .feature-head {
             margin: 0;
-            font-size: 16px;
-            font-weight: bold;
+            font-size: 14px;
+            font-weight: 600;
             color: #333;
         }
 
         .feature-sub {
             margin: 0;
             color: #666;
-            font-size: 14px;
+            font-size: 12px;
+            line-height: 1.4;
         }
 
         .img-container img {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
         }
 
         .pricing-footer {
-            margin-top: 30px;
+            margin-top: 25px;
         }
 
         .footer-header {
             margin: 0 0 10px 0;
-            font-size: 20px;
-            font-weight: bold;
+            font-size: 18px;
+            font-weight: 600;
         }
 
         .footer-body {
             color: #666;
-            font-size: 16px;
+            font-size: 14px;
+            line-height: 1.5;
         }
 
         .text-end {
@@ -170,7 +182,8 @@
 
         .text-black {
             color: #000;
-            font-weight: bold;
+            font-weight: 600;
+            font-size: 14px;
         }
 
         .position-absolute {
