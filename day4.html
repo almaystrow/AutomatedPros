@@ -1,328 +1,2372 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Burger King Order Status</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background: #F5EBDC; /* Cream background to match logo */
-            display: flex;
-            min-height: 100vh;
-            overflow-x: hidden;
-            color: #2D2D2D; /* Dark gray for contrast */
-        }
-
-        /* Sidebar */
-        .sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 80px;
-            background: linear-gradient(180deg, #D62300, #FF8732); /* Red to orange gradient */
-            display: flex;
+        .style-0 {
+            cursor: auto;
+            font-family: __Inter_d65c78, __Inter_Fallback_d65c78;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            background-repeat: no-repeat;
+            background-size: cover;
+            flex-wrap: wrap;
             flex-direction: column;
-            align-items: center;
-            padding-top: 40px;
-            box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
-            border-right: 1px solid #D62300;
-            transition: all 0.4s ease;
-        }
-
-        .sidebar .icon {
-            margin: 30px 0;
-            color: #F5EBDC;
-            font-size: 28px;
-            transition: transform 0.4s ease, box-shadow 0.3s ease;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .sidebar .icon:hover {
-            transform: scale(1.3) rotate(15deg);
-            box-shadow: 0 0 15px #F5EBDC, 0 0 30px #F5EBDC;
-        }
-
-        .sidebar .icon::before {
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background: inherit;
-            border-radius: 50%;
-            z-index: -1;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(0.9); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 1; }
-            100% { transform: scale(0.9); opacity: 0.5; }
-        }
-
-        .sidebar .profile {
-            margin-top: auto;
-            margin-bottom: 40px;
-        }
-
-        .sidebar .profile img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 3px solid #F5EBDC;
-            box-shadow: 0 0 10px #F5EBDC;
-            transition: transform 0.4s ease, box-shadow 0.3s ease;
-        }
-
-        .sidebar .profile img:hover {
-            transform: scale(1.2);
-            box-shadow: 0 0 20px #F5EBDC, 0 0 40px #F5EBDC;
-        }
-
-        /* Main Content */
-        .main-content {
-            margin-left: 80px;
-            width: calc(100% - 80px);
-            padding: 40px;
-        }
-
-        /* Order Status Title */
-        .order-status-title {
-            text-align: center;
-            font-size: 36px;
-            font-weight: 700;
-            color: #D62300; /* Red for brand */
-            background: linear-gradient(90deg, #D62300, #FF8732);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Header */
-        .header {
-            position: sticky;
-            top: 0;
-            background: #F5EBDC; /* Cream background */
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            min-height: 678px;
             display: flex;
+            color: rgb(10, 10, 10);
+            background: rgba(0, 0, 0, 0) linear-gradient(50deg, rgba(255, 85, 51, 0.12) 60%, rgba(0, 0, 0, 0.08) 70%) no-repeat scroll 0% 0% / cover padding-box border-box;
+            border-color: rgb(229, 229, 229);
+            margin: 0px;
+            line-height: 24px;
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-1 {
+            pointer-events: none;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-2 {
+            max-width: 420px;
+            flex-direction: column;
+            top: auto;
+            right: 0px;
+            bottom: 0px;
+            padding: 16px;
+            width: 100%;
+            max-height: 678px;
+            display: flex;
+            z-index: 100;
+            position: fixed;
+            border-color: rgb(229, 229, 229);
+            list-style: outside none none;
+            margin: 0px;
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-3 {
+            color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0);
+            width: 100%;
+            height: 682px;
+            display: flex;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-4 {
+            background-color: rgba(0, 0, 0, 0);
+            flex-direction: column;
+            width: 6rem;
+            height: 678px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            left: 0px;
+            position: fixed;
+            padding-top: 16px;
+            padding-bottom: 16px;
+            border-radius: 32px;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 40px;
-            z-index: 100;
-        }
-
-        .header .time {
-            font-size: 22px;
-            font-weight: 600;
-            color: #D62300; /* Red for brand consistency */
-            background: rgba(255, 135, 50, 0.1); /* Subtle orange tint */
-            padding: 8px 20px;
-            border-radius: 25px;
-            box-shadow: 0 0 10px rgba(214, 35, 0, 0.2);
-        }
-
-        .header .logo {
             display: flex;
-            align-items: center;
+            z-index: 50;
+            top: 0px;
+            right: 16px;
+            bottom: auto;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
         }
 
-        .header .logo img {
-            width: 50px;
-            margin-right: 20px;
-            filter: drop-shadow(0 0 5px rgba(214, 35, 0, 0.3));
+        .style-5 {
+            color: transparent;
+            width: 4rem;
+            height: 64px;
+            border-color: rgb(229, 229, 229);
+            max-width: 100%;
+            display: block;
+            vertical-align: middle;
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
         }
 
-        .header .logo h1 {
-            font-size: 32px;
-            font-weight: 700;
-            color: #D62300; /* Red for brand */
-            text-shadow: 0 0 5px rgba(214, 35, 0, 0.2);
-        }
-
-        /* Order Status */
-        .order-container {
-            display: flex;
-            gap: 40px;
-        }
-
-        .order-box {
-            background: #F5EBDC; /* Cream background */
-            border-radius: 25px;
-            padding: 30px;
-            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.1);
-            transition: transform 0.4s ease, box-shadow 0.3s ease;
-            flex: 1;
-        }
-
-        .order-box:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 16px 60px rgba(0, 0, 0, 0.15);
-        }
-
-        .order-box h2 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #D62300; /* Red for brand */
-            text-shadow: none; /* Remove blur effect */
-        }
-
-        .order-box .order-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-            gap: 15px;
-        }
-
-        .order-grid .order {
-            background: linear-gradient(145deg, #FF8732, #D62300); /* Orange to red gradient */
-            padding: 15px;
-            text-align: center;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            color: #F5EBDC;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease;
+        .style-6 {
+            flex-direction: column;
+            transform: matrix(1, 0, 0, 1, 0, 0);
+            width: fit-content;
+            height: auto;
+            left: auto;
+            bottom: auto;
             position: relative;
-            overflow: hidden;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            padding-left: 8px;
+            padding-right: 8px;
+            background-color: rgb(0, 0, 0);
+            border-radius: 32px;
+            gap: 8px;
+            display: flex;
+            z-index: 50;
+            top: auto;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
         }
 
-        .order-grid .order::before {
-            content: '';
+        .style-7 {
+            position: relative;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-8 {
+            border-color: rgb(229, 229, 229);
+            color: rgb(0, 0, 0);
+            text-decoration: none solid rgb(0, 0, 0);
+            box-sizing: border-box;
+        }
+
+        .style-9 {
+            font-size: 14px;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 0.15s;
+            line-height: 16px;
+            font-weight: 700;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 9999px;
+            justify-content: center;
+            align-items: center;
+            min-width: 48px;
+            height: 48px;
+            display: inline-flex;
+            border-color: rgb(229, 229, 229);
+            cursor: pointer;
+            appearance: button;
+            background-image: none;
+            text-transform: none;
+            font-family: __Inter_d65c78, __Inter_Fallback_d65c78;
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            letter-spacing: normal;
+            color: rgb(0, 0, 0);
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-10 {
+            color: rgb(255, 255, 255);
+            width: 20px;
+            height: 20px;
+            border-color: rgb(229, 229, 229);
+            display: block;
+            vertical-align: middle;
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-11 {
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+        }
+
+        .style-12 {
+            position: relative;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-13 {
+            border-color: rgb(229, 229, 229);
+            color: rgb(0, 0, 0);
+            text-decoration: none solid rgb(0, 0, 0);
+            box-sizing: border-box;
+        }
+
+        .style-14 {
+            font-size: 14px;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 0.15s;
+            line-height: 16px;
+            font-weight: 700;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 9999px;
+            justify-content: center;
+            align-items: center;
+            min-width: 48px;
+            height: 48px;
+            display: inline-flex;
+            border-color: rgb(229, 229, 229);
+            cursor: pointer;
+            appearance: button;
+            background-image: none;
+            text-transform: none;
+            font-family: __Inter_d65c78, __Inter_Fallback_d65c78;
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            letter-spacing: normal;
+            color: rgb(0, 0, 0);
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-15 {
+            color: rgb(255, 255, 255);
+            width: 20px;
+            height: 20px;
+            border-color: rgb(229, 229, 229);
+            display: block;
+            vertical-align: middle;
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-16 {
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+        }
+
+        .style-17 {
+            position: relative;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-18 {
+            border-color: rgb(229, 229, 229);
+            color: rgb(0, 0, 0);
+            text-decoration: none solid rgb(0, 0, 0);
+            box-sizing: border-box;
+        }
+
+        .style-19 {
+            font-size: 14px;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 0.15s;
+            line-height: 16px;
+            font-weight: 700;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 9999px;
+            justify-content: center;
+            align-items: center;
+            min-width: 48px;
+            height: 48px;
+            display: inline-flex;
+            border-color: rgb(229, 229, 229);
+            cursor: pointer;
+            appearance: button;
+            background-image: none;
+            text-transform: none;
+            font-family: __Inter_d65c78, __Inter_Fallback_d65c78;
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            letter-spacing: normal;
+            color: rgb(0, 0, 0);
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-20 {
+            color: rgb(255, 255, 255);
+            width: 20px;
+            height: 20px;
+            border-color: rgb(229, 229, 229);
+            display: block;
+            vertical-align: middle;
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-21 {
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+        }
+
+        .style-22 {
+            position: relative;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-23 {
+            border-color: rgb(229, 229, 229);
+            color: rgb(0, 0, 0);
+            text-decoration: none solid rgb(0, 0, 0);
+            box-sizing: border-box;
+        }
+
+        .style-24 {
+            font-size: 14px;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 0.15s;
+            line-height: 16px;
+            font-weight: 700;
+            background-color: rgb(255, 85, 51);
+            border-radius: 9999px;
+            justify-content: center;
+            align-items: center;
+            min-width: 48px;
+            height: 48px;
+            display: inline-flex;
+            border-color: rgb(229, 229, 229);
+            cursor: pointer;
+            appearance: button;
+            background-image: none;
+            text-transform: none;
+            font-family: __Inter_d65c78, __Inter_Fallback_d65c78;
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            letter-spacing: normal;
+            color: rgb(0, 0, 0);
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-25 {
+            color: rgb(255, 255, 255);
+            width: 20px;
+            height: 20px;
+            border-color: rgb(229, 229, 229);
+            display: block;
+            vertical-align: middle;
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-26 {
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+        }
+
+        .style-27 {
+            position: relative;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-28 {
+            border-color: rgb(229, 229, 229);
+            color: rgb(0, 0, 0);
+            text-decoration: none solid rgb(0, 0, 0);
+            box-sizing: border-box;
+        }
+
+        .style-29 {
+            font-size: 14px;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 0.15s;
+            line-height: 16px;
+            font-weight: 700;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 9999px;
+            justify-content: center;
+            align-items: center;
+            min-width: 48px;
+            height: 48px;
+            display: inline-flex;
+            border-color: rgb(229, 229, 229);
+            cursor: pointer;
+            appearance: button;
+            background-image: none;
+            text-transform: none;
+            font-family: __Inter_d65c78, __Inter_Fallback_d65c78;
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            letter-spacing: normal;
+            color: rgb(0, 0, 0);
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-30 {
+            color: rgb(255, 255, 255);
+            width: 20px;
+            height: 20px;
+            border-color: rgb(229, 229, 229);
+            display: block;
+            vertical-align: middle;
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-31 {
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+        }
+
+        .style-32 {
+            position: relative;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-33 {
+            border-color: rgb(229, 229, 229);
+            color: rgb(0, 0, 0);
+            text-decoration: none solid rgb(0, 0, 0);
+            box-sizing: border-box;
+        }
+
+        .style-34 {
+            font-size: 14px;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 0.15s;
+            line-height: 16px;
+            font-weight: 700;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 9999px;
+            justify-content: center;
+            align-items: center;
+            min-width: 48px;
+            height: 48px;
+            display: inline-flex;
+            border-color: rgb(229, 229, 229);
+            cursor: pointer;
+            appearance: button;
+            background-image: none;
+            text-transform: none;
+            font-family: __Inter_d65c78, __Inter_Fallback_d65c78;
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            letter-spacing: normal;
+            color: rgb(0, 0, 0);
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-35 {
+            color: rgb(255, 255, 255);
+            width: 20px;
+            height: 20px;
+            border-color: rgb(229, 229, 229);
+            display: block;
+            vertical-align: middle;
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-36 {
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+        }
+
+        .style-37 {
+            flex-direction: column;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            padding-left: 8px;
+            padding-right: 8px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 32px;
+            gap: 8px;
+            width: fit-content;
+            display: flex;
+            z-index: 10;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-38 {
+            border-color: rgb(229, 229, 229);
+            color: rgb(0, 0, 0);
+            text-decoration: none solid rgb(0, 0, 0);
+            box-sizing: border-box;
+        }
+
+        .style-39 {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 0.15s;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 9999px;
+            justify-content: center;
+            align-items: center;
+            min-width: 48px;
+            height: 48px;
+            display: inline-flex;
+            border-color: rgb(229, 229, 229);
+            cursor: pointer;
+            appearance: button;
+            background-image: none;
+            text-transform: none;
+            font-family: __Inter_d65c78, __Inter_Fallback_d65c78;
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: normal;
+            color: rgb(0, 0, 0);
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-40 {
+            color: transparent;
+            object-fit: cover;
+            border-radius: 9999px;
+            width: 3rem;
+            max-height: 48px;
+            height: 48px;
+            border-color: rgb(229, 229, 229);
+            max-width: 100%;
+            display: block;
+            vertical-align: middle;
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-41 {
+            border-color: rgb(229, 229, 229);
+            color: rgb(0, 0, 0);
+            text-decoration: none solid rgb(0, 0, 0);
+            box-sizing: border-box;
+        }
+
+        .style-42 {
+            font-size: 14px;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 0.15s;
+            line-height: 16px;
+            font-weight: 700;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 9999px;
+            justify-content: center;
+            align-items: center;
+            min-width: 48px;
+            height: 48px;
+            display: inline-flex;
+            border-color: rgb(229, 229, 229);
+            cursor: pointer;
+            appearance: button;
+            background-image: none;
+            text-transform: none;
+            font-family: __Inter_d65c78, __Inter_Fallback_d65c78;
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            letter-spacing: normal;
+            color: rgb(0, 0, 0);
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-43 {
+            color: rgb(0, 0, 0);
+            width: 20px;
+            height: 20px;
+            border-color: rgb(229, 229, 229);
+            display: block;
+            vertical-align: middle;
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-44 {
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+        }
+
+        .style-45 {
+            padding-top: 0px;
+            margin-left: 80px;
+            overflow: auto;
+            flex-direction: column;
+            flex-grow: 1;
+            display: flex;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-46 {
+            flex-direction: column;
+            height: 678px;
+            display: flex;
+            margin-top: 4px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-47 {
+            padding: 16px;
+            justify-content: space-between;
+            align-items: center;
+            display: flex;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-48 {
+            font-size: 32px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.96px;
+            line-height: 40px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            margin: 0px;
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-49 {
+            font-size: 14px;
+            color: rgb(0, 0, 0);
+            line-height: 16px;
+            font-weight: 700;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            padding-left: 16px;
+            padding-right: 16px;
+            border-color: rgba(0, 0, 0, 0.1);
+            border-width: 1px;
+            border-radius: 9999px;
+            gap: 8px;
+            align-items: center;
+            display: flex;
+            cursor: pointer;
+            appearance: button;
+            background-color: rgba(0, 0, 0, 0);
+            background-image: none;
+            text-transform: none;
+            font-family: __Inter_d65c78, __Inter_Fallback_d65c78;
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            letter-spacing: normal;
+            margin: 0px;
+            padding: 8px 16px;
+            box-sizing: border-box;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .style-50 {
+            border-color: rgb(229, 229, 229);
+            display: block;
+            vertical-align: middle;
+            box-sizing: border-box;
+        }
+
+        .style-51 {
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+        }
+
+        .style-52 {
+            padding: 16px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            justify-content: space-between;
+            align-items: center;
+            display: flex;
+            margin-left: 16px;
+            margin-right: 16px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-53 {
+            gap: 12px;
+            align-items: center;
+            display: flex;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-54 {
+            background-color: rgb(218, 41, 28);
+            border-radius: 8px;
+            justify-content: center;
+            align-items: center;
+            width: 3rem;
+            height: 48px;
+            display: flex;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-55 {
+            color: transparent;
+            object-fit: contain;
+            border-color: rgb(229, 229, 229);
+            max-width: 100%;
+            height: auto;
+            display: block;
+            vertical-align: middle;
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-56 {
+            font-size: 20px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.2px;
+            line-height: 24px;
+            font-weight: 400;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-57 {
+            font-size: 32px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.96px;
+            line-height: 40px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-58 {
+            gap: 16px;
+            flex: 1 1 0%;
+            min-height: 0px;
+            display: flex;
+            margin: 16px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-59 {
+            padding: 24px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 8px;
+            flex-direction: column;
+            flex: 1 1 0%;
+            height: 494px;
+            display: flex;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-60 {
+            font-size: 32px;
+            letter-spacing: -0.96px;
+            line-height: 40px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 24px;
+            border-color: rgb(229, 229, 229);
+            margin: 0px 0px 24px;
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-61 {
+            scrollbar-width: thin;
+            scrollbar-color: rgb(0, 0, 0) rgba(0, 0, 0, 0);
+            text-align: center;
+            overflow-y: auto;
+            flex: 1 1 0%;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-62 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-63 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-64 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-65 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-66 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-67 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-68 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-69 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-70 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-71 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-72 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-73 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-74 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-75 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-76 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-77 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-78 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-79 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-80 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-81 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-82 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-83 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-84 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-85 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-86 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-87 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-88 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-89 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-90 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-91 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-92 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-93 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-94 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-95 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-96 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-97 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-98 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-99 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-100 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-101 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-102 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-103 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-104 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-105 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-106 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-107 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-108 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-109 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-110 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-111 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-112 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-113 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-114 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-115 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-116 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-117 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-118 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-119 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-120 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-121 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-122 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 160px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-123 {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-124 {
+            padding: 24px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 8px;
+            flex-direction: column;
+            width: 385px;
+            height: 494px;
+            display: flex;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-125 {
+            font-size: 32px;
+            letter-spacing: -0.96px;
+            line-height: 40px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 24px;
+            border-color: rgb(229, 229, 229);
+            margin: 0px 0px 24px;
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-126 {
+            scrollbar-width: thin;
+            scrollbar-color: rgb(0, 0, 0) rgba(0, 0, 0, 0);
+            text-align: center;
+            overflow-y: auto;
+            flex: 1 1 0%;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-127 {
+            background-color: rgb(17, 151, 24);
+            border-radius: 8px;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 128px;
+            display: flex;
+            margin-bottom: 16px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-128 {
+            font-size: 24px;
+            color: rgb(255, 255, 255);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-129 {
+            justify-content: center;
+            align-items: center;
+            flex: 1 1 0%;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-130 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgb(17, 151, 24);
+            border-radius: 8px;
+            min-width: 100px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-131 {
+            font-size: 24px;
+            color: rgb(255, 255, 255);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-132 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgb(17, 151, 24);
+            border-radius: 8px;
+            min-width: 100px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-133 {
+            font-size: 24px;
+            color: rgb(255, 255, 255);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-134 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgb(17, 151, 24);
+            border-radius: 8px;
+            min-width: 100px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-135 {
+            font-size: 24px;
+            color: rgb(255, 255, 255);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-136 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgb(17, 151, 24);
+            border-radius: 8px;
+            min-width: 100px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-137 {
+            font-size: 24px;
+            color: rgb(255, 255, 255);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-138 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgb(17, 151, 24);
+            border-radius: 8px;
+            min-width: 100px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-139 {
+            font-size: 24px;
+            color: rgb(255, 255, 255);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-140 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgb(17, 151, 24);
+            border-radius: 8px;
+            min-width: 100px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-141 {
+            font-size: 24px;
+            color: rgb(255, 255, 255);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-142 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgb(17, 151, 24);
+            border-radius: 8px;
+            min-width: 100px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-143 {
+            font-size: 24px;
+            color: rgb(255, 255, 255);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-144 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgb(17, 151, 24);
+            border-radius: 8px;
+            min-width: 100px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-145 {
+            font-size: 24px;
+            color: rgb(255, 255, 255);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-146 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgb(17, 151, 24);
+            border-radius: 8px;
+            min-width: 100px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-147 {
+            font-size: 24px;
+            color: rgb(255, 255, 255);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-148 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgb(17, 151, 24);
+            border-radius: 8px;
+            min-width: 100px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-149 {
+            font-size: 24px;
+            color: rgb(255, 255, 255);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-150 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgb(17, 151, 24);
+            border-radius: 8px;
+            min-width: 100px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-151 {
+            font-size: 24px;
+            color: rgb(255, 255, 255);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-152 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgb(17, 151, 24);
+            border-radius: 8px;
+            min-width: 100px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-153 {
+            font-size: 24px;
+            color: rgb(255, 255, 255);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-154 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgb(17, 151, 24);
+            border-radius: 8px;
+            min-width: 100px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-155 {
+            font-size: 24px;
+            color: rgb(255, 255, 255);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-156 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgb(17, 151, 24);
+            border-radius: 8px;
+            min-width: 100px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-157 {
+            font-size: 24px;
+            color: rgb(255, 255, 255);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-158 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgb(17, 151, 24);
+            border-radius: 8px;
+            min-width: 100px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-159 {
+            font-size: 24px;
+            color: rgb(255, 255, 255);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-160 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgb(17, 151, 24);
+            border-radius: 8px;
+            min-width: 100px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-161 {
+            font-size: 24px;
+            color: rgb(255, 255, 255);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-162 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgb(17, 151, 24);
+            border-radius: 8px;
+            min-width: 100px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-163 {
+            font-size: 24px;
+            color: rgb(255, 255, 255);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-164 {
+            line-height: 64px;
+            text-align: center;
+            padding-left: 12px;
+            padding-right: 12px;
+            background-color: rgb(17, 151, 24);
+            border-radius: 8px;
+            min-width: 100px;
+            height: 64px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-165 {
+            font-size: 24px;
+            color: rgb(255, 255, 255);
+            letter-spacing: -0.48px;
+            line-height: 32px;
+            font-weight: 700;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
+        }
+
+        .style-166 {
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(245, 235, 220, 0.1) 0%, transparent 70%);
-            animation: rotate 10s linear infinite;
-            z-index: -1;
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .order-grid .order:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            color: #fff;
-        }
-
-        .ready .order {
-            background: linear-gradient(145deg, #2E7D32, #388E3C); /* Darker green for ready */
-            color: #F5EBDC;
-        }
-
-        .ready .order:hover {
-            background: linear-gradient(145deg, #388E3C, #2E7D32);
-        }
-
-        /* Animation for new orders */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        .order-grid .order {
-            animation: fadeIn 0.5s ease forwards;
+            border-color: rgb(229, 229, 229);
+            box-sizing: border-box;
+            border: 0px solid rgb(229, 229, 229);
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="icon"><i class="fas fa-home"></i></div>
-        <div class="icon"><i class="fas fa-chart-line"></i></div>
-        <div class="icon"><i class="fas fa-calendar-alt"></i></div>
-        <div class="icon"><i class="fas fa-cog"></i></div>
-        <div class="profile">
-            <img src='profile.png' alt="Profile">
+
+<body class="style-0">
+    <div role="region" aria-label="Notifications (F8)" tabindex="-1" class="style-1">
+        <ol tabindex="-1" class="style-2"></ol>
+    </div>
+    <div class="style-3">
+        <div class="style-4"><img alt="logo" loading="lazy" width="64" height="64" decoding="async" data-nimg="1" class="style-5" srcset="/_next/image?url=%2Flogo.png&amp;w=64&amp;q=75 1x, /_next/image?url=%2Flogo.png&amp;w=128&amp;q=75 2x" src="/_next/image?url=%2Flogo.png&amp;w=128&amp;q=75" />
+            <div class="style-6">
+                <div class="style-7"><a href="/en" class="style-8"><button class="style-9"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="style-10">
+                                <path d="M8 12H16V10H8V12ZM8 8H16V6H8V8ZM19.95 20.475L15.9 15.2C15.6167 14.8167 15.2667 14.5208 14.85 14.3125C14.4333 14.1042 13.9833 14 13.5 14H4V4C4 3.45 4.19583 2.97917 4.5875 2.5875C4.97917 2.19583 5.45 2 6 2H18C18.55 2 19.0208 2.19583 19.4125 2.5875C19.8042 2.97917 20 3.45 20 4V20C20 20.0833 19.9958 20.1625 19.9875 20.2375C19.9792 20.3125 19.9667 20.3917 19.95 20.475ZM6 22C5.45 22 4.97917 21.8042 4.5875 21.4125C4.19583 21.0208 4 20.55 4 20V16H13.5C13.6667 16 13.8208 16.0375 13.9625 16.1125C14.1042 16.1875 14.225 16.2917 14.325 16.425L18.525 21.925C18.4417 21.9583 18.3542 21.9792 18.2625 21.9875C18.1708 21.9958 18.0833 22 18 22H6Z" fill="currentColor" class="style-11"></path>
+                            </svg> </button></a></div>
+                <div class="style-12"><a href="/en/live-counter" class="style-13"><button class="style-14"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="style-15">
+                                <path d="M5.30445 15.5913L6.49035 13.1137C6.57475 12.9161 6.70856 12.7657 6.89179 12.6626C7.07501 12.5595 7.26972 12.508 7.47591 12.508H9.45831V8.67941C7.51493 8.62599 5.8862 8.39603 4.5721 7.98951C3.258 7.583 2.60095 7.08648 2.60095 6.49995C2.60095 5.84931 3.31729 5.32474 4.74997 4.92624C6.18267 4.52774 7.93266 4.32849 9.99995 4.32849C12.0619 4.32849 13.8106 4.52774 15.2459 4.92624C16.6813 5.32474 17.399 5.84931 17.399 6.49995C17.399 7.09182 16.7371 7.58969 15.4134 7.99353C14.0897 8.39737 12.4657 8.62599 10.5416 8.67941V12.508H12.524C12.7355 12.508 12.9316 12.5595 13.1121 12.6626C13.2927 12.7657 13.4252 12.9161 13.5096 13.1137L14.6955 15.5913H13.5961L12.5961 13.5913H7.40379L6.40379 15.5913H5.30445Z" fill="currentColor" class="style-16"></path>
+                            </svg> </button></a></div>
+                <div class="style-17"><a href="/en/dashboard" class="style-18"><button class="style-19"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="style-20">
+                                <path d="M13.0001 15.5834V10.4969H15.5834V15.5834H13.0001ZM8.70842 15.5834V4.41675H11.2917V15.5834H8.70842ZM4.41675 15.5834V8.33662H7.00006V15.5834H4.41675Z" fill="currentColor" class="style-21"></path>
+                            </svg> </button></a></div>
+                <div class="style-22"><a href="/en/order-status" class="style-23"><button class="style-24"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="style-25">
+                                <path d="M5.74563 11C5.95688 11 6.13542 10.9285 6.28125 10.7856C6.42708 10.6427 6.5 10.4656 6.5 10.2544C6.5 10.0431 6.42854 9.86458 6.28562 9.71875C6.14271 9.57292 5.96563 9.5 5.75437 9.5C5.54312 9.5 5.36458 9.57146 5.21875 9.71438C5.07292 9.85729 5 10.0344 5 10.2456C5 10.4569 5.07146 10.6354 5.21438 10.7812C5.35729 10.9271 5.53438 11 5.74563 11ZM5.74563 8.5C5.95688 8.5 6.13542 8.42854 6.28125 8.28563C6.42708 8.14271 6.5 7.96563 6.5 7.75438C6.5 7.54313 6.42854 7.36458 6.28562 7.21875C6.14271 7.07292 5.96563 7 5.75437 7C5.54312 7 5.36458 7.07146 5.21875 7.21437C5.07292 7.35729 5 7.53437 5 7.74562C5 7.95687 5.07146 8.13542 5.21438 8.28125C5.35729 8.42708 5.53438 8.5 5.74563 8.5ZM8 11H15V9.5H8V11ZM8 8.5H15V7H8V8.5ZM7 17V15H3.5C3.0875 15 2.73438 14.8531 2.44063 14.5592C2.14688 14.2653 2 13.9119 2 13.4992V4.49417C2 4.08139 2.14688 3.72917 2.44063 3.4375C2.73438 3.14583 3.0875 3 3.5 3H16.5C16.9125 3 17.2656 3.14694 17.5594 3.44083C17.8531 3.73472 18 4.08806 18 4.50083V13.5058C18 13.9186 17.8531 14.2708 17.5594 14.5625C17.2656 14.8542 16.9125 15 16.5 15H13V17H7Z" fill="currentColor" class="style-26"></path>
+                            </svg> </button></a></div>
+                <div class="style-27"><a href="/en/menu-management" class="style-28"><button class="style-29"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="style-30">
+                                <path d="M11.75 7.95833V6.375C12.1806 6.23611 12.625 6.13542 13.0833 6.07292C13.5417 6.01042 14.0139 5.97917 14.5 5.97917C14.8194 5.97917 15.1424 5.99653 15.4688 6.03125C15.7951 6.06597 16.1389 6.11806 16.5 6.1875V7.72917C16.0833 7.63194 15.7153 7.5625 15.3958 7.52083C15.0764 7.47917 14.7778 7.45833 14.5 7.45833C14.0278 7.45833 13.5625 7.5 13.1042 7.58333C12.6458 7.66667 12.1944 7.79167 11.75 7.95833ZM11.75 12.875V11.2917C12.1389 11.1667 12.5556 11.066 13 10.9896C13.4444 10.9132 13.9444 10.875 14.5 10.875C14.875 10.875 15.2257 10.8958 15.5521 10.9375C15.8785 10.9792 16.1944 11.0347 16.5 11.1042V12.6458C16.0833 12.5486 15.7153 12.4792 15.3958 12.4375C15.0764 12.3958 14.7778 12.375 14.5 12.375C14.0278 12.375 13.5625 12.4167 13.1042 12.5C12.6458 12.5833 12.1944 12.7083 11.75 12.875ZM11.75 10.4167V8.83333C12.1944 8.69444 12.6493 8.59028 13.1146 8.52083C13.5799 8.45139 14.0417 8.41667 14.5 8.41667C14.875 8.41667 15.2257 8.4375 15.5521 8.47917C15.8785 8.52083 16.1944 8.57639 16.5 8.64583V10.1875C16.1389 10.0903 15.7951 10.0208 15.4688 9.97917C15.1424 9.9375 14.8194 9.91667 14.5 9.91667C14.0556 9.91667 13.6076 9.95833 13.1562 10.0417C12.7049 10.125 12.2361 10.25 11.75 10.4167ZM10.75 14.875C11.3472 14.5972 11.9583 14.3819 12.5833 14.2292C13.2083 14.0764 13.8472 14 14.5 14C15.0139 14 15.5243 14.0312 16.0312 14.0938C16.5382 14.1562 17.0278 14.2917 17.5 14.5V5.08333C17.0139 4.90278 16.5208 4.76042 16.0208 4.65625C15.5208 4.55208 15.0139 4.5 14.5 4.5C13.8333 4.5 13.1875 4.57639 12.5625 4.72917C11.9375 4.88194 11.3333 5.11111 10.75 5.41667V14.875ZM10 17C9.31944 16.5556 8.60417 16.1944 7.85417 15.9167C7.10417 15.6389 6.31944 15.5 5.5 15.5C4.97222 15.5 4.44444 15.5521 3.91667 15.6562C3.38889 15.7604 2.88194 15.9167 2.39583 16.125C2.0625 16.2639 1.74653 16.2396 1.44792 16.0521C1.14931 15.8646 1 15.5903 1 15.2292V4.75C1 4.55556 1.05208 4.375 1.15625 4.20833C1.26042 4.04167 1.40278 3.91667 1.58333 3.83333C2.20833 3.55556 2.84722 3.34722 3.5 3.20833C4.15278 3.06944 4.81944 3 5.5 3C6.29167 3 7.06597 3.09375 7.82292 3.28125C8.57986 3.46875 9.30556 3.75 10 4.125C10.7083 3.76389 11.4375 3.48611 12.1875 3.29167C12.9375 3.09722 13.7083 3 14.5 3C15.1806 3 15.8472 3.06944 16.5 3.20833C17.1528 3.34722 17.7917 3.55556 18.4167 3.83333C18.5972 3.91667 18.7431 4.04167 18.8542 4.20833C18.9653 4.375 19.0208 4.55556 19.0208 4.75V15.2292C19.0208 15.5764 18.9132 15.8542 18.6979 16.0625C18.4826 16.2708 18.2569 16.3194 18.0208 16.2083C17.4653 15.9583 16.8924 15.7778 16.3021 15.6667C15.7118 15.5556 15.1111 15.5 14.5 15.5C13.6806 15.5 12.8958 15.6389 12.1458 15.9167C11.3958 16.1944 10.6806 16.5556 10 17Z" fill="currentColor" class="style-31"></path>
+                            </svg> </button></a></div>
+                <div class="style-32"><a href="/en/otp-confirmation" class="style-33"><button class="style-34"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="style-35">
+                                <path d="M12 14V7.75C12 7.5375 12.0719 7.35938 12.2156 7.21562C12.3594 7.07187 12.5375 7 12.75 7H18.25C18.4625 7 18.6406 7.07187 18.7844 7.21562C18.9281 7.35938 19 7.5375 19 7.75V11.75C19 11.9625 18.9281 12.1406 18.7844 12.2844C18.6406 12.4281 18.4625 12.5 18.25 12.5H13.5L12 14ZM5.5 19C5.0875 19 4.73437 18.8531 4.44062 18.5594C4.14687 18.2656 4 17.9125 4 17.5V2.5C4 2.0875 4.14687 1.73438 4.44062 1.44063C4.73437 1.14688 5.0875 1 5.5 1H14.5C14.9125 1 15.2656 1.14688 15.5594 1.44063C15.8531 1.73438 16 2.0875 16 2.5V6H14.5V5H5.5V15H14.5V14H16V17.5C16 17.9125 15.8531 18.2656 15.5594 18.5594C15.2656 18.8531 14.9125 19 14.5 19H5.5Z" fill="currentColor" class="style-36"></path>
+                            </svg> </button></a></div>
+            </div>
+            <div class="style-37"><a href="/en/profile" class="style-38"><button class="style-39"><img alt="Profile" loading="lazy" width="48" height="48" decoding="async" data-nimg="1" class="style-40" srcset="/_next/image?url=%2Frider.png&amp;w=48&amp;q=75 1x, /_next/image?url=%2Frider.png&amp;w=96&amp;q=75 2x" src="/_next/image?url=%2Frider.png&amp;w=96&amp;q=75" /></button></a><a href="/en/notifications" class="style-41"><button class="style-42"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="style-43">
+                            <path d="M4.41675 15.4038V14.3205H5.2565V8.93583C5.2565 7.75956 5.62669 6.73045 6.36706 5.8485C7.10745 4.96656 8.05457 4.43318 9.20842 4.24836V3.20829C9.20842 2.98839 9.28529 2.80147 9.43904 2.64754C9.59279 2.4936 9.77948 2.41663 9.99912 2.41663C10.2188 2.41663 10.4058 2.4936 10.5601 2.64754C10.7145 2.80147 10.7917 2.98839 10.7917 3.20829V4.24836C11.9456 4.43318 12.8927 4.96656 13.6331 5.8485C14.3734 6.73045 14.7436 7.75956 14.7436 8.93583V14.3205H15.5834V15.4038H4.41675ZM9.99423 17.7435C9.62419 17.7435 9.30936 17.6123 9.04975 17.35C8.79014 17.0876 8.66033 16.7722 8.66033 16.4038H11.3398C11.3398 16.7777 11.208 17.0945 10.9445 17.3541C10.681 17.6137 10.3643 17.7435 9.99423 17.7435Z" fill="currentColor" class="style-44"></path>
+                        </svg> </button></a></div>
+        </div>
+        <div class="style-45">
+            <main class="style-46">
+                <div class="style-47">
+                    <h1 class="style-48">Order Status</h1><button class="style-49"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" class="style-50">
+                            <path d="M0 10V5H1.5V8.5H5V10H0ZM8.5 5V1.5H5V0H10V5H8.5Z" fill="black" class="style-51"></path>
+                        </svg>FullScreen</button>
+                </div>
+                <div class="style-52">
+                    <div class="style-53">
+                        <div class="style-54"><img alt="McDonald's" loading="lazy" width="36" height="36" decoding="async" data-nimg="1" class="style-55" srcset="/_next/image?url=%2Fmcdonalds-logo.png&amp;w=48&amp;q=75 1x, /_next/image?url=%2Fmcdonalds-logo.png&amp;w=96&amp;q=75 2x" src="/_next/image?url=%2Fmcdonalds-logo.png&amp;w=96&amp;q=75" /></div><span class="style-56">McDonald's</span>
+                    </div><span class="style-57">18:04</span>
+                </div>
+                <div class="style-58">
+                    <section class="style-59">
+                        <h2 class="style-60">Preparing</h2>
+                        <div class="style-61">
+                            <div class="style-62"><span class="style-63">3885</span></div>
+                            <div class="style-64"><span class="style-65">3885</span></div>
+                            <div class="style-66"><span class="style-67">3885</span></div>
+                            <div class="style-68"><span class="style-69">3885</span></div>
+                            <div class="style-70"><span class="style-71">3885</span></div>
+                            <div class="style-72"><span class="style-73">3885</span></div>
+                            <div class="style-74"><span class="style-75">3885</span></div>
+                            <div class="style-76"><span class="style-77">3885</span></div>
+                            <div class="style-78"><span class="style-79">3885</span></div>
+                            <div class="style-80"><span class="style-81">3885</span></div>
+                            <div class="style-82"><span class="style-83">3885</span></div>
+                            <div class="style-84"><span class="style-85">3885</span></div>
+                            <div class="style-86"><span class="style-87">3885</span></div>
+                            <div class="style-88"><span class="style-89">3885</span></div>
+                            <div class="style-90"><span class="style-91">3885</span></div>
+                            <div class="style-92"><span class="style-93">3885</span></div>
+                            <div class="style-94"><span class="style-95">3885</span></div>
+                            <div class="style-96"><span class="style-97">3885</span></div>
+                            <div class="style-98"><span class="style-99">3885</span></div>
+                            <div class="style-100"><span class="style-101">3885</span></div>
+                            <div class="style-102"><span class="style-103">3885</span></div>
+                            <div class="style-104"><span class="style-105">3885</span></div>
+                            <div class="style-106"><span class="style-107">3885</span></div>
+                            <div class="style-108"><span class="style-109">3885</span></div>
+                            <div class="style-110"><span class="style-111">3885</span></div>
+                            <div class="style-112"><span class="style-113">3885</span></div>
+                            <div class="style-114"><span class="style-115">3885</span></div>
+                            <div class="style-116"><span class="style-117">3885</span></div>
+                            <div class="style-118"><span class="style-119">3885</span></div>
+                            <div class="style-120"><span class="style-121">3885</span></div>
+                            <div class="style-122"><span class="style-123">3885</span></div>
+                        </div>
+                    </section>
+                    <section class="style-124">
+                        <h2 class="style-125">Ready</h2>
+                        <div class="style-126">
+                            <div class="style-127"><span class="style-128">3885</span></div>
+                            <div class="style-129">
+                                <div class="style-130"><span class="style-131">3885</span></div>
+                                <div class="style-132"><span class="style-133">3885</span></div>
+                                <div class="style-134"><span class="style-135">3885</span></div>
+                                <div class="style-136"><span class="style-137">3885</span></div>
+                                <div class="style-138"><span class="style-139">3885</span></div>
+                                <div class="style-140"><span class="style-141">3885</span></div>
+                                <div class="style-142"><span class="style-143">3885</span></div>
+                                <div class="style-144"><span class="style-145">3885</span></div>
+                                <div class="style-146"><span class="style-147">3885</span></div>
+                                <div class="style-148"><span class="style-149">3885</span></div>
+                                <div class="style-150"><span class="style-151">3885</span></div>
+                                <div class="style-152"><span class="style-153">3885</span></div>
+                                <div class="style-154"><span class="style-155">3885</span></div>
+                                <div class="style-156"><span class="style-157">3885</span></div>
+                                <div class="style-158"><span class="style-159">3885</span></div>
+                                <div class="style-160"><span class="style-161">3885</span></div>
+                                <div class="style-162"><span class="style-163">3885</span></div>
+                                <div class="style-164"><span class="style-165">3885</span></div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </main>
         </div>
     </div>
-
-    <!-- Main Content -->
-    <div class="main-content">
-        <!-- Order Status Title -->
-        <div class="order-status-title">Order Status</div>
-
-        <!-- Header -->
-        <div class="header">
-            <div class="logo">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSboMwmpWplJCWSBcnDFFnbcAP9y_K2xYvOAw&s" alt="Burger King Logo">
-                <h1>Burger King</h1>
-            </div>
-            <div class="time" id="current-time">13:40</div>
-        </div>
-
-        <!-- Order Status -->
-        <div class="order-container">
-            <!-- Preparing Box -->
-            <div class="order-box preparing">
-                <h2>Preparing</h2>
-                <div class="order-grid">
-                    <div class="order">5472</div>
-                    <div class="order">8921</div>
-                    <div class="order">3056</div>
-                    <div class="order">7439</div>
-                    <div class="order">1284</div>
-                    <div class="order">6598</div>
-                    <div class="order">9713</div>
-                    <div class="order">3421</div>
-                    <div class="order">4865</div>
-                    <div class="order">7509</div>
-                    <div class="order">2347</div>
-                    <div class="order">6183</div>
-                    <div class="order">8972</div>
-                    <div class="order">4051</div>
-                </div>
-            </div>
-
-            <!-- Ready Box -->
-            <div class="order-box ready">
-                <h2>Ready</h2>
-                <div class="order-grid">
-                    <div class="order">8123</div>
-                    <div class="order">4567</div>
-                    <div class="order">7890</div>
-                    <div class="order">1234</div>
-                    <div class="order">6543</div>
-                    <div class="order">9876</div>
-                    <div class="order">3210</div>
-                    <div class="order">5678</div>
-                    <div class="order">2345</div>
-                    <div class="order">8901</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- JavaScript to update time dynamically -->
-    <script>
-        function updateTime() {
-            const now = new Date();
-            const hours = now.getHours().toString().padStart(2, '0');
-            const minutes = now.getMinutes().toString().padStart(2, '0');
-            document.getElementById('current-time').textContent = `${hours}:${minutes}`;
-        }
-
-        // Update time immediately and then every minute
-        updateTime();
-        setInterval(updateTime, 60000);
-    </script>
+    <next-route-announcer class="style-166"></next-route-announcer>
 </body>
+
 </html>
